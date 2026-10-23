@@ -1,172 +1,227 @@
 {
-  "id": "geografia_p1",
-  "titulo": "Relevo, Rios e Clima",
+  "id": "geografia",
+  "titulo": "Relevo, Clima e Hidrografia",
   "materia": "Geografia",
   "perguntas": [
     {
-      "texto": "O que chamamos de 'relevo' em Geografia?",
+      "texto": "A superfície do nosso planeta não é toda igual, possuindo lugares altos, baixos, planos e ondulados. Como chamamos esse conjunto de diferentes formas da Terra?",
       "alternativas": [
-        "O conjunto de todos os rios e lagos de um país.",
-        "As diferentes formas e irregularidades da superfície terrestre.",
-        "O estado do tempo em um determinado dia.",
-        "A quantidade de florestas em uma região."
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "Relevo tem a ver com o chão que pisamos, que pode ser alto, baixo, plano ou cheio de morros."
-    },
-    {
-      "texto": "Quais são as três principais formas de relevo encontradas no Brasil?",
-      "alternativas": [
-        "Montanhas, vulcões e cordilheiras.",
-        "Planaltos, planícies e depressões.",
-        "Desertos, cânions e serras.",
-        "Apenas planícies e montanhas de neve."
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "No Brasil não existem grandes montanhas jovens nem vulcões ativos. Nossas formas principais são planaltos, planícies e depressões."
-    },
-    {
-      "texto": "O relevo da Terra está sempre mudando. Quais são os principais agentes naturais que transformam o relevo ao longo do tempo?",
-      "alternativas": [
-        "As estradas e os túneis construídos pelos humanos.",
-        "O vento, a água das chuvas e dos rios, e a variação de temperatura.",
-        "As estrelas e as fases da lua.",
-        "A poluição das fábricas."
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "A chuva 'lava' a terra, o vento desgasta as pedras e os rios escavam o solo. Eles são os agentes naturais."
-    },
-    {
-      "texto": "O ser humano também modifica muito o relevo. Qual das opções abaixo NÃO é um exemplo dessa modificação humana?",
-      "alternativas": [
-        "Construção de túneis atravessando serras.",
-        "Desmatamento de morros para construir casas.",
-        "Aterramento de áreas baixas para construir estradas.",
-        "O desgaste das rochas pela força dos ventos."
-      ],
-      "resposta_correta": 3,
-      "dica_erro": "O desgaste pelas rochas e ventos é um processo 100% natural, sem participação humana."
-    },
-    {
-      "texto": "O que é uma Bacia Hidrográfica?",
-      "alternativas": [
-        "Uma caixa d'água gigante usada nas cidades.",
-        "O local onde o rio termina, desaguando no mar.",
-        "A área formada por um rio principal e todos os seus afluentes (rios menores).",
-        "Uma piscina natural formada pela chuva."
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "Uma bacia junta toda a água de uma região. Ela inclui o rio grandão e todos os riozinhos menores que despejam água nele."
-    },
-    {
-      "texto": "Sobre as partes de um rio, o que são a nascente e a foz, respectivamente?",
-      "alternativas": [
-        "O lugar onde o rio nasce e o lugar onde o rio acaba (deságua).",
-        "O lugar onde o rio acaba e o lugar onde ele nasce.",
-        "O fundo do rio e a margem do rio.",
-        "A parte mais funda e a parte mais rasa."
+        "Relevo.",
+        "Clima.",
+        "Altitude.",
+        "Hidrografia."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Nascente é onde a água 'nasce' da terra. Foz é a 'boca' do rio, onde ele despeja a água no mar ou em outro rio."
+      "dica_erro": "O formato do 'chão' que pisamos e vemos nas paisagens (montanhas, planícies, depressões) é chamado de relevo."
     },
     {
-      "texto": "No Brasil, temos muitos rios que correm em terrenos cheios de desníveis e quedas d'água. Como chamamos esses rios e para que eles são muito usados?",
+      "texto": "Se viajarmos pelo litoral do Brasil ou navegarmos pelas margens de grandes rios, que tipo de relevo encontraremos com mais frequência?",
       "alternativas": [
-        "Rios de planície, muito usados para navegação.",
-        "Rios de planalto, muito usados para gerar energia elétrica (hidrelétricas).",
-        "Rios subterrâneos, usados apenas para poços artesianos.",
-        "Rios temporários, usados para pesca em alto mar."
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "A água caindo com força pelas quedas d'água no planalto é perfeita para girar as turbinas que geram nossa energia elétrica."
-    },
-    {
-      "texto": "Já os rios de planície correm em terrenos bem planos. Qual é a principal vantagem desses rios para a sociedade?",
-      "alternativas": [
-        "São perfeitos para instalar grandes usinas hidrelétricas.",
-        "Suas águas evaporam mais rápido.",
-        "Eles facilitam a navegação e o transporte de pessoas e cargas em barcos.",
-        "Eles nunca causam enchentes nas margens."
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "Como o chão é retinho (planície), a água corre mansa, parecendo uma estrada natural para os barcos."
-    },
-    {
-      "texto": "Como chamamos os rios que nunca secam, mesmo durante os períodos de falta de chuva?",
-      "alternativas": [
-        "Rios temporários.",
-        "Rios perenes.",
-        "Rios subterrâneos.",
-        "Rios artificiais."
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "Perene significa 'contínuo, duradouro'. Eles têm água correndo pelo leito o ano inteiro."
-    },
-    {
-      "texto": "Qual é a diferença fundamental entre Tempo e Clima?",
-      "alternativas": [
-        "Tempo é como está o ar hoje (chuvoso, ensolarado), e clima é o padrão que se repete ao longo de muitos anos.",
-        "Clima é como está o ar hoje, e tempo só se refere aos meses do ano.",
-        "Não existe diferença, os dois significam se vai chover ou fazer sol amanhã.",
-        "O tempo acontece apenas de dia e o clima acontece à noite."
+        "Planícies (terrenos planos ou com poucas ondulações).",
+        "Montanhas (as maiores elevações do mundo, como o Everest).",
+        "Depressões (áreas muito afundadas no solo).",
+        "Cordilheiras (grandes cadeias de picos nevados)."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O tempo muda toda hora. O clima precisa de muitos anos de observação (ex: o clima do Nordeste é seco, mas o tempo hoje pode estar chuvoso)."
+      "dica_erro": "Perto do mar e dos grandes rios, a terra costuma ser bem retinha e plana, formando as chamadas planícies."
     },
     {
-      "texto": "A maior parte do Brasil está localizada em qual Zona Climática do planeta?",
+      "texto": "Um planalto é uma forma de relevo mais antiga e elevada, muito desgastada pelo vento e pela chuva. Quais destas formas de paisagem são consideradas planaltos?",
       "alternativas": [
-        "Zona Polar (muito fria e cheia de gelo).",
-        "Zona Temperada (com neve no inverno em todo o país).",
-        "Zona Tropical (área mais quente, entre os trópicos).",
-        "Zona Desértica (onde nunca chove)."
+        "Serras, morros e chapadas.",
+        "Desertos e grandes geleiras.",
+        "Praias de areia branca e lagoas rasas.",
+        "Vulcões ativos e crateras profundas."
       ],
-      "resposta_correta": 2,
-      "dica_erro": "O Brasil recebe bastante luz e calor do Sol o ano todo, ficando quase todo dentro da região tropical do planeta."
+      "resposta_correta": 0,
+      "dica_erro": "As serras com desníveis, os morros redondos e as chapadas (que parecem o tampo de uma mesa) são tipos de planalto."
     },
     {
-      "texto": "O clima predominante em boa parte do Brasil é o Tropical. Quais são suas características principais?",
+      "texto": "Algumas vezes, o ser humano precisa intervir no relevo para poder viver ou trabalhar. Qual atividade humana abaixo é famosa por alterar profundamente as montanhas e o solo?",
       "alternativas": [
-        "Frio intenso o ano todo, com geadas frequentes.",
-        "Duas estações bem definidas: um verão chuvoso e um inverno seco.",
-        "Chuva todo dia durante o ano inteiro sem parar.",
-        "As quatro estações do ano ocorrem perfeitamente divididas e com as mesmas temperaturas."
+        "A mineração (extração de minérios como ouro e ferro).",
+        "A pesca artesanal em pequenos barcos.",
+        "A coleta de frutas nas florestas (extrativismo vegetal).",
+        "A observação de pássaros com binóculos."
       ],
-      "resposta_correta": 1,
-      "dica_erro": "Lembra que no meio do ano (inverno) a grama fica amarelada porque quase não chove? Esse é o padrão tropical clássico."
+      "resposta_correta": 0,
+      "dica_erro": "Para retirar riquezas debaixo da terra, a mineração escava enormes buracos e destrói partes inteiras de morros e montanhas."
     },
     {
-      "texto": "Como as atividades humanas (sociedade) têm impactado negativamente os rios e o ciclo das bacias hidrográficas?",
+      "texto": "Plantar em morros (terrenos íngremes) é um desafio para os agricultores. Qual é o maior perigo ou problema que eles tentam evitar ao cultivar nessas encostas?",
       "alternativas": [
-        "Cuidando das matas ciliares (na beira do rio) para proteger a água.",
-        "Despejando esgoto, lixo industrial sem tratamento e desmatando as margens.",
-        "Navegando com barcos a remo e canoas.",
-        "Usando a água apenas para beber em pequenas quantidades."
+        "A erosão, causada pela água da chuva que desce morro abaixo com muita força e velocidade.",
+        "O congelamento das sementes, pois todo morro no Brasil possui neve no topo.",
+        "O ataque de monstros marinhos que saem dos rios para devorar a plantação.",
+        "O excesso de calor no topo do morro, que queima e incendeia as raízes das plantas."
       ],
-      "resposta_correta": 1,
-      "dica_erro": "A poluição e a destruição da floresta em volta do rio causam a morte dos peixes e secam as nascentes."
+      "resposta_correta": 0,
+      "dica_erro": "Se a água da chuva descer direto pela encosta sem barreiras, ela arrasta a terra e destrói a plantação. Isso é a erosão acelerada."
     },
     {
-      "texto": "A altitude (altura do relevo) influencia muito o clima. Como isso acontece?",
+      "texto": "Todo rio tem um ponto onde a água brota e inicia o seu caminho. Como é chamado esse lugar onde o rio nasce?",
       "alternativas": [
-        "Quanto mais alto (nas montanhas e serras), mais calor faz.",
-        "Quanto mais alto (nas montanhas e serras), mais baixas são as temperaturas (mais frio).",
-        "A altitude não muda nada no clima, só o mar influencia.",
-        "Lugares altos têm apenas vento quente."
+        "Nascente.",
+        "Foz.",
+        "Afluente.",
+        "Praia."
       ],
-      "resposta_correta": 1,
-      "dica_erro": "Cidades na serra (como Campos do Jordão ou Gramado) são famosas por serem frias. Quanto mais subimos, mais frio fica."
+      "resposta_correta": 0,
+      "dica_erro": "Lugar onde algo nasce é a 'nascente'."
     },
     {
-      "texto": "Por que é importante proteger as margens dos rios e não construir casas em áreas de várzea (planície que alaga)?",
+      "texto": "Após percorrer um longo caminho desde sua nascente, o rio chega ao final de seu trajeto e deságua no mar, em um lago ou em outro rio. Como se chama esse ponto de chegada?",
       "alternativas": [
-        "Porque as várzeas são lugares perfeitos para shoppings.",
-        "Porque os rios precisam da época de cheia para alagar as várzeas naturalmente; construir ali causa enchentes nas casas.",
-        "Porque nas várzeas não há terra para plantar.",
-        "Porque construir casas faz o rio virar água salgada."
+        "Foz.",
+        "Nascente.",
+        "Pico.",
+        "Catarata."
       ],
-      "resposta_correta": 1,
-      "dica_erro": "A várzea pertence ao rio. Quando chove muito, o rio enche e ocupa esse espaço. Se tiver casa lá, ela vai encher de água."
+      "resposta_correta": 0,
+      "dica_erro": "A palavra curtinha 'foz' indica a 'boca' do rio, por onde a água sai e se mistura no mar ou noutro local."
+    },
+    {
+      "texto": "Muitos rios brasileiros acabam sendo poluídos pelo próprio ser humano. Qual foi a causa das duas grandes tragédias nos rios de Mariana (2015) e Brumadinho (2019)?",
+      "alternativas": [
+        "O rompimento de barragens de mineração que liberaram toneladas de lama tóxica nos rios Doce e Paraopeba.",
+        "A explosão de uma fábrica de plástico que lançou milhões de garrafas dentro da água.",
+        "Um terremoto natural que abriu o fundo do rio e sugou toda a água para o centro da Terra.",
+        "A queda de um grande avião de carga que transportava muito óleo cru, sujando as margens."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A mineração usa barragens para guardar rejeitos (resto de terra e produtos tóxicos). Quando elas se quebram, uma avalanche de lama destrói o rio."
+    },
+    {
+      "texto": "Uma 'Bacia Hidrográfica' não é uma bacia de plástico! O que é uma bacia hidrográfica na geografia?",
+      "alternativas": [
+        "Uma área de relevo por onde corre um rio principal e todos os seus rios menores (afluentes).",
+        "Uma represa artificial feita pelos seres humanos para armazenar água das chuvas nas cidades.",
+        "Um buraco enorme formado pelo impacto de um meteoro cheio de água salgada.",
+        "Qualquer praia que tenha um formato oval parecido com o de uma bacia caseira."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Imagine o relevo como uma grande rampa que direciona toda a água da chuva e os rios menores (afluentes) para um rio maior (rio principal)."
+    },
+    {
+      "texto": "Se perguntarem para onde a maioria dos rios que passam pelo Brasil leva as suas águas no final, qual a resposta correta?",
+      "alternativas": [
+        "Oceano Atlântico.",
+        "Oceano Pacífico.",
+        "Oceano Índico.",
+        "Mar Mediterrâneo."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O grande oceano que banha a costa do Brasil e recebe quase toda a nossa água doce é o Atlântico."
+    },
+    {
+      "texto": "Como se chama um rio menor que, em vez de ir para o mar, deságua (despeja a sua água) noutro rio maior?",
+      "alternativas": [
+        "Afluente.",
+        "Foz.",
+        "Nascente.",
+        "Cachoeira."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O rio que 'ajuda' e alimenta o rio principal é chamado de afluente."
+    },
+    {
+      "texto": "Por que é que faz muito mais calor nos países que ficam pertinho da Linha do Equador do que nos países que ficam perto dos polos da Terra?",
+      "alternativas": [
+        "Porque perto do Equador os raios de sol batem de forma direta (perpendicular), recebendo muito mais energia e calor.",
+        "Porque o Equador fica mais perto do centro da Terra, que é cheio de vulcões que aquecem a superfície.",
+        "Porque as nuvens nunca chegam na Linha do Equador para fazer sombra.",
+        "Porque nos polos o sol está sempre escondido atrás da Lua, não deixando a luz passar."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Devido ao formato redondo da Terra, o meio (o Equador) recebe a luz solar 'de frente' e muito mais concentrada."
+    },
+    {
+      "texto": "O Brasil é um país imenso. A maior parte do território brasileiro (e portanto as temperaturas mais quentes) fica em qual Zona Climática da Terra?",
+      "alternativas": [
+        "Zona Tropical.",
+        "Zona Polar Ártica.",
+        "Zona Temperada do Norte.",
+        "Zona Polar Antártica."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A zona mais quente e úmida, localizada entre os dois trópicos (Câncer e Capricórnio), é a Tropical."
+    },
+    {
+      "texto": "Nas áreas mais altas do mundo, como a Cordilheira dos Andes ou do Himalaia, encontramos o clima 'Frio de Montanha'. Qual é a principal regra desse clima?",
+      "alternativas": [
+        "Quanto mais alta for a altitude da montanha, mais frio será o clima.",
+        "Quanto mais alta for a montanha, mais quente e úmido será o topo.",
+        "A altitude da montanha não altera o clima, tudo depende apenas do vento do oceano.",
+        "A montanha só fica fria no inverno; no verão, a neve derrete e vira um deserto quente."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Ao subir uma montanha, a temperatura vai sempre baixando, mesmo que ela esteja na linha do Equador!"
+    },
+    {
+      "texto": "Se quisermos ver as maiores geleiras, ursos-polares e pinguins em seu habitat natural, para que zonas climáticas do planeta devemos viajar?",
+      "alternativas": [
+        "Para as Zonas Polares (Norte e Sul), onde os raios solares chegam muito inclinados e o frio é extremo o ano todo.",
+        "Para a Zona Tropical, bem no meio do planeta, onde a neve é formada pelos vulcões.",
+        "Para as Zonas Temperadas (Norte e Sul), que possuem estações muito equilibradas o ano inteiro.",
+        "Para a Zona Equatorial Subterrânea, que fica embaixo dos rios e praias brasileiras."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "As áreas mais frias, que ficam no topo e na base do 'globo terrestre', chamam-se Zonas Polares."
+    },
+    {
+      "texto": "Como se chama a 'camada de gases' que envolve o nosso planeta Terra e onde acontecem coisas como chuvas, ventos e furacões?",
+      "alternativas": [
+        "Atmosfera.",
+        "Litosfera.",
+        "Hidrosfera.",
+        "Estratosfera Espacial."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Aquilo que chamamos de 'ar' e que cobre a Terra tal como um cobertor invisível é a Atmosfera."
+    },
+    {
+      "texto": "Existe uma diferença entre Tempo e Clima. Quando a professora olha pela janela de manhã, vê sol, mas ao meio-dia começa a chover, ela está observando uma mudança de quê?",
+      "alternativas": [
+        "Do Tempo atmosférico (que é passageiro e pode mudar de hora a hora).",
+        "Do Clima (que é a mesma coisa que tempo e muda várias vezes ao dia).",
+        "Do Tectonismo, que faz as nuvens andarem rápido pelo céu.",
+        "Da Altitude, pois a cidade mudou de altura ao longo do dia."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O Tempo é como nós nos sentimos hoje (calor de manhã, chuva à tarde). O Clima é a nossa personalidade geral durante muitos anos."
+    },
+    {
+      "texto": "No Norte do Brasil (como no estado do Amazonas), existe um clima famoso por chover muito e fazer calor o ano todo. Qual é esse clima?",
+      "alternativas": [
+        "Clima Equatorial.",
+        "Clima Semiárido.",
+        "Clima Polar.",
+        "Clima Subtropical."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Perto da Linha do Equador, o clima é muito quente e as chuvas da floresta são intensas: Equatorial."
+    },
+    {
+      "texto": "Se formos para o Sertão Nordestino do Brasil, enfrentaremos um clima muito quente, seco e com chuvas escassas (raras). Qual é o nome desse clima?",
+      "alternativas": [
+        "Clima Semiárido.",
+        "Clima Tropical de Altitude.",
+        "Clima Equatorial Úmido.",
+        "Clima Temperado Frio."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "É quase árido (como um deserto), mas ainda não é, por isso chamamos de 'Semi-árido'."
+    },
+    {
+      "texto": "Se você mora na região Sul do Brasil (como no Paraná), no inverno faz muito frio, com geadas e temperaturas próximas a zero. Qual clima existe ali?",
+      "alternativas": [
+        "Clima Subtropical (fica abaixo da área tropical, com estações bem divididas).",
+        "Clima Semiárido (muito quente o ano todo e não chove).",
+        "Clima Polar (é igual à Antártida, com neve constante).",
+        "Clima Frio de Montanha (só existe o frio na cidade, não existe calor)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Como o Paraná fica um pouco abaixo da zona tropical (e do Trópico de Capricórnio), ele tem um clima 'Sub' tropical."
     }
   ]
 }

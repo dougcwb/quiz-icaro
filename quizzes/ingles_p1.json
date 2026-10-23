@@ -1,172 +1,227 @@
 {
-  "id": "ingles_p1",
-  "titulo": "Habits, Months and Tech",
+  "id": "ingles",
+  "titulo": "Daily Routine & Dates",
   "materia": "Inglês",
   "perguntas": [
     {
-      "texto": "Como dizemos 'Eu escovo meus dentes' em inglês?",
+      "texto": "Qual é a frase correta para dizer 'Eu acordo' ou 'Eu levanto' de manhã em inglês?",
       "alternativas": [
-        "I wash my face.",
-        "I brush my teeth.",
-        "I do my homework.",
-        "I take a shower."
+        "I get up.",
+        "I take a shower.",
+        "I go to bed.",
+        "I watch TV."
       ],
-      "resposta_correta": 1,
-      "dica_erro": "'Brush' significa escovar e 'teeth' significa dentes. 'Wash my face' é lavar o rosto."
+      "resposta_correta": 0,
+      "dica_erro": "A ação de sair da cama logo pela manhã é 'get up'."
     },
     {
-      "texto": "Qual destas ações (habits) nós normalmente fazemos 'at night' (à noite)?",
+      "texto": "Como se diz 'tomar o pequeno-almoço' (café da manhã) em inglês?",
       "alternativas": [
-        "Go to school.",
         "Have breakfast.",
+        "Have lunch.",
+        "Have dinner.",
+        "Do homework."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A primeira refeição do dia é o 'breakfast'."
+    },
+    {
+      "texto": "Se você estuda de manhã e volta para casa ao meio-dia, qual é a próxima refeição?",
+      "alternativas": [
+        "Have lunch.",
+        "Have dinner.",
+        "Have breakfast.",
+        "Go to school."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O almoço, que comemos no meio do dia, chama-se 'lunch' em inglês."
+    },
+    {
+      "texto": "No final do dia, as famílias costumam reunir-se para comer. Como se diz 'jantar' em inglês?",
+      "alternativas": [
+        "Have dinner.",
+        "Take a shower.",
+        "Have lunch.",
+        "Get up."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A última grande refeição do dia é o 'dinner'."
+    },
+    {
+      "texto": "Quando você volta da escola, o que o professor geralmente pede para fazer em casa?",
+      "alternativas": [
+        "Do homework.",
+        "Watch TV.",
         "Go to bed.",
-        "Wake up."
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "'Go to bed' significa ir para a cama/dormir. As outras ações são feitas de manhã (morning)."
-    },
-    {
-      "texto": "O que significa a frase 'I have breakfast'?",
-      "alternativas": [
-        "Eu tomo café da manhã.",
-        "Eu almoço.",
-        "Eu janto.",
-        "Eu vou para a escola."
+        "Have lunch."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Breakfast é a primeira refeição do dia (café da manhã). Almoço é 'lunch' e jantar é 'dinner'."
+      "dica_erro": "O trabalho de casa chama-se 'homework' e a ação é 'do homework'."
     },
     {
-      "texto": "Qual é o primeiro mês do ano em inglês?",
+      "texto": "Como você escreve o mês de 'Fevereiro' em inglês?",
       "alternativas": [
-        "February",
-        "March",
-        "January",
-        "December"
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "Janeiro em inglês se escreve January."
-    },
-    {
-      "texto": "The month after October is... (O mês depois de outubro é...)",
-      "alternativas": [
-        "September",
-        "November",
-        "December",
-        "August"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "A ordem correta no fim do ano é: September, October, November, December."
-    },
-    {
-      "texto": "Como escrevemos os números ordinais 1º, 2º e 3º em inglês?",
-      "alternativas": [
-        "One, Two, Three",
-        "First, Second, Third",
-        "Eleven, Twelve, Thirteen",
-        "Ten, Twenty, Thirty"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "'One, two, three' são números normais (cardinais). Para ordem (primeiro, segundo, terceiro), usamos First, Second e Third."
-    },
-    {
-      "texto": "Qual é a forma correta de escrever 10º (décimo) em inglês?",
-      "alternativas": [
-        "Ten",
-        "Tenth",
-        "Eleventh",
-        "Twelfth"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "Para a maioria dos números ordinais em inglês, basta adicionar 'th' no final. Ten vira Tenth."
-    },
-    {
-      "texto": "Complete a frase com a preposição correta: 'My birthday is _____ May.' (Meu aniversário é em maio).",
-      "alternativas": [
-        "on",
-        "at",
-        "in",
-        "of"
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "Usamos 'IN' antes de meses do ano sozinhos (in May, in December)."
-    },
-    {
-      "texto": "Complete a frase com a preposição correta para datas completas: 'The test is _____ October 25th.'",
-      "alternativas": [
-        "in",
-        "on",
-        "at",
-        "by"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "Quando temos o mês E o dia (data completa) ou dias da semana, usamos sempre 'ON' (on October 25th, on Monday)."
-    },
-    {
-      "texto": "Complete: '_____ a computer on the desk.' (Há um computador na mesa).",
-      "alternativas": [
-        "There is",
-        "There are",
-        "They is",
-        "There am"
+        "February.",
+        "Febrary.",
+        "Feveruary.",
+        "Febuary."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Usamos 'There is' quando estamos falando de apenas UMA coisa (singular). 'A computer' é apenas um."
+      "dica_erro": "Lembre-se das letras completas: F-e-b-r-u-a-r-y."
     },
     {
-      "texto": "Complete: '_____ three cellphones in the box.' (Há três celulares na caixa).",
+      "texto": "Qual destas opções lista os meses de verão (férias escolares de meio de ano no Brasil) corretamente em inglês?",
       "alternativas": [
-        "There is",
-        "There are",
-        "This is",
-        "That are"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "Usamos 'There are' quando estamos falando de DUAS ou mais coisas (plural). 'Three cellphones' é plural."
-    },
-    {
-      "texto": "Como escrevemos o número 50 (cinquenta) em inglês?",
-      "alternativas": [
-        "Fifteen",
-        "Five",
-        "Fifty",
-        "Five zero"
-      ],
-      "resposta_correta": 2,
-      "dica_erro": "Cuidado para não confundir: Fifteen é 15. Fifty é 50 (os números redondos das dezenas terminam em 'ty')."
-    },
-    {
-      "texto": "Como escrevemos o número 100 em inglês?",
-      "alternativas": [
-        "One thousand",
-        "One hundred",
-        "Ten ten",
-        "One million"
-      ],
-      "resposta_correta": 1,
-      "dica_erro": "'Hundred' significa centena. Então 100 é 'One hundred'. 'Thousand' significa mil."
-    },
-    {
-      "texto": "Qual é a forma NEGATIVA correta de 'There is'?",
-      "alternativas": [
-        "There is not (There isn't)",
-        "There are not (There aren't)",
-        "There no",
-        "Not there is"
+        "June e July.",
+        "January e February.",
+        "March e April.",
+        "September e October."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Para fazer a negativa no singular, basta colocar o 'not' depois do verbo: There is not (que podemos juntar como There isn't)."
+      "dica_erro": "Os meses 6 e 7 são 'June' (Junho) e 'July' (Julho)."
     },
     {
-      "texto": "Se você quiser perguntar 'Há um tablet na mochila?', como a frase deve começar?",
+      "texto": "Para dizer as horas em inglês, usamos qual preposição? Ex: 'I go to school ____ 7:30 a.m.'",
       "alternativas": [
-        "There is a tablet...",
-        "Are there a tablet...",
-        "Is there a tablet...",
-        "There are a tablet..."
+        "At.",
+        "On.",
+        "In.",
+        "To."
       ],
-      "resposta_correta": 2,
-      "dica_erro": "Em inglês, para fazer uma pergunta com 'There is', nós invertemos a ordem e colocamos o 'Is' na frente: 'Is there...?'"
+      "resposta_correta": 0,
+      "dica_erro": "Para horas exatas no relógio, usamos sempre 'at' (ex: at 9:55 p.m.)."
+    },
+    {
+      "texto": "Quando falamos apenas o mês (sem o dia), qual preposição devemos usar? Ex: 'My birthday is ____ August.'",
+      "alternativas": [
+        "In.",
+        "On.",
+        "At.",
+        "Of."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Para meses sozinhos ou anos, usamos 'in' (ex: in August, in 2024)."
+    },
+    {
+      "texto": "Se a data for completa, com o mês e o dia, qual preposição devemos usar? Ex: 'I arrive in São Paulo ____ August 5th.'",
+      "alternativas": [
+        "On.",
+        "In.",
+        "At.",
+        "By."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Quando temos um dia específico (mesmo com o mês junto), usamos 'on'."
+    },
+    {
+      "texto": "Em inglês, os dias do mês são falados usando números ordinais (primeiro, segundo, etc.). Como se escreve '1st' e '2nd' por extenso?",
+      "alternativas": [
+        "First e Second.",
+        "One e Two.",
+        "Firth e Secoth.",
+        "Onest e Twond."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "1º é 'first' e 2º é 'second'."
+    },
+    {
+      "texto": "Como se escreve o número ordinal '3rd' em inglês?",
+      "alternativas": [
+        "Third.",
+        "Three.",
+        "Thirth.",
+        "Threerd."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O número três é 'three', mas o terceiro é 'third'."
+    },
+    {
+      "texto": "A maioria dos números ordinais em inglês termina com as letras 'th' (como fourth, seventh). Qual destes números NÃO segue essa regra?",
+      "alternativas": [
+        "21st (Twenty-first).",
+        "15th (Fifteenth).",
+        "10th (Tenth).",
+        "25th (Twenty-fifth)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O número 21 termina com 1, logo volta a ser 'primeiro' no final: twenty-first."
+    },
+    {
+      "texto": "Como ficaria escrita por extenso a data 10/31 (31 de Outubro, o Halloween)?",
+      "alternativas": [
+        "October thirty-first.",
+        "October thirty-one.",
+        "Thirty-first October.",
+        "October three-first."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Em inglês (americano), escrevemos primeiro o mês e depois o dia em ordinal: October thirty-first."
+    },
+    {
+      "texto": "Qual das frases a seguir está com a preposição correta para os dias da semana?",
+      "alternativas": [
+        "I have English classes on Tuesdays and Wednesdays.",
+        "I have English classes in Tuesdays and Wednesdays.",
+        "I have English classes at Tuesdays and Wednesdays.",
+        "I have English classes to Tuesdays and Wednesdays."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Para os dias da semana (Monday, Tuesday...), usamos sempre a preposição 'on'."
+    },
+    {
+      "texto": "Traduza a frase: 'We go to school in the morning'.",
+      "alternativas": [
+        "Nós vamos para a escola de manhã.",
+        "Nós tomamos banho de manhã.",
+        "Eles vão para a escola à tarde.",
+        "Nós saímos da escola de manhã."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "'We' significa nós, 'go' é ir, e 'morning' é manhã."
+    },
+    {
+      "texto": "Se a rotina de alguém for descrita como 'I take a shower in the afternoon', o que essa pessoa faz?",
+      "alternativas": [
+        "Ela toma banho à tarde.",
+        "Ela toma banho de manhã.",
+        "Ela vê TV à tarde.",
+        "Ela dorme de tarde."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "'Take a shower' significa tomar banho, e 'afternoon' é o período da tarde."
+    },
+    {
+      "texto": "Como se diz o número ordinal décimo segundo (12th) em inglês?",
+      "alternativas": [
+        "Twelfth.",
+        "Twelveth.",
+        "Twelve.",
+        "Second-ten."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O número 12 'twelve' muda um pouquinho no ordinal, ganhando um F antes do TH: twelfth."
+    },
+    {
+      "texto": "No Canadá, existem duas línguas oficiais e os alunos de Toronto podem escolher estudar ambas na escola. Quais são elas?",
+      "alternativas": [
+        "English and French (Inglês e Francês).",
+        "English and Spanish (Inglês e Espanhol).",
+        "English and Portuguese (Inglês e Português).",
+        "English and Chinese (Inglês e Chinês)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O Canadá é bilíngue, falando Inglês e a língua de seus colonizadores europeus vizinhos (Francês)."
+    },
+    {
+      "texto": "Qual a melhor ordem para descrever o final do dia antes de dormir?",
+      "alternativas": [
+        "Have dinner, watch TV, go to bed.",
+        "Get up, take a shower, go to school.",
+        "Have lunch, do homework, take a shower.",
+        "Go to bed, get up, have breakfast."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Primeiro jantamos (have dinner), depois podemos ver um pouco de TV (watch TV) e só então vamos dormir (go to bed)."
     }
   ]
 }
