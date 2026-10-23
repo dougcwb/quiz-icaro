@@ -1,4 +1,3 @@
-cat << 'EOF' > /DATA/AppData/quiz-icaro/app.py
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 import os, json, psycopg2
 
@@ -123,4 +122,3 @@ def reset_scores():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-EOF
