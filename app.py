@@ -2,8 +2,10 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 import os, json, psycopg2
 
 app = Flask(__name__)
-QUIZ_DIR = '/app/quizzes'
-# Lê da variável de ambiente no Render, ou usa a string local do Supabase
+
+# Caminho dinâmico para a pasta quizzes (funciona em qualquer ambiente)
+QUIZ_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'quizzes')
+
 DB_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:U.%3FPBw39%25q%26r6f9@db.kgcmzvhigfooidjtfoay.supabase.co:5432/postgres')
 
 def get_db_connection():
@@ -22,7 +24,8 @@ def page_not_found(e):
 
 @app.errorhandler(Exception)
 def handle_exception(e):
-    return redirect(url_for('index'))
+    # Mostra o erro real na tela em vez de criar um loop infinito
+    return f"Erro interno do servidor: {str(e)}", 500
 
 @app.route('/')
 def index():
