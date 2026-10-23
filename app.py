@@ -1,20 +1,14 @@
+cat << 'EOF' > /DATA/AppData/quiz-icaro/app.py
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-import os, json, sqlite3
+import os, json, psycopg2
 
 app = Flask(__name__)
 QUIZ_DIR = '/app/quizzes'
-DB_PATH = os.path.join(QUIZ_DIR, 'scores.db')
+# Lê da variável de ambiente no Render, ou usa a string local do Supabase
+DB_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:U.%3FPBw39%25q%26r6f9@db.kgcmzvhigfooidjtfoay.supabase.co:5432/postgres')
 
-def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute('CREATE TABLE IF NOT EXISTS scores (quiz_id TEXT PRIMARY KEY, highscore INTEGER)')
-    # Nova tabela para rastrear cada pergunta única respondida corretamente
-    c.execute('CREATE TABLE IF NOT EXISTS answered_questions (quiz_id TEXT, question_idx INTEGER, PRIMARY KEY(quiz_id, question_idx))')
-    conn.commit()
-    conn.close()
-
-init_db()
+def get_db_connection():
+    return psycopg2.connect(DB_URL)
 
 @app.after_request
 def add_header(response):
@@ -33,16 +27,16 @@ def handle_exception(e):
 
 @app.route('/')
 def index():
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     c = conn.cursor()
     
-    # Busca os recordes
     c.execute('SELECT quiz_id, highscore FROM scores')
     scores_dict = {row[0]: row[1] for row in c.fetchall()}
     
-    # Busca o progresso (quantas perguntas únicas ele já acertou)
     c.execute('SELECT quiz_id, COUNT(question_idx) FROM answered_questions GROUP BY quiz_id')
     progress_dict = {row[0]: row[1] for row in c.fetchall()}
+    
+    c.close()
     conn.close()
 
     quizzes = []
@@ -53,7 +47,7 @@ def index():
                     quiz_id = filename.replace('.json', '')
                     with open(os.path.join(QUIZ_DIR, filename), 'r', encoding='utf-8') as f:
                         data = json.load(f)
-                        total_q = len(data.get('perguntas', [])) # Pega o total de perguntas do banco
+                        total_q = len(data.get('perguntas', []))
                         quizzes.append({
                             'id': quiz_id,
                             'titulo': data.get('titulo', 'Sem Título'),
@@ -81,30 +75,36 @@ def get_quiz(quiz_id):
 @app.route('/api/score/<quiz_id>', methods=['GET', 'POST'])
 def handle_score(quiz_id):
     try:
-        conn = sqlite3.connect(DB_PATH)
+        conn = get_db_connection()
         c = conn.cursor()
         if request.method == 'POST':
             data = request.get_json(silent=True) or {}
             new_score = data.get('score', 0)
-            correct_ids = data.get('correct_ids', []) # Recebe os IDs das perguntas acertadas de primeira
+            correct_ids = data.get('correct_ids', [])
             
-            # Atualiza o recorde se for maior
-            c.execute('SELECT highscore FROM scores WHERE quiz_id = ?', (quiz_id,))
+            c.execute('SELECT highscore FROM scores WHERE quiz_id = %s', (quiz_id,))
             row = c.fetchone()
             if row is None or new_score > row[0]:
-                c.execute('REPLACE INTO scores (quiz_id, highscore) VALUES (?, ?)', (quiz_id, new_score))
+                c.execute('''
+                    INSERT INTO scores (quiz_id, highscore) VALUES (%s, %s)
+                    ON CONFLICT (quiz_id) DO UPDATE SET highscore = EXCLUDED.highscore
+                ''', (quiz_id, new_score))
             
-            # Grava as perguntas únicas acertadas
             for q_idx in correct_ids:
-                c.execute('INSERT OR IGNORE INTO answered_questions (quiz_id, question_idx) VALUES (?, ?)', (quiz_id, q_idx))
+                c.execute('''
+                    INSERT INTO answered_questions (quiz_id, question_idx) VALUES (%s, %s)
+                    ON CONFLICT (quiz_id, question_idx) DO NOTHING
+                ''', (quiz_id, q_idx))
                 
             conn.commit()
+            c.close()
             conn.close()
             return jsonify({"status": "ok"})
         else:
-            c.execute('SELECT highscore FROM scores WHERE quiz_id = ?', (quiz_id,))
+            c.execute('SELECT highscore FROM scores WHERE quiz_id = %s', (quiz_id,))
             row = c.fetchone()
             highscore = row[0] if row else 0
+            c.close()
             conn.close()
             return jsonify({"highscore": highscore})
     except Exception as e:
@@ -112,13 +112,15 @@ def handle_score(quiz_id):
 
 @app.route('/reset')
 def reset_scores():
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     c = conn.cursor()
     c.execute('DELETE FROM scores')
-    c.execute('DELETE FROM answered_questions') # Limpa o progresso também
+    c.execute('DELETE FROM answered_questions')
     conn.commit()
+    c.close()
     conn.close()
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+EOF
