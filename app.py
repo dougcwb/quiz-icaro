@@ -14,26 +14,30 @@ def add_header(response):
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     return response
 
-@app.errorhandler(Exception)
-def handle_exception(e):
-    return f"Erro interno: {str(e)}", 500
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # Trata o login do jogador
+    conn = get_db_connection()
+    c = conn.cursor()
+    
+    # Incrementa e busca o contador de visitas
+    c.execute("UPDATE site_stats SET stat_value = stat_value + 1 WHERE stat_name = 'visits' RETURNING stat_value")
+    row_visits = c.fetchone()
+    visits = row_visits[0] if row_visits else 0
+
     if request.method == 'POST':
         nome = request.form.get('player_name', '').strip().upper()
         if nome:
             session['player_name'] = nome
+        c.close()
+        conn.close()
         return redirect(url_for('index'))
 
     player_name = session.get('player_name')
     if not player_name:
-        return render_template('index.html', player_name=None, quizzes=[])
+        c.close()
+        conn.close()
+        return render_template('index.html', player_name=None, quizzes=[], visits=visits)
 
-    # Carrega dados específicos do jogador
-    conn = get_db_connection()
-    c = conn.cursor()
     c.execute('SELECT quiz_id, highscore FROM scores WHERE player_name = %s', (player_name,))
     scores_dict = {row[0]: row[1] for row in c.fetchall()}
     
@@ -60,7 +64,31 @@ def index():
                         })
                 except Exception:
                     pass
-    return render_template('index.html', player_name=player_name, quizzes=quizzes)
+    return render_template('index.html', player_name=player_name, quizzes=quizzes, visits=visits)
+
+@app.route('/leaderboard')
+def leaderboard():
+    conn = get_db_connection()
+    c = conn.cursor()
+    # Puxa o ranking ordenado pelas estrelas totais
+    c.execute('''
+        SELECT 
+            p.player_name, 
+            COALESCE(SUM(s.highscore), 0) as total_score,
+            (SELECT COUNT(DISTINCT quiz_id || question_idx) FROM answered_questions aq WHERE aq.player_name = p.player_name) as total_mastered
+        FROM (
+            SELECT player_name FROM scores
+            UNION
+            SELECT player_name FROM answered_questions
+        ) p
+        LEFT JOIN scores s ON p.player_name = s.player_name
+        GROUP BY p.player_name
+        ORDER BY total_score DESC, total_mastered DESC
+    ''')
+    ranking = c.fetchall()
+    c.close()
+    conn.close()
+    return render_template('leaderboard.html', ranking=ranking)
 
 @app.route('/logout')
 def logout():
@@ -81,47 +109,37 @@ def get_quiz(quiz_id):
             return jsonify(json.load(f))
     return jsonify({"error": "Not found"}), 404
 
-@app.route('/api/score/<quiz_id>', methods=['GET', 'POST'])
+@app.route('/api/score/<quiz_id>', methods=['POST'])
 def handle_score(quiz_id):
     player_name = session.get('player_name')
-    if not player_name:
-        return jsonify({"error": "Não autenticado"}), 401
-        
+    if not player_name: return jsonify({"error": "Não autenticado"}), 401
     try:
         conn = get_db_connection()
         c = conn.cursor()
-        if request.method == 'POST':
-            data = request.get_json(silent=True) or {}
-            new_score = data.get('score', 0)
-            correct_ids = data.get('correct_ids', [])
+        data = request.get_json(silent=True) or {}
+        new_score = data.get('score', 0)
+        correct_ids = data.get('correct_ids', [])
+        
+        c.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
+        row = c.fetchone()
+        if row is None or new_score > row[0]:
+            c.execute('''
+                INSERT INTO scores (player_name, quiz_id, highscore) VALUES (%s, %s, %s)
+                ON CONFLICT (player_name, quiz_id) DO UPDATE SET highscore = EXCLUDED.highscore
+            ''', (player_name, quiz_id, new_score))
+        
+        for q_idx in correct_ids:
+            c.execute('''
+                INSERT INTO answered_questions (player_name, quiz_id, question_idx) VALUES (%s, %s, %s)
+                ON CONFLICT (player_name, quiz_id, question_idx) DO NOTHING
+            ''', (player_name, quiz_id, q_idx))
             
-            c.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
-            row = c.fetchone()
-            if row is None or new_score > row[0]:
-                c.execute('''
-                    INSERT INTO scores (player_name, quiz_id, highscore) VALUES (%s, %s, %s)
-                    ON CONFLICT (player_name, quiz_id) DO UPDATE SET highscore = EXCLUDED.highscore
-                ''', (player_name, quiz_id, new_score))
-            
-            for q_idx in correct_ids:
-                c.execute('''
-                    INSERT INTO answered_questions (player_name, quiz_id, question_idx) VALUES (%s, %s, %s)
-                    ON CONFLICT (player_name, quiz_id, question_idx) DO NOTHING
-                ''', (player_name, quiz_id, q_idx))
-                
-            conn.commit()
-            c.close()
-            conn.close()
-            return jsonify({"status": "ok"})
-        else:
-            c.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
-            row = c.fetchone()
-            highscore = row[0] if row else 0
-            c.close()
-            conn.close()
-            return jsonify({"highscore": highscore})
+        conn.commit()
+        c.close()
+        conn.close()
+        return jsonify({"status": "ok"})
     except Exception as e:
-        return jsonify({"highscore": 0, "error": str(e)})
+        return jsonify({"error": str(e)})
 
 @app.route('/reset')
 def reset_scores():
