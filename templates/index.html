@@ -9,26 +9,26 @@
         .container { background: rgba(0, 0, 0, 0.75); padding: 30px; border: 4px solid #fff; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.8); max-width: 700px; width: 90%; transition: opacity 1.5s ease-in-out; opacity: 1; position: relative; z-index: 10;}
         h1 { font-size: 52px; color: #00e5ff; text-shadow: 3px 3px 0 #000; margin-top: 0; margin-bottom: 25px; letter-spacing: 2px; display: flex; justify-content: center; align-items: center; }
         .menu-list { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .btn { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 550px; padding: 12px 20px; background: #222; color: white; text-decoration: none; border: 3px solid #555; border-radius: 8px; font-size: 28px; transition: 0.2s; box-sizing: border-box; outline: none; cursor:pointer;}
+        .btn { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 600px; padding: 12px 20px; background: #222; color: white; text-decoration: none; border: 3px solid #555; border-radius: 8px; font-size: 28px; transition: 0.2s; box-sizing: border-box; outline: none; cursor:pointer;}
         .btn.active-item, .btn:hover { background: #444; border-color: #00e5ff; transform: scale(1.05); box-shadow: 0 0 15px #00e5ff; }
         .btn .hint-a { display: none; margin-right: 15px; }
         .btn.active-item .hint-a, .btn:hover .hint-a { display: inline-block; }
         .score-badge { display: block; margin-top: 5px; font-size: 20px; color: #f8db00; }
         .player-info { font-size: 28px; color: #f8db00; margin-bottom: 20px; text-shadow: 2px 2px 0 #000; }
         .player-info a { color: #dc3545; text-decoration: none; margin-left: 10px; border: 1px solid #dc3545; padding: 2px 8px; border-radius: 4px; }
-        .player-info a:hover { background: #dc3545; color: #fff; }
-        .name-input { font-family: 'VT323'; font-size: 40px; padding: 10px; text-align: center; border: 3px solid #fff; border-radius: 8px; background: #222; color: #00e5ff; width: 100%; max-width: 400px; text-transform: uppercase; margin-bottom: 20px; outline:none; }
         
-        .visits-counter { position: fixed; top: 15px; right: 20px; font-size: 24px; color: #00e5ff; text-shadow: 2px 2px 0 #000; z-index: 5; background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 6px; border: 2px solid #555;}
+        .visits-counter { position: fixed; top: 15px; right: 20px; font-size: 24px; color: #00e5ff; text-shadow: 2px 2px 0 #000; z-index: 5; background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 6px; border: 2px solid #555; opacity: 0; transition: opacity 0.3s; cursor: default; }
+        .visits-counter:hover { opacity: 1; }
         .copyright { position: fixed; bottom: 10px; right: 15px; font-size: 16px; color: rgba(255,255,255,0.6); text-shadow: 1px 1px 0 #000; z-index: 5; pointer-events: none;}
         
         #reset-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; justify-content: center; align-items: center; flex-direction: column; }
         .modal-box { background: #111; padding: 40px; border: 4px solid red; border-radius: 12px; text-align: center; }
-        .modal-title { color: red; font-size: 40px; margin-bottom: 30px; text-shadow: 2px 2px 0px #000; }
+        .modal-title { color: red; font-size: 40px; margin-bottom: 30px; text-shadow: 2px 2px 0px #000; max-width: 800px;}
         .modal-buttons { display: flex; gap: 30px; justify-content: center; }
         .btn-end { display: inline-block; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px;}
-        .btn-xbox { display: inline-block; width: 32px; height: 32px; line-height: 34px; text-align: center; border-radius: 50%; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; margin-right: 15px; font-size: 18px; flex-shrink: 0; box-shadow: 2px 2px 0 #000; }
-        .btn-a { background-color: #28a745; } .btn-b { background-color: #dc3545; color: #fff; border-color: #fff; } .btn-shoulder { background-color: #555; color: #fff; border-color: #fff; margin: 0 15px; border-radius: 6px; width: 40px; height: 36px; line-height: 38px; }
+        .btn-xbox { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; margin-right: 15px; font-size: 18px; box-shadow: 2px 2px 0 #000; }
+        .btn-a { background-color: #28a745; } .btn-b { background-color: #dc3545; color: #fff; border-color: #fff; } .btn-shoulder { background-color: #555; color: #fff; border-color: #fff; margin: 0 15px; }
+        .name-input { font-family: 'VT323'; font-size: 40px; padding: 10px; text-align: center; border: 3px solid #fff; border-radius: 8px; background: #222; color: #00e5ff; width: 100%; max-width: 400px; text-transform: uppercase; margin-bottom: 20px; outline:none; }
     </style>
 </head>
 <body>
@@ -41,7 +41,7 @@
         <form method="POST" action="/" style="display:flex; flex-direction:column; align-items:center;">
             <input type="text" name="player_name" class="name-input" placeholder="DIGITE SEU NOME" required autofocus autocomplete="off">
             <button type="submit" class="btn active-item">
-                <span class="btn-xbox btn-a hint-a" style="display:inline-block;">A</span> ENTRAR
+                <span class="btn-xbox btn-a hint-a" style="display:inline-block;">A | ✖</span> ENTRAR
             </button>
         </form>
     </div>
@@ -51,8 +51,8 @@
         <h1><span class="btn-xbox btn-shoulder">L</span> ESCOLHA A DISCIPLINA <span class="btn-xbox btn-shoulder">R</span></h1>
         <div class="menu-list">
             {% for q in quizzes %}
-                <a href="/quiz/{{ q.id }}" class="btn">
-                    <span class="btn-xbox btn-a hint-a">A</span>
+                <a href="/quiz/{{ q.id }}" class="btn" data-id="{{ q.id }}" data-title="{{ q.materia }}">
+                    <span class="btn-xbox btn-a hint-a">A | ✖</span>
                     <div>
                         {{ q.materia }}: {{ q.titulo }}
                         <span class="score-badge">⭐ Recorde: {{ q.highscore }} &nbsp;|&nbsp; 🏆 Progresso: {{ q.progress }}/{{ q.total }}</span>
@@ -64,10 +64,10 @@
     
     <div id="reset-modal">
         <div class="modal-box">
-            <div class="modal-title">⚠️ ZERAR RECORDES DE {{ player_name }}? ⚠️</div>
+            <div class="modal-title" id="reset-modal-title"></div>
             <div class="modal-buttons">
-                <div class="btn-end" onclick="closeModal()"><span class="btn-xbox btn-b">B</span> CANCELAR</div>
-                <div class="btn-end" onclick="window.location.href='/reset'"><span class="btn-xbox btn-a">A</span> CONFIRMAR</div>
+                <div class="btn-end" onclick="closeModal()"><span class="btn-xbox btn-b">B | ⭕</span> CANCELAR</div>
+                <div class="btn-end" onclick="confirmReset()"><span class="btn-xbox btn-a">A | ✖</span> CONFIRMAR</div>
             </div>
         </div>
     </div>
@@ -79,6 +79,7 @@
         const buttons = document.querySelectorAll('.menu-list .btn');
         let currentIndex = 0;
         let isModalOpen = false;
+        let currentResetId = '';
 
         function updateFocus() {
             if (buttons.length === 0) return;
@@ -94,30 +95,37 @@
             container.style.opacity = '1'; 
             clearTimeout(idleTimer);
             if(!isModalOpen && buttons.length > 0) {
-                idleTimer = setTimeout(() => { container.style.opacity = '0.02'; }, 5000);
+                idleTimer = setTimeout(() => { container.style.opacity = '0.02'; }, 15000);
             }
         }
         window.addEventListener('mousemove', resetIdle);
         window.addEventListener('keydown', resetIdle);
         resetIdle(); 
 
-        const secretCodeReset = [0, 1, 2, 3]; // A, B, X, Y
-        const secretCodeLeaderboard = [3, 2, 1, 0]; // Y, X, B, A
+        const secretCodeReset = [0, 1, 2, 3]; 
+        const secretCodeLeaderboard = [3, 2, 1, 0]; 
         let inputSeq = [];
         
         function checkCode(btnId) {
             inputSeq.push(btnId);
             if(inputSeq.length > 4) inputSeq.shift(); 
-            
             if(inputSeq.join(',') === secretCodeReset.join(',')) openModal();
             if(inputSeq.join(',') === secretCodeLeaderboard.join(',')) window.location.href = '/leaderboard';
         }
-        function openModal() { if(buttons.length === 0) return; isModalOpen = true; modal.style.display = 'flex'; container.style.opacity = '1'; clearTimeout(idleTimer); }
+
+        function openModal() { 
+            if(buttons.length === 0) return; 
+            let btn = buttons[currentIndex];
+            currentResetId = btn.getAttribute('data-id');
+            document.getElementById('reset-modal-title').innerText = `⚠️ ZERAR "${btn.getAttribute('data-title')}" DE {{ player_name }}? ⚠️`;
+            isModalOpen = true; modal.style.display = 'flex'; container.style.opacity = '1'; clearTimeout(idleTimer); 
+        }
         function closeModal() { isModalOpen = false; modal.style.display = 'none'; inputSeq = []; resetIdle(); }
+        function confirmReset() { window.location.href = '/reset/' + currentResetId; }
 
         window.addEventListener('keydown', (e) => {
             if(isModalOpen) {
-                if(e.key.toLowerCase() === 'a' || e.key === '1' || e.key === 'Enter') window.location.href = '/reset';
+                if(e.key.toLowerCase() === 'a' || e.key === '1' || e.key === 'Enter') confirmReset();
                 if(e.key.toLowerCase() === 'b' || e.key === '2' || e.key === 'Escape') closeModal();
                 return;
             }
@@ -139,7 +147,7 @@
                     if(gp.buttons[i].pressed && !lastButtonState[i]) {
                         activity = true;
                         if(isModalOpen) {
-                            if(i === 0) window.location.href = '/reset'; 
+                            if(i === 0) confirmReset(); 
                             if(i === 1) closeModal();                    
                         } else if(buttons.length > 0) {
                             checkCode(i); 

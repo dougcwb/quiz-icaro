@@ -1,10 +1,13 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 import os, json, psycopg2
+from dotenv import load_dotenv
+
+load_dotenv() # Carrega senhas locais sem expor no código
 
 app = Flask(__name__)
 app.secret_key = 'senha_secreta_retro_16bits'
 QUIZ_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'quizzes')
-DB_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:U.%3FPBw39%25q%26r6f9@aws-0-sa-east-1.pooler.supabase.com:6543/postgres')
+DB_URL = os.environ.get('DATABASE_URL')
 
 def get_db_connection():
     return psycopg2.connect(DB_URL)
@@ -18,16 +21,13 @@ def add_header(response):
 def index():
     conn = get_db_connection()
     c = conn.cursor()
-    
-    # Incrementa e busca o contador de visitas
     c.execute("UPDATE site_stats SET stat_value = stat_value + 1 WHERE stat_name = 'visits' RETURNING stat_value")
     row_visits = c.fetchone()
     visits = row_visits[0] if row_visits else 0
 
     if request.method == 'POST':
         nome = request.form.get('player_name', '').strip().upper()
-        if nome:
-            session['player_name'] = nome
+        if nome: session['player_name'] = nome
         c.close()
         conn.close()
         return redirect(url_for('index'))
@@ -62,28 +62,19 @@ def index():
                             'progress': progress_dict.get(quiz_id, 0),
                             'total': len(data.get('perguntas', []))
                         })
-                except Exception:
-                    pass
+                except Exception: pass
     return render_template('index.html', player_name=player_name, quizzes=quizzes, visits=visits)
 
 @app.route('/leaderboard')
 def leaderboard():
     conn = get_db_connection()
     c = conn.cursor()
-    # Puxa o ranking ordenado pelas estrelas totais
     c.execute('''
-        SELECT 
-            p.player_name, 
-            COALESCE(SUM(s.highscore), 0) as total_score,
-            (SELECT COUNT(DISTINCT quiz_id || question_idx) FROM answered_questions aq WHERE aq.player_name = p.player_name) as total_mastered
-        FROM (
-            SELECT player_name FROM scores
-            UNION
-            SELECT player_name FROM answered_questions
-        ) p
+        SELECT p.player_name, COALESCE(SUM(s.highscore), 0) as total_score,
+        (SELECT COUNT(DISTINCT quiz_id || question_idx) FROM answered_questions aq WHERE aq.player_name = p.player_name) as total_mastered
+        FROM (SELECT player_name FROM scores UNION SELECT player_name FROM answered_questions) p
         LEFT JOIN scores s ON p.player_name = s.player_name
-        GROUP BY p.player_name
-        ORDER BY total_score DESC, total_mastered DESC
+        GROUP BY p.player_name ORDER BY total_score DESC, total_mastered DESC
     ''')
     ranking = c.fetchall()
     c.close()
@@ -97,8 +88,7 @@ def logout():
 
 @app.route('/quiz/<quiz_id>')
 def quiz_page(quiz_id):
-    if 'player_name' not in session:
-        return redirect(url_for('index'))
+    if 'player_name' not in session: return redirect(url_for('index'))
     return render_template('quiz.html', quiz_id=quiz_id)
 
 @app.route('/api/quiz/<quiz_id>')
@@ -109,13 +99,22 @@ def get_quiz(quiz_id):
             return jsonify(json.load(f))
     return jsonify({"error": "Not found"}), 404
 
-@app.route('/api/score/<quiz_id>', methods=['POST'])
+@app.route('/api/score/<quiz_id>', methods=['GET', 'POST'])
 def handle_score(quiz_id):
     player_name = session.get('player_name')
     if not player_name: return jsonify({"error": "Não autenticado"}), 401
+    
     try:
         conn = get_db_connection()
         c = conn.cursor()
+        
+        if request.method == 'GET':
+            c.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
+            row = c.fetchone()
+            c.close()
+            conn.close()
+            return jsonify({"highscore": row[0] if row else 0})
+
         data = request.get_json(silent=True) or {}
         new_score = data.get('score', 0)
         correct_ids = data.get('correct_ids', [])
@@ -141,14 +140,14 @@ def handle_score(quiz_id):
     except Exception as e:
         return jsonify({"error": str(e)})
 
-@app.route('/reset')
-def reset_scores():
+@app.route('/reset/<quiz_id>')
+def reset_scores(quiz_id):
     player_name = session.get('player_name')
     if player_name:
         conn = get_db_connection()
         c = conn.cursor()
-        c.execute('DELETE FROM scores WHERE player_name = %s', (player_name,))
-        c.execute('DELETE FROM answered_questions WHERE player_name = %s', (player_name,))
+        c.execute('DELETE FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
+        c.execute('DELETE FROM answered_questions WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
         conn.commit()
         c.close()
         conn.close()

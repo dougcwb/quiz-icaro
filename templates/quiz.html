@@ -16,24 +16,17 @@
         #score-board { margin-bottom: 20px; font-size: 24px; color: #00e5ff; display: flex; justify-content: space-between; border-bottom: 2px dashed #555; padding-bottom: 10px; }
         
         .btn-end { display: inline-block; padding: 15px 30px; margin: 20px 10px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 24px; border-radius: 8px;}
-        .btn-end:hover { background: #555; }
         .highlight { color: #f8db00; font-size: 36px; }
-        .victory-img { max-width: 100%; height: auto; max-height: 250px; margin-top: 15px; display: block; margin-left: auto; margin-right: auto;}
         
-        /* Xbox Buttons */
-        .btn-xbox { display: inline-block; width: 32px; height: 32px; line-height: 34px; text-align: center; border-radius: 50%; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; margin-right: 15px; font-size: 18px; flex-shrink: 0; box-shadow: 2px 2px 0 #000; }
-        .btn-a { background-color: #28a745; } 
-        .btn-b { background-color: #dc3545; color: #fff; border-color: #fff; } 
-        .btn-x { background-color: #007bff; color: #fff; border-color: #fff; } 
-        .btn-y { background-color: #ffc107; } 
-
+        .btn-xbox { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; margin-right: 15px; font-size: 18px; box-shadow: 2px 2px 0 #000; }
+        .btn-a { background-color: #28a745; } .btn-b { background-color: #dc3545; color: #fff; border-color: #fff; } .btn-x { background-color: #007bff; color: #fff; border-color: #fff; } .btn-y { background-color: #ffc107; } 
         .score-line { font-size: 28px; margin: 20px 0; background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444; }
     </style>
 </head>
 <body>
     <div id="game-container">
         <div id="score-board">
-            <span>⭐ Recorde: <span id="highscore">...</span></span>
+            <span>⭐ Recorde: <span id="highscore">0</span></span>
             <span>🔥 Combo: <span id="combo">0</span>x</span>
             <span>⭐ Pontos: <span id="stars">0</span></span>
             <span>Q: <span id="q-counter">1/10</span></span>
@@ -45,80 +38,33 @@
 
     <script>
         const quizId = "{{ quiz_id }}";
-        let perguntasSorteadas = [];
-        let currentQuestion = 0;
-        let stars = 0;
-        let combo = 0;
-        let acertos = 0;
-        let errosTotal = 0;
-        let errorsInCurrent = 0;
-        let waitingNext = false;
-        let isGameOver = false;
-        let highScore = 0;
-        
-        let masteredQuestions = []; // Guarda os IDs originais das perguntas acertadas de primeira
+        let perguntasSorteadas = [], currentQuestion = 0, stars = 0, combo = 0, acertos = 0, errosTotal = 0, errorsInCurrent = 0;
+        let waitingNext = false, isGameOver = false, highScore = 0, masteredQuestions = [];
 
-        fetch('/api/score/' + quizId)
-            .then(r => r.json())
-            .then(data => {
-                highScore = data.highscore;
-                document.getElementById('highscore').innerText = highScore;
-            });
+        fetch('/api/score/' + quizId).then(r => r.json()).then(data => { 
+            highScore = data.highscore || 0; 
+            document.getElementById('highscore').innerText = highScore; 
+        });
 
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playSound(type) {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            
-            if(type === 'correct') {
-                osc.type = 'square'; osc.frequency.setValueAtTime(440, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1);
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
-                osc.start(); osc.stop(audioCtx.currentTime + 0.2);
-            } else if (type === 'wrong') {
-                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.2);
-                gain.gain.setValueAtTime(0.2, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-                osc.start(); osc.stop(audioCtx.currentTime + 0.3);
-            } else if (type === 'damage') {
-                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(100, audioCtx.currentTime);
-                osc.frequency.linearRampToValueAtTime(50, audioCtx.currentTime + 0.4);
-                gain.gain.setValueAtTime(0.3, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
-                osc.start(); osc.stop(audioCtx.currentTime + 0.4);
-            } else if (type === 'victory') {
-                const notes = [440, 554, 659, 880]; 
-                notes.forEach((freq, i) => {
-                    const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
-                    o.type = 'square'; o.frequency.value = freq; o.connect(g); g.connect(audioCtx.destination);
-                    g.gain.setValueAtTime(0.1, audioCtx.currentTime + (i * 0.15)); g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + (i * 0.15) + 0.2);
-                    o.start(audioCtx.currentTime + (i * 0.15)); o.stop(audioCtx.currentTime + (i * 0.15) + 0.2);
-                });
-            }
+            const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            if(type === 'correct') { osc.type = 'square'; osc.frequency.setValueAtTime(440, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1); gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2); osc.start(); osc.stop(audioCtx.currentTime + 0.2); }
+            else if (type === 'wrong') { osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.2); gain.gain.setValueAtTime(0.2, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3); osc.start(); osc.stop(audioCtx.currentTime + 0.3); }
         }
 
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
+        function shuffle(array) { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; }
 
-        fetch('/api/quiz/' + quizId)
-            .then(r => r.json())
-            .then(data => { 
-                // Mapeia o array original adicionando um ID único para cada questão
-                let perguntasComId = data.perguntas.map((q, idx) => ({ ...q, original_idx: idx }));
-                
-                perguntasSorteadas = shuffle(perguntasComId).slice(0, 10);
-                perguntasSorteadas = perguntasSorteadas.map(q => {
-                    let alternativas = q.alternativas.map((texto, i) => ({ texto, isCorrect: i === q.resposta_correta }));
-                    return { ...q, alternativas: shuffle(alternativas) };
-                });
-                loadQuestion(); 
+        fetch('/api/quiz/' + quizId).then(r => r.json()).then(data => { 
+            let p = data.perguntas.map((q, idx) => ({ ...q, original_idx: idx }));
+            perguntasSorteadas = shuffle(p).slice(0, 10);
+            perguntasSorteadas = perguntasSorteadas.map(q => {
+                let alt = q.alternativas.map((texto, i) => ({ texto, isCorrect: i === q.resposta_correta }));
+                return { ...q, alternativas: shuffle(alt) };
             });
+            loadQuestion(); 
+        });
 
         function loadQuestion() {
             if(currentQuestion >= perguntasSorteadas.length) { endGame(); return; }
@@ -130,7 +76,7 @@
             document.getElementById('question-box').innerText = q.texto;
             
             const btnClasses = ['btn-a', 'btn-b', 'btn-x', 'btn-y'];
-            const btnLetters = ['A', 'B', 'X', 'Y'];
+            const btnLetters = ['A | ✖', 'B | ⭕', 'X | 🟦', 'Y | 🔺'];
             
             let html = '';
             q.alternativas.forEach((alt, index) => {
@@ -144,78 +90,36 @@
 
         function checkAnswer(index, isCorrect) {
             if(waitingNext || isGameOver) { if(waitingNext) loadQuestion(); return; }
-            
             const optEl = document.getElementById(`opt-${index}`);
             if(optEl.classList.contains('wrong')) return;
 
             if(isCorrect) {
                 playSound('correct'); optEl.classList.add('correct');
-                
-                if(errorsInCurrent === 0) { 
-                    stars += 3; acertos++; combo++; 
-                    // Salva a pergunta como dominada se ele acertou na primeira tentativa!
-                    masteredQuestions.push(perguntasSorteadas[currentQuestion].original_idx);
-                } 
-                else if(errorsInCurrent === 1) { 
-                    stars += 1; acertos++; combo = 0; 
-                }
-                
-                document.getElementById('stars').innerText = stars;
-                document.getElementById('combo').innerText = combo;
+                if(errorsInCurrent === 0) { stars += 3; acertos++; combo++; masteredQuestions.push(perguntasSorteadas[currentQuestion].original_idx); } 
+                else if(errorsInCurrent === 1) { stars += 1; acertos++; combo = 0; }
+                document.getElementById('stars').innerText = stars; document.getElementById('combo').innerText = combo;
                 document.getElementById('feedback').innerText = "Certo! Pressione qualquer botão p/ avançar.";
                 waitingNext = true; currentQuestion++;
             } else {
                 playSound('wrong'); optEl.classList.add('wrong');
-                errorsInCurrent++; errosTotal++; combo = 0;
-                document.getElementById('combo').innerText = combo;
-                
-                if(errorsInCurrent >= 2) {
-                    playSound('damage'); document.getElementById('feedback').innerText = "Errou 2 vezes! Pulando para a próxima...";
-                    waitingNext = true; currentQuestion++;
-                } else {
-                    document.getElementById('feedback').innerText = perguntasSorteadas[currentQuestion].dica_erro || "Tente outra!";
-                }
+                errorsInCurrent++; errosTotal++; combo = 0; document.getElementById('combo').innerText = combo;
+                if(errorsInCurrent >= 2) { document.getElementById('feedback').innerText = "Errou 2 vezes! Pulando para a próxima..."; waitingNext = true; currentQuestion++; } 
+                else { document.getElementById('feedback').innerText = perguntasSorteadas[currentQuestion].dica_erro || "Tente outra!"; }
             }
         }
 
         function endGame() {
-            isGameOver = true;
-            document.getElementById('q-counter').innerText = "FIM";
-            document.getElementById('question-box').innerHTML = "STATUS DA MISSÃO";
-            
-            let message = ""; let newRecord = false;
+            isGameOver = true; document.getElementById('q-counter').innerText = "FIM"; document.getElementById('question-box').innerHTML = "STATUS DA MISSÃO";
+            let msg = ""; 
+            if(stars > highScore) { highScore = stars; msg = "<br><span class='highlight'>NOVO RECORDE GLOBAL!</span><br>"; } else { msg = "<br>Fim de jogo. Tente bater seu recorde!<br>"; }
 
-            if(stars > highScore) {
-                highScore = stars; newRecord = true;
-            }
-
-            // Sempre faz o POST para gravar as perguntas dominadas na sessão, mesmo que não bata o recorde de estrelas
-            fetch('/api/score/' + quizId, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ score: stars, correct_ids: masteredQuestions })
-            });
-
-            if(acertos === perguntasSorteadas.length && errosTotal === 0) {
-                message = "<img src='/static/vitoria.png' class='victory-img' alt='VITÓRIA ROYALE'><br><span class='highlight'>#1 VITÓRIA ROYALE!</span><br>Você zerou esse jogo sem tomar dano!<br>";
-                playSound('victory'); confetti({ particleCount: 150, spread: 180, origin: { y: 0.6 } });
-            } else if (newRecord) {
-                message = "<br><span class='highlight'>NOVO RECORDE GLOBAL!</span><br>Você está no caminho, continue treinando!<br>";
-            } else {
-                message = "<br>Fim de jogo. Tente bater seu recorde!<br>";
-            }
+            fetch('/api/score/' + quizId, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ score: stars, correct_ids: masteredQuestions }) });
 
             document.getElementById('options-box').innerHTML = `
-                ${message}
-                <div class="score-line">
-                    ✔️ Acertos: ${acertos} &nbsp;|&nbsp; ❌ Erros: ${errosTotal} &nbsp;|&nbsp; ⭐ Pontos: ${stars}
-                </div>
-                <div class="btn-end" id="btn-refazer" onclick="location.reload()">
-                    <span class="btn-xbox btn-a">A</span> REFAZER
-                </div>
-                <div class="btn-end" id="btn-voltar" onclick="window.location.href='/'">
-                    <span class="btn-xbox btn-b">B</span> VOLTAR
-                </div>
+                ${msg}
+                <div class="score-line">✔️ Acertos: ${acertos} &nbsp;|&nbsp; ❌ Erros: ${errosTotal} &nbsp;|&nbsp; ⭐ Pontos: ${stars}</div>
+                <div class="btn-end" onclick="location.reload()"><span class="btn-xbox btn-a">A | ✖</span> REFAZER</div>
+                <div class="btn-end" onclick="window.location.href='/'"><span class="btn-xbox btn-b">B | ⭕</span> VOLTAR</div>
             `;
             document.getElementById('feedback').innerText = "";
         }
