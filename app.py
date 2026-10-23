@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for, s
 import os, json, psycopg2
 from dotenv import load_dotenv
 
-load_dotenv() # Carrega senhas locais sem expor no código
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = 'senha_secreta_retro_16bits'
@@ -21,22 +21,34 @@ def add_header(response):
 def index():
     conn = get_db_connection()
     c = conn.cursor()
+    
+    # Visitas Totais
     c.execute("UPDATE site_stats SET stat_value = stat_value + 1 WHERE stat_name = 'visits' RETURNING stat_value")
     row_visits = c.fetchone()
     visits = row_visits[0] if row_visits else 0
+    
+    # Visitas Hoje
+    c.execute("INSERT INTO daily_visits (visit_date, visits) VALUES (CURRENT_DATE, 1) ON CONFLICT (visit_date) DO UPDATE SET visits = daily_visits.visits + 1 RETURNING visits")
+    row_today = c.fetchone()
+    visits_today = row_today[0] if row_today else 0
 
     if request.method == 'POST':
         nome = request.form.get('player_name', '').strip().upper()
-        if nome: session['player_name'] = nome
+        ctrl = request.form.get('controller_type', 'xbox')
+        if nome: 
+            session['player_name'] = nome
+            session['controller'] = ctrl
         c.close()
         conn.close()
         return redirect(url_for('index'))
 
     player_name = session.get('player_name')
+    controller = session.get('controller', 'xbox')
+    
     if not player_name:
         c.close()
         conn.close()
-        return render_template('index.html', player_name=None, quizzes=[], visits=visits)
+        return render_template('index.html', player_name=None, quizzes=[], visits=visits, visits_today=visits_today)
 
     c.execute('SELECT quiz_id, highscore FROM scores WHERE player_name = %s', (player_name,))
     scores_dict = {row[0]: row[1] for row in c.fetchall()}
@@ -63,7 +75,7 @@ def index():
                             'total': len(data.get('perguntas', []))
                         })
                 except Exception: pass
-    return render_template('index.html', player_name=player_name, quizzes=quizzes, visits=visits)
+    return render_template('index.html', player_name=player_name, quizzes=quizzes, visits=visits, visits_today=visits_today, controller=controller)
 
 @app.route('/leaderboard')
 def leaderboard():
@@ -79,17 +91,17 @@ def leaderboard():
     ranking = c.fetchall()
     c.close()
     conn.close()
-    return render_template('leaderboard.html', ranking=ranking)
+    return render_template('leaderboard.html', ranking=ranking, controller=session.get('controller', 'xbox'))
 
 @app.route('/logout')
 def logout():
-    session.pop('player_name', None)
+    session.clear()
     return redirect(url_for('index'))
 
 @app.route('/quiz/<quiz_id>')
 def quiz_page(quiz_id):
     if 'player_name' not in session: return redirect(url_for('index'))
-    return render_template('quiz.html', quiz_id=quiz_id)
+    return render_template('quiz.html', quiz_id=quiz_id, controller=session.get('controller', 'xbox'))
 
 @app.route('/api/quiz/<quiz_id>')
 def get_quiz(quiz_id):
