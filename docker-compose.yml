@@ -1,0 +1,12 @@
+version: '3'
+services:
+  quiz-app:
+    build: .
+    container_name: quiz_icaro
+    restart: unless-stopped
+    ports:
+      - "8090:5000"
+    volumes:
+      - ./quizzes:/app/quizzes
+      - ./templates:/app/templates
+      - ./static:/app/static

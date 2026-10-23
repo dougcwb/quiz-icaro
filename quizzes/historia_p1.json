@@ -1,0 +1,172 @@
+{
+  "id": "historia_p1",
+  "titulo": "Indígenas, Portugueses e Africanos",
+  "materia": "História",
+  "perguntas": [
+    {
+      "texto": "Antes da chegada dos portugueses em 1500, quem já habitava as terras que hoje chamamos de Brasil?",
+      "alternativas": [
+        "Apenas animais selvagens.",
+        "Os povos indígenas, divididos em diversas nações.",
+        "Os africanos bantos e iorubás.",
+        "Os espanhóis e os ingleses."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "O Brasil não estava vazio. Milhões de pessoas já viviam aqui, formando várias nações diferentes."
+    },
+    {
+      "texto": "Sobre os povos indígenas antes de 1500, é correto afirmar que:",
+      "alternativas": [
+        "Formavam um único povo, falando a mesma língua tupi.",
+        "Não tinham cultura própria, aprendendo tudo com os europeus.",
+        "Tinham línguas, costumes e crenças muito diferentes uns dos outros.",
+        "Já construíam grandes cidades de pedra e asfalto."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Havia uma enorme diversidade. Eram centenas de povos com línguas e costumes totalmente variados."
+    },
+    {
+      "texto": "Qual era a relação dos indígenas com a natureza antes da chegada dos europeus?",
+      "alternativas": [
+        "Eles destruíam as florestas para vender madeira.",
+        "Eles respeitavam a natureza e retiravam apenas o necessário para sobreviver.",
+        "Eles poluíam os rios com suas indústrias.",
+        "Eles não usavam nada da natureza, compravam tudo pronto."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A natureza era vista como parte da vida deles. Eles viviam de forma sustentável, caçando e plantando apenas o necessário."
+    },
+    {
+      "texto": "Em que ano a esquadra portuguesa, comandada por Pedro Álvares Cabral, chegou às terras que hoje são o Brasil?",
+      "alternativas": [
+        "1492",
+        "1500",
+        "1822",
+        "1889"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A chegada oficial dos portugueses comandados por Cabral ocorreu no ano de 1500."
+    },
+    {
+      "texto": "Qual foi o principal objetivo dos portugueses ao explorar as novas terras?",
+      "alternativas": [
+        "Aprender as línguas e a religião dos indígenas.",
+        "Fazer turismo e descansar nas praias.",
+        "Procurar riquezas, como pau-brasil e metais preciosos.",
+        "Ajudar os indígenas a construir cidades."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "O objetivo dos europeus na época das navegações era a exploração comercial e o enriquecimento."
+    },
+    {
+      "texto": "O encontro entre indígenas e portugueses é frequentemente chamado pelos historiadores de 'desencontro'. Por quê?",
+      "alternativas": [
+        "Porque os navios portugueses se perderam e não acharam o Brasil.",
+        "Porque eles nunca chegaram a se ver pessoalmente.",
+        "Devido ao choque de culturas, interesses opostos e violência dos portugueses.",
+        "Porque os indígenas convidaram os portugueses para morar nas aldeias e eles não aceitaram."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Foi um choque violento. Eles tinham visões de mundo totalmente diferentes, e os portugueses tentaram dominar os indígenas."
+    },
+    {
+      "texto": "O que era o 'escambo' nos primeiros anos de contato entre indígenas e portugueses?",
+      "alternativas": [
+        "Uma doença trazida pelos europeus.",
+        "A troca do trabalho indígena (cortar pau-brasil) por objetos simples (facas, espelhos).",
+        "Uma festa tradicional portuguesa.",
+        "O nome do primeiro navio a chegar no Brasil."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Não havia uso de dinheiro. Os portugueses davam objetos em troca do trabalho pesado dos indígenas."
+    },
+    {
+      "texto": "Como os portugueses enxergavam a cultura dos povos indígenas?",
+      "alternativas": [
+        "Achavam que era inferior e tentaram impor a religião e os costumes europeus.",
+        "Acharam superior e começaram a viver como os indígenas.",
+        "Respeitaram totalmente e deixaram os indígenas livres.",
+        "Ignoraram os indígenas e foram embora no dia seguinte."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Os europeus se achavam superiores e usaram isso como desculpa para dominar e tentar mudar os indígenas (catequização)."
+    },
+    {
+      "texto": "A África é frequentemente confundida com um país, mas na verdade ela é:",
+      "alternativas": [
+        "Um país pequeno na Europa.",
+        "Um continente gigante, formado por dezenas de países e muitas culturas diferentes.",
+        "Uma cidade onde viviam apenas os bantos e iorubás.",
+        "Uma ilha no meio do oceano."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A África é um continente enorme. Dizer que é um país apaga a riqueza e a diferença entre seus vários povos."
+    },
+    {
+      "texto": "Sobre os povos africanos (como os Bantos e Iorubás) ANTES da chegada dos europeus, é correto afirmar:",
+      "alternativas": [
+        "Eles não tinham organização social e viviam isolados.",
+        "Eles já formavam reinos complexos, com cultura rica, comércio e cidades.",
+        "Eles não sabiam trabalhar com agricultura nem com metais.",
+        "Eles falavam apenas o idioma português."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A história da África é muito antiga. Eles tinham impérios organizados e técnicas avançadas muito antes da escravidão."
+    },
+    {
+      "texto": "Os povos Bantos e Iorubás dominavam técnicas muito importantes antes de virem ao Brasil. Uma dessas técnicas era:",
+      "alternativas": [
+        "A construção de navios espaciais.",
+        "A internet e a energia elétrica.",
+        "A metalurgia (trabalho com metais, como o ferro) e a agricultura.",
+        "O cultivo exclusivo de pau-brasil."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Esses povos eram excelentes ferreiros e agricultores, conhecimentos que foram muito explorados pelos europeus no Brasil."
+    },
+    {
+      "texto": "Como milhões de africanos vieram parar no Brasil a partir do século XVI?",
+      "alternativas": [
+        "Vieram porque queriam conhecer as praias do Brasil.",
+        "Foram contratados pelos portugueses para receber bons salários.",
+        "Foram capturados, escravizados e trazidos à força em navios negreiros.",
+        "Vieram fugindo do frio da Europa."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "A vinda foi forçada e violenta. Eles foram arrancados de suas terras para trabalhar como escravizados."
+    },
+    {
+      "texto": "As condições da viagem nos navios negreiros (também chamados de tumbeiros) eram:",
+      "alternativas": [
+        "Confortáveis e rápidas, com muita comida.",
+        "Terríveis, com superlotação, doenças, fome e muita violência.",
+        "Organizadas, cada família ficava em um quarto.",
+        "Tranquilas, pois eles vinham trabalhando nos navios."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Muitas pessoas morriam na viagem devido às condições desumanas de falta de ar, comida e higiene nos porões."
+    },
+    {
+      "texto": "No Brasil, os africanos escravizados aceitaram sua condição pacificamente?",
+      "alternativas": [
+        "Sim, eles trabalhavam tranquilos esperando o fim da escravidão.",
+        "Sim, pois recebiam terras em troca do trabalho.",
+        "Não, a resistência foi constante através de fugas, revoltas e preservação de suas culturas.",
+        "Não, eles compravam passagens de volta para a África no dia seguinte."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "A resistência existiu desde o primeiro dia. Eles lutavam, fugiam, sabotavam o trabalho e mantinham vivas suas religiões e danças."
+    },
+    {
+      "texto": "O que eram os Quilombos?",
+      "alternativas": [
+        "Fazendas onde os portugueses descansavam.",
+        "Escolas construídas para ensinar os indígenas.",
+        "Mercados onde se vendia o pau-brasil.",
+        "Comunidades formadas por escravizados que fugiam, tornando-se locais de resistência e liberdade."
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "O Quilombo dos Palmares foi o mais famoso. Eram refúgios escondidos onde eles voltavam a viver livres e plantavam seu próprio alimento."
+    }
+  ]
+}

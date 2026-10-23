@@ -1,0 +1,206 @@
+{
+  "id": "ciencias_misturas",
+  "titulo": "Misturas e Separações",
+  "materia": "Ciências",
+  "perguntas": [
+    {
+      "texto": "No café da manhã, uma barrinha de cereal (com nozes, passas e aveia) e um café coado representam, respectivamente, quais tipos de misturas?",
+      "alternativas": [
+        "Heterogênea e Homogênea.",
+        "Homogênea e Heterogênea.",
+        "Ambas são homogêneas.",
+        "Ambas são heterogêneas."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Na barrinha você vê os pedaços separados (heterogênea). No café coado, não conseguimos diferenciar as partes a olho nu (homogênea)[cite: 7]."
+    },
+    {
+      "texto": "O leite parece ser uma mistura igual em todas as partes a olho nu. No entanto, se o observarmos com um microscópio, veremos pequenas gotinhas de gordura. Portanto, o leite é:",
+      "alternativas": [
+        "Uma mistura homogênea, pois é líquido.",
+        "Uma mistura heterogênea.",
+        "Um solvente puro.",
+        "Uma mistura gasosa."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "O leite é uma mistura heterogênea composta por gotículas de gordura misturadas com água[cite: 7]."
+    },
+    {
+      "texto": "Em uma mistura homogênea de água com sal, como chamamos cada parte?",
+      "alternativas": [
+        "A água é o soluto e o sal é o solvente.",
+        "A água é o solvente e o sal é o soluto.",
+        "Ambos são solventes.",
+        "Ambos são solutos."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "O solvente é a parte que dissolve (em maior quantidade, a água), e o soluto é a parte que se dissolve (o sal)[cite: 5, 8]."
+    },
+    {
+      "texto": "A água é chamada de solvente universal. Mas o que acontece se colocarmos muitas colheres de açúcar em um copo de água, ultrapassando a quantidade limite?",
+      "alternativas": [
+        "A água muda de cor e vira um gás.",
+        "Todo o açúcar se dissolve da mesma forma.",
+        "A água congela imediatamente.",
+        "A água não dissolve todo o açúcar, e o resto fica parado no fundo do recipiente."
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "A água só pode dissolver certa quantidade de soluto. O que passa do limite não se dissolve e fica no fundo[cite: 10]."
+    },
+    {
+      "texto": "Quando misturamos óleo e vinagre, eles formam uma mistura heterogênea. Como são chamadas as partes visíveis dessa mistura?",
+      "alternativas": [
+        "Fases.",
+        "Solutos.",
+        "Gases.",
+        "Filtros."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Uma mistura heterogênea não é uniforme. Cada uma das partes visíveis (como o óleo em cima e o vinagre embaixo) é chamada de fase[cite: 9]."
+    },
+    {
+      "texto": "Por que algumas embalagens de suco natural trazem a frase 'Agite antes de beber' ou 'Agite antes de usar'?",
+      "alternativas": [
+        "Para o suco esfriar mais rápido.",
+        "Porque os ingredientes se separam e se acumulam no fundo quando ficam parados (decantação).",
+        "Porque o suco precisa criar gás antes de ser bebido.",
+        "Para mudar a cor da mistura."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Isso acontece pela decantação. Deixar a mistura parada faz uma das partes se depositar no fundo do recipiente[cite: 1]."
+    },
+    {
+      "texto": "Como é feito o processo para produzir o sal de cozinha a partir da água do mar nas salinas?",
+      "alternativas": [
+        "O sal é retirado da água com filtros de papel gigantes.",
+        "A água do mar sofre decantação em garrafas para separar o sal.",
+        "Eles usam a catação para tirar as pedras de sal do mar.",
+        "A água é levada para tanques rasos, o calor do Sol a faz evaporar e os sais se acumulam no fundo."
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "A produção usa a evaporação. O líquido vira vapor e o sólido (sal) fica no recipiente[cite: 2]."
+    },
+    {
+      "texto": "Escolher os grãos bons de feijão antes de cozinhar ou separar plástico, vidro e metal na reciclagem são exemplos de qual técnica?",
+      "alternativas": [
+        "Evaporação.",
+        "Catação.",
+        "Filtração.",
+        "Decantação."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A catação é a separação em que usamos as mãos para escolher os materiais com base no tamanho, forma ou cor[cite: 3, 6]."
+    },
+    {
+      "texto": "Nas nossas casas, muitas vezes usamos o filtro de barro para ter água limpa (filtração). O que existe no interior dele que ajuda a segurar as partículas e limpar a água?",
+      "alternativas": [
+        "Uma vela que retém as partículas sólidas.",
+        "Um imã que atrai a sujeira.",
+        "Uma hélice que agita a água.",
+        "Um aquecedor para evaporar a água."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "No interior do filtro de barro há uma peça chamada vela, que age como filtro segurando os resíduos[cite: 6]."
+    },
+    {
+      "texto": "O que pode ser feito para facilitar a dissolução de um soluto, como ao preparar gelatina em pó ou café solúvel desidratado?",
+      "alternativas": [
+        "Colocar gelo na mistura.",
+        "Aquecer a mistura (usar água quente).",
+        "Guardar no escuro.",
+        "Adicionar azeite."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Quando o soluto não se dissolve totalmente, é possível aquecer a mistura (água quente) para facilitar e acelerar a dissolução[cite: 4, 10]."
+    },
+    {
+      "texto": "O ar que respiramos, o vinagre e a manteiga são exemplos de qual tipo de mistura?",
+      "alternativas": [
+        "Misturas heterogêneas sólidas.",
+        "Misturas homogêneas, que podem ser gasosas, líquidas ou sólidas.",
+        "Misturas que não possuem solvente.",
+        "Solutos puros sem mistura."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "As misturas homogêneas podem estar em qualquer estado físico. O ar é gás, o vinagre é líquido e a manteiga é sólida[cite: 8]."
+    },
+    {
+      "texto": "Um iogurte natural é uma mistura homogênea. O que acontece se adicionarmos pedaços de frutas a ele?",
+      "alternativas": [
+        "Continua sendo homogênea, pois a fruta derrete.",
+        "A mistura estraga imediatamente.",
+        "Torna-se uma mistura heterogênea, pois conseguimos ver os componentes diferentes.",
+        "Transforma-se em um solvente universal."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Se você consegue visualizar os diferentes componentes (o iogurte e os pedaços de fruta), a mistura se torna heterogênea[cite: 7]."
+    },
+    {
+      "texto": "Se você colocar água e cubos de gelo em um copo, essa mistura é classificada como homogênea ou heterogênea?",
+      "alternativas": [
+        "Homogênea, porque é tudo feito de água.",
+        "Heterogênea, porque podemos ver duas fases diferentes (o gelo sólido e a água líquida).",
+        "É um soluto puro, não é mistura.",
+        "Homogênea, porque o gelo vai evaporar."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A mistura não é uniforme. Você consegue ver as partes visíveis, caracterizando duas fases diferentes[cite: 9]."
+    },
+    {
+      "texto": "O que é o Mar Morto e por que ele forma faixas brancas de sal na beirada?",
+      "alternativas": [
+        "É um mar feito apenas de sal, sem água.",
+        "É um lago onde o calor dissolveu todo o sal invisivelmente.",
+        "É um lago no Oriente Médio com quantidade de sais acima do que a água é capaz de dissolver.",
+        "É um mar que passou por filtração."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "A água tem um limite para dissolver solutos. O Mar Morto tem tanto sal que ultrapassa a capacidade de dissolução da água, acumulando sal[cite: 10]."
+    },
+    {
+      "texto": "O que acontece se derrubarmos refrigerante ou suco açucarado no chão e deixarmos lá por muito tempo?",
+      "alternativas": [
+        "Ocorre a decantação: o açúcar afunda no chão.",
+        "Ocorre a filtração: o chão absorve o açúcar.",
+        "Ocorre a evaporação: o líquido seca e o açúcar permanece, deixando tudo pegajoso.",
+        "Ocorre a catação: os insetos separam o açúcar."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "O líquido se transforma em vapor (evaporação) e deixa o componente sólido (açúcar) para trás[cite: 2]."
+    },
+    {
+      "texto": "Nas estações de tratamento de água, que processo ajuda a remover partículas pesadas de sujeira, como areia e lodo, deixando-as ir para o fundo?",
+      "alternativas": [
+        "Decantação.",
+        "Evaporação.",
+        "Catação.",
+        "Dissolução."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Deixar a mistura parada para as partes pesadas irem para o fundo é o princípio da decantação[cite: 1]."
+    },
+    {
+      "texto": "Ao preparar um achocolatado em pó e deixá-lo em repouso por um tempo, o pó se concentra no fundo do copo. Qual é o nome desse processo?",
+      "alternativas": [
+        "Evaporação.",
+        "Decantação.",
+        "Filtração.",
+        "Solubilidade."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Assim como o suco natural, quando uma mistura fica parada e a parte sólida se deposita no fundo, ocorre a decantação[cite: 1]."
+    },
+    {
+      "texto": "Para separar a borra (pó) do café líquido, usamos um papel específico. Qual método de separação é esse?",
+      "alternativas": [
+        "Catação.",
+        "Evaporação.",
+        "Filtração.",
+        "Decantação."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Passar a mistura por um meio que segura as partes sólidas (o pó) e deixa passar o líquido é o método de filtração[cite: 6]."
+    }
+    
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "portugues_p1",
+  "titulo": "Ortografia e Gramática",
+  "materia": "Português",
+  "perguntas": [
+    {
+      "texto": "A sílaba tônica é a sílaba pronunciada com mais força na palavra. Qual é a sílaba tônica da palavra 'CAVALO'?",
+      "alternativas": [
+        "CA",
+        "VA",
+        "LO",
+        "Todas têm a mesma força."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Para achar a sílaba tônica, finja que está chamando a palavra no portão: 'Cavaaaaalooo!'. A sílaba que se alonga é a mais forte."
+    },
+    {
+      "texto": "As palavras em que a penúltima sílaba é a mais forte são chamadas de Paroxítonas. Qual das palavras abaixo é paroxítona e recebe acento?",
+      "alternativas": [
+        "Fácil",
+        "Café",
+        "Lâmpada",
+        "Computador"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Fá-cil. A penúltima sílaba é forte e ela termina em L, por isso tem acento. Café é oxítona, e lâmpada é proparoxítona."
+    },
+    {
+      "texto": "Qual das alternativas abaixo tem a escrita CORRETA usando 'lh' ou 'li'?",
+      "alternativas": [
+        "Familha",
+        "Brasilha",
+        "Família",
+        "Utensílho"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Muitas palavras enganam na hora de falar. O correto é Fa-mí-li-a e Bra-sí-li-a, com 'li'."
+    },
+    {
+      "texto": "Complete com Lh ou Li: 'Na feira, compramos uma sanda____a nova e muito a____o para o jantar.'",
+      "alternativas": [
+        "lh - lh",
+        "li - lh",
+        "li - li",
+        "lh - li"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "As palavras corretas são sanda-LI-a e a-LHO."
+    },
+    {
+      "texto": "As terminações -ram e -rão causam confusão. A palavra 'comerão' (com rão) indica que a ação:",
+      "alternativas": [
+        "Já aconteceu (Passado).",
+        "Vai acontecer (Futuro).",
+        "Está acontecendo agora (Presente).",
+        "Nunca vai acontecer."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Verbos terminados em '-rão' indicam o futuro. Eles comerão a pizza amanhã."
+    },
+    {
+      "texto": "Complete as frases: 'Ontem os meninos (jogaram/jogarão) bola. Amanhã eles (viajaram/viajarão) para a praia.'",
+      "alternativas": [
+        "jogarão - viajarão",
+        "jogaram - viajaram",
+        "jogarão - viajaram",
+        "jogaram - viajarão"
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "'-ram' (sem til) é para o passado (ontem). '-rão' (com til) é para o futuro (amanhã)."
+    },
+    {
+      "texto": "O que é um encontro vocálico?",
+      "alternativas": [
+        "O encontro de duas consoantes na mesma palavra.",
+        "O uso do acento agudo e circunflexo na mesma frase.",
+        "O encontro de duas ou mais vogais em uma palavra.",
+        "A sílaba mais fraca de uma palavra."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Vogais são A, E, I, O, U. O encontro delas (como em cOUro, pEIxe) é o encontro vocálico."
+    },
+    {
+      "texto": "Na palavra 'CAIXA' (CAI - XA), as vogais A e I ficam juntas na mesma sílaba. Como chamamos esse tipo de encontro vocálico?",
+      "alternativas": [
+        "Ditongo",
+        "Tritongo",
+        "Hiato",
+        "Encontro consonantal"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Di = Dois. Quando duas vogais ficam juntas na mesma sílaba, temos um ditongo."
+    },
+    {
+      "texto": "Qual regra é verdadeira para a grande maioria das palavras terminadas em -agem, -igem e -ugem (exemplo: viagem, coragem)?",
+      "alternativas": [
+        "São escritas com a letra J.",
+        "São escritas com a letra G.",
+        "Sempre recebem acento agudo.",
+        "São sempre palavras no plural."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Substantivos terminados em -agem, -igem, -ugem são escritos com G (coragem, vertigem, ferrugem)."
+    },
+    {
+      "texto": "Qual destas palavras está escrita de forma ERRADA?",
+      "alternativas": [
+        "Viagem",
+        "Penugem",
+        "Corajem",
+        "Mensagem"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Lembre-se da regra: palavras terminadas com esse som são escritas com G. O correto é CoraGem."
+    },
+    {
+      "texto": "Em relação às palavras terminadas em -ansa e -ança, qual dupla está escrita de forma CORRETA?",
+      "alternativas": [
+        "Dança e Balança",
+        "Dansa e Balansa",
+        "Dança e Balansa",
+        "Dansa e Balança"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Substantivos derivados de verbos geralmente usam o 'ça'. (Dança vem de dançar, balança vem de balançar)."
+    },
+    {
+      "texto": "Complete a frase: 'A ________ é a última que morre, mas ele não se _________ de tentar.'",
+      "alternativas": [
+        "esperansa - cansa",
+        "esperança - cança",
+        "esperansa - cança",
+        "esperança - cansa"
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "A regra prática diz: o substantivo 'esperança' é com ç, e o verbo 'cansar' (e suas formas como 'cansa') é com s."
+    },
+    {
+      "texto": "Leia a frase: 'Eu chamei o Pedro, mas ele não ME escutou'. Qual palavra da frase é um pronome pessoal oblíquo?",
+      "alternativas": [
+        "Eu",
+        "Pedro",
+        "Ele",
+        "ME"
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "'Eu' e 'Ele' são pronomes pessoais do caso reto. O 'ME' é um pronome oblíquo, que recebe a ação de escutar."
+    },
+    {
+      "texto": "Leia a frase: 'O céu escureceu de repente, os pássaros se esconderam e Maria abriu o guarda-chuva.' O que podemos entender (interpretar) dessa cena?",
+      "alternativas": [
+        "Maria vai dormir porque anoiteceu.",
+        "Os pássaros gostam de brincar de esconde-esconde.",
+        "Vai começar a chover forte.",
+        "Maria vai tomar sol na praia."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Interpretação textual é juntar as pistas do texto. Céu escuro + animais se escondendo + guarda-chuva aberto = tempestade chegando."
+    },
+    {
+      "texto": "A palavra 'MÉDICO' tem a sílaba tônica na antepenúltima sílaba (MÉ). Por isso, ela é uma palavra:",
+      "alternativas": [
+        "Oxítona",
+        "Paroxítona",
+        "Proparoxítona",
+        "Monossílaba"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Última = Oxítona (Café). Penúltima = Paroxítona (Cadeira). Antepenúltima = Proparoxítona (Médico). Dica: toda proparoxítona tem acento!"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "ingles_p1",
+  "titulo": "Habits, Months and Tech",
+  "materia": "Inglês",
+  "perguntas": [
+    {
+      "texto": "Como dizemos 'Eu escovo meus dentes' em inglês?",
+      "alternativas": [
+        "I wash my face.",
+        "I brush my teeth.",
+        "I do my homework.",
+        "I take a shower."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "'Brush' significa escovar e 'teeth' significa dentes. 'Wash my face' é lavar o rosto."
+    },
+    {
+      "texto": "Qual destas ações (habits) nós normalmente fazemos 'at night' (à noite)?",
+      "alternativas": [
+        "Go to school.",
+        "Have breakfast.",
+        "Go to bed.",
+        "Wake up."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "'Go to bed' significa ir para a cama/dormir. As outras ações são feitas de manhã (morning)."
+    },
+    {
+      "texto": "O que significa a frase 'I have breakfast'?",
+      "alternativas": [
+        "Eu tomo café da manhã.",
+        "Eu almoço.",
+        "Eu janto.",
+        "Eu vou para a escola."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Breakfast é a primeira refeição do dia (café da manhã). Almoço é 'lunch' e jantar é 'dinner'."
+    },
+    {
+      "texto": "Qual é o primeiro mês do ano em inglês?",
+      "alternativas": [
+        "February",
+        "March",
+        "January",
+        "December"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Janeiro em inglês se escreve January."
+    },
+    {
+      "texto": "The month after October is... (O mês depois de outubro é...)",
+      "alternativas": [
+        "September",
+        "November",
+        "December",
+        "August"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "A ordem correta no fim do ano é: September, October, November, December."
+    },
+    {
+      "texto": "Como escrevemos os números ordinais 1º, 2º e 3º em inglês?",
+      "alternativas": [
+        "One, Two, Three",
+        "First, Second, Third",
+        "Eleven, Twelve, Thirteen",
+        "Ten, Twenty, Thirty"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "'One, two, three' são números normais (cardinais). Para ordem (primeiro, segundo, terceiro), usamos First, Second e Third."
+    },
+    {
+      "texto": "Qual é a forma correta de escrever 10º (décimo) em inglês?",
+      "alternativas": [
+        "Ten",
+        "Tenth",
+        "Eleventh",
+        "Twelfth"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Para a maioria dos números ordinais em inglês, basta adicionar 'th' no final. Ten vira Tenth."
+    },
+    {
+      "texto": "Complete a frase com a preposição correta: 'My birthday is _____ May.' (Meu aniversário é em maio).",
+      "alternativas": [
+        "on",
+        "at",
+        "in",
+        "of"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Usamos 'IN' antes de meses do ano sozinhos (in May, in December)."
+    },
+    {
+      "texto": "Complete a frase com a preposição correta para datas completas: 'The test is _____ October 25th.'",
+      "alternativas": [
+        "in",
+        "on",
+        "at",
+        "by"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Quando temos o mês E o dia (data completa) ou dias da semana, usamos sempre 'ON' (on October 25th, on Monday)."
+    },
+    {
+      "texto": "Complete: '_____ a computer on the desk.' (Há um computador na mesa).",
+      "alternativas": [
+        "There is",
+        "There are",
+        "They is",
+        "There am"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Usamos 'There is' quando estamos falando de apenas UMA coisa (singular). 'A computer' é apenas um."
+    },
+    {
+      "texto": "Complete: '_____ three cellphones in the box.' (Há três celulares na caixa).",
+      "alternativas": [
+        "There is",
+        "There are",
+        "This is",
+        "That are"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Usamos 'There are' quando estamos falando de DUAS ou mais coisas (plural). 'Three cellphones' é plural."
+    },
+    {
+      "texto": "Como escrevemos o número 50 (cinquenta) em inglês?",
+      "alternativas": [
+        "Fifteen",
+        "Five",
+        "Fifty",
+        "Five zero"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Cuidado para não confundir: Fifteen é 15. Fifty é 50 (os números redondos das dezenas terminam em 'ty')."
+    },
+    {
+      "texto": "Como escrevemos o número 100 em inglês?",
+      "alternativas": [
+        "One thousand",
+        "One hundred",
+        "Ten ten",
+        "One million"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "'Hundred' significa centena. Então 100 é 'One hundred'. 'Thousand' significa mil."
+    },
+    {
+      "texto": "Qual é a forma NEGATIVA correta de 'There is'?",
+      "alternativas": [
+        "There is not (There isn't)",
+        "There are not (There aren't)",
+        "There no",
+        "Not there is"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Para fazer a negativa no singular, basta colocar o 'not' depois do verbo: There is not (que podemos juntar como There isn't)."
+    },
+    {
+      "texto": "Se você quiser perguntar 'Há um tablet na mochila?', como a frase deve começar?",
+      "alternativas": [
+        "There is a tablet...",
+        "Are there a tablet...",
+        "Is there a tablet...",
+        "There are a tablet..."
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Em inglês, para fazer uma pergunta com 'There is', nós invertemos a ordem e colocamos o 'Is' na frente: 'Is there...?'"
+    }
+  ]
+}

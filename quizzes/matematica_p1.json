@@ -1,0 +1,172 @@
+{
+  "id": "matematica_p1",
+  "titulo": "Frações, Decimais e Dinheiro",
+  "materia": "Matemática",
+  "perguntas": [
+    {
+      "texto": "Uma pizza foi dividida em 8 pedaços iguais. O Ícaro comeu 3 pedaços. Qual fração representa a parte da pizza que ele comeu?",
+      "alternativas": [
+        "8/3 (oito terços)",
+        "3/8 (três oitavos)",
+        "1/8 (um oitavo)",
+        "5/8 (cinco oitavos)"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "O número de baixo (denominador) é o total de pedaços. O número de cima (numerador) é a quantidade que foi comida."
+    },
+    {
+      "texto": "Como se lê corretamente a fração 1/10?",
+      "alternativas": [
+        "Um dez",
+        "Dez unidades",
+        "Um décimo",
+        "Um e dez"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Quando o número 10 está na parte de baixo da fração, lemos como 'décimo'."
+    },
+    {
+      "texto": "Qual é a fração que representa 'dois quintos'?",
+      "alternativas": [
+        "5/2",
+        "2/5",
+        "2/10",
+        "5/5"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "O primeiro número (dois) fica em cima. O 'quintos' indica que o número 5 fica embaixo."
+    },
+    {
+      "texto": "Qual fração representa a 'metade' de uma barra de chocolate?",
+      "alternativas": [
+        "1/4",
+        "2/3",
+        "1/2",
+        "2/1"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "A metade significa dividir algo inteiro (1) em duas partes (2), ou seja, 1/2."
+    },
+    {
+      "texto": "Como escrevemos o número decimal 'três inteiros e cinco centésimos' usando algarismos?",
+      "alternativas": [
+        "3,5",
+        "3,50",
+        "35,0",
+        "3,05"
+      ],
+      "resposta_correta": 3,
+      "dica_erro": "Centésimo significa que há duas casas depois da vírgula. O 3,5 seria 'cinco décimos'."
+    },
+    {
+      "texto": "O que o número 0,7 representa?",
+      "alternativas": [
+        "Sete inteiros",
+        "Sete décimos",
+        "Sete centésimos",
+        "Sete milésimos"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Quando há apenas um número depois da vírgula, chamamos de décimo."
+    },
+    {
+      "texto": "Qual destes números decimais é o maior?",
+      "alternativas": [
+        "2,1",
+        "1,9",
+        "2,05",
+        "1,99"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Olhe primeiro para a parte inteira (antes da vírgula). Se empatar, compare o primeiro número depois da vírgula (os décimos). 2,1 é maior que 2,05."
+    },
+    {
+      "texto": "Na comparação entre 0,4 e 0,35, qual afirmação está correta?",
+      "alternativas": [
+        "0,35 é maior, porque 35 é maior que 4.",
+        "0,4 é maior, porque 4 décimos (0,40) é mais que 35 centésimos.",
+        "Os dois têm o mesmo valor.",
+        "Não é possível comparar."
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Para comparar melhor, iguale as casas decimais adicionando um zero: compare 0,40 com 0,35."
+    },
+    {
+      "texto": "Resolva a adição de números decimais: 2,4 + 1,5 = ?",
+      "alternativas": [
+        "3,9",
+        "4,9",
+        "3,1",
+        "3,09"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Coloque vírgula embaixo de vírgula na hora de somar. 4 + 5 = 9 e 2 + 1 = 3."
+    },
+    {
+      "texto": "Resolva a subtração de números decimais: 5,0 - 2,3 = ?",
+      "alternativas": [
+        "3,3",
+        "2,7",
+        "3,7",
+        "2,3"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Coloque vírgula embaixo de vírgula. O 0 precisa 'emprestar' do 5, virando 10. 10 menos 3 é 7. O 5 virou 4, e 4 menos 2 é 2."
+    },
+    {
+      "texto": "Como representamos o valor de 'sete reais e oito centavos' em números?",
+      "alternativas": [
+        "R$ 7,80",
+        "R$ 78,00",
+        "R$ 7,08",
+        "R$ 0,78"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Centavos sempre ocupam duas casas depois da vírgula. R$ 7,80 seria sete reais e oitenta centavos."
+    },
+    {
+      "texto": "O Ícaro comprou um brinquedo que custava R$ 13,50. Ele pagou com uma nota de R$ 20,00. Quanto ele recebeu de troco?",
+      "alternativas": [
+        "R$ 7,50",
+        "R$ 6,50",
+        "R$ 6,00",
+        "R$ 7,00"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "Faça a conta de menos: R$ 20,00 - R$ 13,50. Cuidado com os 'empréstimos' na hora de subtrair."
+    },
+    {
+      "texto": "Se você tem 3 notas de R$ 2,00 e 4 moedas de R$ 0,50, quanto dinheiro você tem no total?",
+      "alternativas": [
+        "R$ 6,50",
+        "R$ 8,00",
+        "R$ 10,00",
+        "R$ 7,00"
+      ],
+      "resposta_correta": 1,
+      "dica_erro": "3 notas de 2 reais dão 6 reais. 4 moedas de 50 centavos formam 2 reais. 6 + 2 = 8."
+    },
+    {
+      "texto": "João tem R$ 15,20 e Maria tem R$ 4,80. Se eles juntarem o dinheiro para comprar um jogo, qual será o valor total?",
+      "alternativas": [
+        "R$ 19,00",
+        "R$ 19,80",
+        "R$ 20,00",
+        "R$ 20,20"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "Some vírgula embaixo de vírgula: 20 centavos com 80 centavos forma 1 real inteiro (100 centavos)."
+    },
+    {
+      "texto": "Quantas moedas de 25 centavos são necessárias para formar exatamente R$ 1,50?",
+      "alternativas": [
+        "4 moedas",
+        "5 moedas",
+        "6 moedas",
+        "7 moedas"
+      ],
+      "resposta_correta": 2,
+      "dica_erro": "4 moedas de 25 centavos formam R$ 1,00. Depois, você precisa de mais 2 moedas de 25 centavos para formar os R$ 0,50 restantes."
+    }
+  ]
+}

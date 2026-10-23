@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mundo de Estudos</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'VT323', monospace; 
+            background: #000 url('/static/fundo_menu.png') no-repeat center center fixed; 
+            background-size: cover;
+            color: white; 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            border: 4px solid #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            max-width: 700px;
+            width: 90%;
+            transition: opacity 1.5s ease-in-out; 
+            opacity: 1;
+        }
+        h1 { 
+            font-size: 52px; 
+            color: #00e5ff; 
+            text-shadow: 3px 3px 0 #000;
+            margin-top: 0;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .btn { 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 550px;
+            padding: 12px 20px; 
+            background: #222; 
+            color: white; 
+            text-decoration: none; 
+            border: 3px solid #555; 
+            border-radius: 8px; 
+            font-size: 28px; 
+            transition: 0.2s; 
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        /* Centraliza os estilos de foco na classe active-item */
+        .btn.active-item, .btn:hover { 
+            background: #444; 
+            border-color: #00e5ff; 
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00e5ff;
+        }
+        
+        /* Oculta o botão A por padrão e exibe apenas no hover/foco */
+        .btn .hint-a { display: none; margin-right: 15px; }
+        .btn.active-item .hint-a, .btn:hover .hint-a { display: inline-block; }
+
+        .score-badge { 
+            display: block; 
+            margin-top: 5px; 
+            font-size: 20px; 
+            color: #f8db00; 
+        }
+
+        /* Modal Secreto */
+        #reset-modal {
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.9); 
+            z-index: 999; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column;
+        }
+        .modal-box { background: #111; padding: 40px; border: 4px solid red; border-radius: 12px; text-align: center; }
+        .modal-title { color: red; font-size: 40px; margin-bottom: 30px; text-shadow: 2px 2px 0px #000; }
+        .modal-buttons { display: flex; gap: 30px; justify-content: center; }
+        
+        .btn-end { display: inline-block; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px;}
+        
+        /* Botões Xbox e ombro (Shoulders) */
+        .btn-xbox { display: inline-block; width: 32px; height: 32px; line-height: 34px; text-align: center; border-radius: 50%; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; margin-right: 15px; font-size: 18px; flex-shrink: 0; box-shadow: 2px 2px 0 #000; }
+        .btn-a { background-color: #28a745; } 
+        .btn-b { background-color: #dc3545; color: #fff; border-color: #fff; } 
+        .btn-shoulder { background-color: #555; color: #fff; border-color: #fff; margin: 0 15px; border-radius: 6px; width: 40px; height: 36px; line-height: 38px; } 
+    </style>
+</head>
+<body>
+    <div class="container" id="main-container">
+        <h1>
+            <span class="btn-xbox btn-shoulder">L</span> 
+            ESCOLHA A DISCIPLINA 
+            <span class="btn-xbox btn-shoulder">R</span>
+        </h1>
+        <div class="menu-list">
+            {% for q in quizzes %}
+                <a href="/quiz/{{ q.id }}" class="btn">
+                    <span class="btn-xbox btn-a hint-a">A</span>
+                    <div>
+                        {{ q.materia }}: {{ q.titulo }}
+                        <span class="score-badge">⭐ Recorde: {{ q.highscore }} &nbsp;|&nbsp; 🏆 Progresso: {{ q.progress }}/{{ q.total }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação Oculto -->
+    <div id="reset-modal">
+        <div class="modal-box">
+            <div class="modal-title">⚠️ ZERAR TODOS OS RECORDES? ⚠️</div>
+            <div class="modal-buttons">
+                <div class="btn-end" onclick="closeModal()"><span class="btn-xbox btn-b">B</span> CANCELAR</div>
+                <div class="btn-end" onclick="window.location.href='/reset'"><span class="btn-xbox btn-a">A</span> CONFIRMAR</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('main-container');
+        const modal = document.getElementById('reset-modal');
+        const buttons = document.querySelectorAll('.menu-list .btn');
+        let currentIndex = 0;
+        let isModalOpen = false;
+
+        // Atualizado para usar a classe .active-item e facilitar o CSS do botão (A)
+        function updateFocus() {
+            if (buttons.length === 0) return;
+            buttons.forEach((b, i) => {
+                if(i === currentIndex) {
+                    b.classList.add('active-item');
+                    b.focus(); 
+                } else {
+                    b.classList.remove('active-item');
+                }
+            });
+        }
+        if(buttons.length > 0) updateFocus();
+
+        let idleTimer;
+        function resetIdle() {
+            container.style.opacity = '1'; 
+            clearTimeout(idleTimer);
+            if(!isModalOpen) {
+                idleTimer = setTimeout(() => {
+                    container.style.opacity = '0.02';
+                }, 5000);
+            }
+        }
+        
+        window.addEventListener('mousemove', resetIdle);
+        window.addEventListener('keydown', resetIdle);
+        resetIdle(); 
+
+        const secretCode = [0, 1, 2, 3]; 
+        let inputSequence = [];
+        
+        function checkCode(btnId) {
+            inputSequence.push(btnId);
+            if(inputSequence.length > secretCode.length) inputSequence.shift(); 
+            if(inputSequence.join(',') === secretCode.join(',')) openModal();
+        }
+
+        function openModal() {
+            isModalOpen = true;
+            modal.style.display = 'flex';
+            container.style.opacity = '1';
+            clearTimeout(idleTimer);
+        }
+
+        function closeModal() {
+            isModalOpen = false;
+            modal.style.display = 'none';
+            inputSequence = [];
+            resetIdle();
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if(isModalOpen) {
+                if(e.key.toLowerCase() === 'a' || e.key === '1' || e.key === 'Enter') window.location.href = '/reset';
+                if(e.key.toLowerCase() === 'b' || e.key === '2' || e.key === 'Escape') closeModal();
+                return;
+            }
+            if(['1','2','3','4'].includes(e.key)) checkCode(parseInt(e.key)-1);
+            
+            if(e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % buttons.length;
+                updateFocus();
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+                updateFocus();
+            } else if (e.key === 'Enter') {
+                buttons[currentIndex].click();
+            }
+        });
+
+        let lastButtonState = [];
+        function updateGamepad() {
+            const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+            if(gamepads[0]) {
+                const gp = gamepads[0];
+                let activity = false;
+                for(let i=0; i < gp.buttons.length; i++) {
+                    if(gp.buttons[i].pressed && !lastButtonState[i]) {
+                        activity = true;
+                        if(isModalOpen) {
+                            if(i === 0) window.location.href = '/reset'; 
+                            if(i === 1) closeModal();                    
+                        } else {
+                            checkCode(i); 
+                            // L1 (4) ou R1 (5)
+                            if(i === 5 || i === 15 || i === 13) {
+                                currentIndex = (currentIndex + 1) % buttons.length;
+                                updateFocus();
+                            } else if (i === 4 || i === 14 || i === 12) {
+                                currentIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+                                updateFocus();
+                            } else if (i === 0) {
+                                buttons[currentIndex].click();
+                            }
+                        }
+                    }
+                    lastButtonState[i] = gp.buttons[i].pressed;
+                }
+                if(Math.abs(gp.axes[0]) > 0.2 || Math.abs(gp.axes[1]) > 0.2) activity = true;
+                if(activity) resetIdle();
+            }
+            requestAnimationFrame(updateGamepad);
+        }
+        updateGamepad();
+    </script>
+</body>
+</html>
