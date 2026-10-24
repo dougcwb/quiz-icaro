@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mundo de Estudos</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
@@ -54,6 +55,7 @@
     <div class="container" id="login-container">
         <h1>IDENTIFICAÇÃO</h1>
         <form method="POST" action="/" style="display:flex; flex-direction:column; align-items:center;">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="text" name="player_name" class="name-input" placeholder="DIGITE SEU NOME" required autofocus autocomplete="off">
             <div class="ctrl-title"><span class="btn-icon btn-shoulder" style="font-size:14px; margin:0 5px;">L</span> ESCOLHA SEU CONTROLE <span class="btn-icon btn-shoulder" style="font-size:14px; margin:0 5px;">R</span></div>
             <div class="ctrl-options">
@@ -69,7 +71,12 @@
     </div>
     {% else %}
     <div class="container" id="main-container">
-        <div class="player-info">JOGADOR: {{ player_name }} <a href="/logout">[SAIR]</a></div>
+        <div class="player-info">JOGADOR: {{ player_name }}
+            <form method="POST" action="{{ url_for('logout') }}" style="display:inline">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" style="background:none;border:0;color:inherit;font:inherit;cursor:pointer;">[SAIR]</button>
+            </form>
+        </div>
         <h1><span class="btn-icon btn-shoulder">L</span> ESCOLHA A DISCIPLINA <span class="btn-icon btn-shoulder">R</span></h1>
         <div class="menu-list">
             {% for q in quizzes %}
@@ -108,6 +115,9 @@
             </div>
         </div>
     </div>
+    <form id="reset-form" method="POST" action="" hidden>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
     {% endif %}
 
     <script>
@@ -159,7 +169,11 @@
             isModalOpen = true; modal.style.display = 'flex'; container.style.opacity = '1'; clearTimeout(idleTimer); 
         }
         function closeModal() { isModalOpen = false; modal.style.display = 'none'; inputSeq = []; resetIdle(); }
-        function confirmReset() { window.location.href = '/reset/' + currentResetId; }
+        function confirmReset() {
+            const form = document.getElementById('reset-form');
+            form.action = '/reset/' + encodeURIComponent(currentResetId);
+            form.submit();
+        }
 
         window.addEventListener('keydown', (e) => {
             if(isModalOpen) {

@@ -41,3 +41,11 @@ Para manter a interface limpa e trazer o clima de videogame antigo, as funções
 ## 🔒 Variáveis de Ambiente e Segurança
 O repositório está configurado para ocultar credenciais. Para rodar o projeto localmente, é necessário criar um arquivo `.env` na raiz contendo:
 `DATABASE_URL=postgresql://usuario:senha@host:6543/postgres`
+
+## Configuracao segura do ambiente
+
+Configure `DATABASE_URL` e `SECRET_KEY` no arquivo `.env`. Gere uma chave aleatoria com `openssl rand -hex 32`; o aplicativo nao inicia sem `SECRET_KEY`. Nunca compartilhe essa chave.
+
+Em producao, use HTTPS e mantenha `SESSION_COOKIE_SECURE=true`. Para desenvolvimento local em HTTP, defina `SESSION_COOKIE_SECURE=false` somente no `.env` local. O Docker Compose carrega as variaveis desse arquivo, e `.dockerignore` impede que ele seja copiado para a imagem.
+
+No Render, configure `DATABASE_URL` e `SECRET_KEY` como variaveis de ambiente do servico. Como o deploy usa Docker, a versao do Python e definida pela imagem no `Dockerfile`; `PYTHON_VERSION` nao altera a versao do container.

@@ -70,7 +70,7 @@
       "dica_erro": "Lembre-se das letras completas: F-e-b-r-u-a-r-y."
     },
     {
-      "texto": "Qual destas opções lista os meses de verão (férias escolares de meio de ano no Brasil) corretamente em inglês?",
+      "texto": "Quais são os dois meses em que tradicionalmente ocorrem as férias escolares de meio de ano no Brasil, escritos corretamente em inglês?",
       "alternativas": [
         "June e July.",
         "January e February.",
@@ -78,7 +78,7 @@
         "September e October."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Os meses 6 e 7 são 'June' (Junho) e 'July' (Julho)."
+      "dica_erro": "As férias de meio de ano acontecem no meio do ano (no inverno do Brasil), que correspondem aos meses 6 e 7."
     },
     {
       "texto": "Para dizer as horas em inglês, usamos qual preposição? Ex: 'I go to school ____ 7:30 a.m.'",
@@ -199,7 +199,7 @@
         "Second-ten."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O número 12 'twelve' muda um pouquinho no ordinal, ganhando um F antes do TH: twelfth."
+      "dica_erro": "O número 12 'twelve' muda um pouquinho no ordinal"
     },
     {
       "texto": "No Canadá, existem duas línguas oficiais e os alunos de Toronto podem escolher estudar ambas na escola. Quais são elas?",
