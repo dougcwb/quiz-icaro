@@ -200,7 +200,28 @@
       ],
       "resposta_correta": 2,
       "dica_erro": "Passar a mistura por um meio que segura as partes sólidas (o pó) e deixa passar o líquido é o método de filtração[cite: 6]."
+    },
+    {
+      "texto": "Raciocínio Lógico sobre Bacias: Se uma substância tóxica for derramada na nascente de um rio afluente, ela pode contaminar toda uma bacia hidrográfica até o oceano. Qual é o motivo geográfico para que isso ocorra?",
+      "alternativas": [
+        "O relevo funciona como uma rampa ou funil natural, onde a gravidade faz as águas dos afluentes descerem e se juntarem ao rio principal.",
+        "A água dos rios no Brasil corre sempre em sentido contrário, subindo da foz em direção à nascente.",
+        "A substância tóxica evapora instantaneamente formando nuvens que chovem poluindo todo o continente ao mesmo tempo.",
+        "Os agentes internos do relevo empurram rapidamente a contaminação pelos lençóis freáticos contra a correnteza."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Lembre-se de como funciona uma bacia: a água obedece à gravidade e desce do ponto mais alto (nascentes) para o mais baixo (rio principal e foz)."
+    },
+    {
+      "texto": "Análise de Agentes Modeladores: Ao observar um vale muito profundo em forma de 'V' escavado ao longo de milhares de anos e uma cratera de vulcão, que tipos de agentes da natureza atuaram ali, respectivamente?",
+      "alternativas": [
+        "Agente externo (erosão causada pela água do rio) e agente interno (erupção vulcânica).",
+        "Agente interno (terremotos contínuos) e agente externo (erosão causada pelos ventos).",
+        "Ambos são considerados agentes externos, pois modificaram a superfície visível da Terra.",
+        "Ambos são considerados agentes internos, pois o vale foi aberto pelo núcleo da Terra e o vulcão também."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A água que escava o solo vem de fora (agente externo). O magma que forma a cratera vem de dentro da Terra (agente interno)."
     }
-    
   ]
 }

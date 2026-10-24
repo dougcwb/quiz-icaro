@@ -16,8 +16,13 @@
         .name { flex: 2; text-align: left; }
         .score, .mastered { flex: 1; text-align: right; }
         
-        .btn-end { display: inline-block; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px; margin-top: 30px; }
-        .btn-xbox { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; margin-right: 15px; font-size: 18px; box-shadow: 2px 2px 0 #000; background-color: #dc3545; color: #fff; border-color: #fff;}
+        .btn-end { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px; margin-top: 30px; }
+        
+        .btn-icon { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; font-size: 18px; box-shadow: 2px 2px 0 #000; background-color: #ddd; }
+        .c-xbox-b { background-color: #dc3545; color: #fff; border-color: #fff; }
+        .c-ps-o { background-color: #dc3545; color: #fff; border-color: #fff;}
+        .c-sw-b { background-color: #ffc107; color: #111; }
+        .c-key-enter { background-color: #fff; color: #111; font-size: 14px;}
     </style>
 </head>
 <body>
@@ -40,10 +45,20 @@
     </div>
 
     <div class="btn-end" onclick="window.location.href='/'">
-        <span class="btn-xbox">B | ⭕</span> VOLTAR AO MENU
+        {% if controller == 'xbox' %}<span class="btn-icon c-xbox-b">B</span>{% endif %}
+        {% if controller == 'ps' %}<span class="btn-icon c-ps-o">⭕</span>{% endif %}
+        {% if controller == 'switch' %}<span class="btn-icon c-sw-b">B</span>{% endif %}
+        {% if controller == 'teclado' %}<span class="btn-icon c-key-enter">ESC</span>{% endif %}
+        VOLTAR AO MENU
     </div>
 
     <script>
+        const ctrl = "{{ controller|default('teclado') }}";
+        
+        // 1 para Xbox/PS (Botão Direito), 0 para Switch (Botão Inferior)
+        let idxCancel = 1;
+        if(ctrl === 'switch') { idxCancel = 0; }
+
         window.addEventListener('keydown', (e) => {
             if(e.key.toLowerCase() === 'b' || e.key === '2' || e.key === 'Escape') window.location.href = '/';
         });
@@ -53,10 +68,10 @@
             const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
             if(gamepads[0]) {
                 const gp = gamepads[0];
-                if(gp.buttons[1].pressed && !lastButtonState[1]) {
+                if(gp.buttons[idxCancel].pressed && !lastButtonState[idxCancel]) {
                     window.location.href = '/'; 
                 }
-                lastButtonState[1] = gp.buttons[1].pressed;
+                lastButtonState[idxCancel] = gp.buttons[idxCancel].pressed;
             }
             requestAnimationFrame(updateGamepad);
         }
