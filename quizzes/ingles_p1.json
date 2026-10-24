@@ -1,10 +1,10 @@
 {
   "id": "ingles",
-  "titulo": "Daily Routine & Dates",
+  "titulo": "Habits, Months & Technology",
   "materia": "Inglês",
   "perguntas": [
     {
-      "texto": "Qual é a frase correta para dizer 'Eu acordo' ou 'Eu levanto' de manhã em inglês?",
+      "texto": "Qual frase significa 'Eu me levanto de manhã' em inglês?",
       "alternativas": [
         "I get up.",
         "I take a shower.",
@@ -70,15 +70,15 @@
       "dica_erro": "Lembre-se das letras completas: F-e-b-r-u-a-r-y."
     },
     {
-      "texto": "Quais são os dois meses em que tradicionalmente ocorrem as férias escolares de meio de ano no Brasil, escritos corretamente em inglês?",
+      "texto": "Qual mês vem logo depois de June?",
       "alternativas": [
-        "June e July.",
-        "January e February.",
-        "March e April.",
-        "September e October."
+        "July.",
+        "May.",
+        "August.",
+        "January."
       ],
       "resposta_correta": 0,
-      "dica_erro": "As férias de meio de ano acontecem no meio do ano (no inverno do Brasil), que correspondem aos meses 6 e 7."
+      "dica_erro": "June é o sexto mês do ano. Pense no nome do sétimo mês."
     },
     {
       "texto": "Para dizer as horas em inglês, usamos qual preposição? Ex: 'I go to school ____ 7:30 a.m.'",
@@ -136,15 +136,15 @@
       "dica_erro": "O número três é 'three', mas o terceiro é 'third'."
     },
     {
-      "texto": "A maioria dos números ordinais em inglês termina com as letras 'th' (como fourth, seventh). Qual destes números NÃO segue essa regra?",
+      "texto": "Qual número ordinal está escrito corretamente e termina com 'st'?",
       "alternativas": [
-        "21st (Twenty-first).",
-        "15th (Fifteenth).",
-        "10th (Tenth).",
-        "25th (Twenty-fifth)."
+        "21st (twenty-first).",
+        "21nd (twenty-second).",
+        "21th (twenty-first).",
+        "21rd (twenty-third)."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O número 21 termina com 1, logo volta a ser 'primeiro' no final: twenty-first."
+      "dica_erro": "Os números ordinais terminados em 1 geralmente usam 'st', como first; 11 é uma exceção."
     },
     {
       "texto": "Como ficaria escrita por extenso a data 10/31 (31 de Outubro, o Halloween)?",
@@ -169,26 +169,26 @@
       "dica_erro": "Para os dias da semana (Monday, Tuesday...), usamos sempre a preposição 'on'."
     },
     {
-      "texto": "Traduza a frase: 'We go to school in the morning'.",
+      "texto": "Qual palavra em inglês significa 'teclado' de computador?",
       "alternativas": [
-        "Nós vamos para a escola de manhã.",
-        "Nós tomamos banho de manhã.",
-        "Eles vão para a escola à tarde.",
-        "Nós saímos da escola de manhã."
+        "Keyboard.",
+        "Screen.",
+        "Mouse.",
+        "Tablet."
       ],
       "resposta_correta": 0,
-      "dica_erro": "'We' significa nós, 'go' é ir, e 'morning' é manhã."
+      "dica_erro": "É o dispositivo com teclas usado para digitar no computador."
     },
     {
-      "texto": "Se a rotina de alguém for descrita como 'I take a shower in the afternoon', o que essa pessoa faz?",
+      "texto": "Como escrevemos o número 15 em inglês?",
       "alternativas": [
-        "Ela toma banho à tarde.",
-        "Ela toma banho de manhã.",
-        "Ela vê TV à tarde.",
-        "Ela dorme de tarde."
+        "Fifteen.",
+        "Fifty.",
+        "Five.",
+        "Fourteen."
       ],
       "resposta_correta": 0,
-      "dica_erro": "'Take a shower' significa tomar banho, e 'afternoon' é o período da tarde."
+      "dica_erro": "O número 15 vem depois de fourteen e antes de sixteen."
     },
     {
       "texto": "Como se diz o número ordinal décimo segundo (12th) em inglês?",
@@ -199,29 +199,29 @@
         "Second-ten."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O número 12 'twelve' muda um pouquinho no ordinal"
+      "dica_erro": "O ordinal de twelve tem uma forma especial: twelfth."
     },
     {
-      "texto": "No Canadá, existem duas línguas oficiais e os alunos de Toronto podem escolher estudar ambas na escola. Quais são elas?",
+      "texto": "Complete a frase para dizer que há um computador na sala: '_____ a computer in the classroom.'",
       "alternativas": [
-        "English and French (Inglês e Francês).",
-        "English and Spanish (Inglês e Espanhol).",
-        "English and Portuguese (Inglês e Português).",
-        "English and Chinese (Inglês e Chinês)."
+        "There is",
+        "There are",
+        "They are",
+        "It have"
       ],
       "resposta_correta": 0,
-      "dica_erro": "O Canadá é bilíngue, falando Inglês e a língua de seus colonizadores europeus vizinhos (Francês)."
+      "dica_erro": "Para dizer que existe uma coisa no singular, usamos 'there is'."
     },
     {
-      "texto": "Qual a melhor ordem para descrever o final do dia antes de dormir?",
+      "texto": "Complete a frase: 'There _____ three tablets in the classroom.'",
       "alternativas": [
-        "Have dinner, watch TV, go to bed.",
-        "Get up, take a shower, go to school.",
-        "Have lunch, do homework, take a shower.",
-        "Go to bed, get up, have breakfast."
+        "are",
+        "is",
+        "am",
+        "be"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Primeiro jantamos (have dinner), depois podemos ver um pouco de TV (watch TV) e só então vamos dormir (go to bed)."
+      "dica_erro": "Tablets está no plural. Para dizer que existem várias coisas, usamos 'there are'."
     }
   ]
 }

@@ -73,12 +73,12 @@
       "texto": "Qual destes números decimais é o maior?",
       "alternativas": [
         "2,1",
-        "1,9",
-        "2,05",
-        "1,99"
+        "2,01",
+        "2,09",
+        "2,05"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Olhe primeiro para a parte inteira (antes da vírgula). Se empatar, compare o primeiro número depois da vírgula (os décimos). 2,1 é maior que 2,05."
+      "dica_erro": "Escreva os números com o mesmo número de casas decimais e compare os décimos e os centésimos."
     },
     {
       "texto": "Na comparação entre 0,4 e 0,35, qual afirmação está correta?",
@@ -188,40 +188,40 @@
         "8/8"
       ],
       "resposta_correta": 0,
-      "dica_erro": "O Douglas e a Juliana juntos comeram 5/8 (3+2). Para completar a pizza inteira (8/8), sobram 3."
+      "dica_erro": "Represente a pizza inteira como 8/8. Some as partes comidas e descubra quanto falta para completar o inteiro."
     },
     {
-      "texto": "Lógica e Tempo: Um trem sai da estação de Curitiba às 08h45. A viagem até o litoral dura exatas 2 horas e 30 minutos. A que horas o trem chegará ao seu destino?",
+      "texto": "Qual número decimal representa 5 décimos e 2 centésimos?",
       "alternativas": [
-        "11h15",
-        "10h45",
-        "11h45",
-        "10h15"
+        "0,52",
+        "5,02",
+        "0,25",
+        "0,502"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Some 2 horas a 08h45 (dá 10h45). Agora some mais 30 minutos na cabeça. O relógio vira para as 11h..."
+      "dica_erro": "Coloque os décimos na primeira casa depois da vírgula e os centésimos na segunda."
     },
     {
-      "texto": "Geometria: Um campo de futebol retangular tem 40 metros de comprimento e 20 metros de largura. Se você der duas voltas completas ao redor da linha do campo, quantos metros vai correr?",
+      "texto": "Uma família comprou um caderno por R$ 8,75 e um estojo por R$ 3,20. Quanto gastou ao todo?",
       "alternativas": [
-        "240 metros",
-        "120 metros",
-        "60 metros",
-        "800 metros"
+        "R$ 11,95",
+        "R$ 11,15",
+        "R$ 10,95",
+        "R$ 12,05"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Calcule uma volta (Perímetro = 40+40+20+20 = 120m). Depois multiplique por 2 voltas."
+      "dica_erro": "Some reais com reais e centavos com centavos, mantendo a vírgula alinhada."
     },
     {
-      "texto": "Divisão Avançada: A escola recebeu 4 caixas de livros novos. Cada caixa tem 35 livros. A professora quer guardar todos esses livros distribuídos igualmente em 5 prateleiras. Quantos livros ficarão em cada prateleira?",
+      "texto": "Uma camiseta custa R$ 20,00. Se alguém pagar com uma nota de R$ 50,00, quanto receberá de troco?",
       "alternativas": [
-        "28 livros",
-        "35 livros",
-        "40 livros",
-        "20 livros"
+        "R$ 30,00",
+        "R$ 20,00",
+        "R$ 30,50",
+        "R$ 70,00"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Primeiro descubra o total de livros (4 x 35). Depois divida esse resultado por 5."
+      "dica_erro": "O troco é o valor pago menos o preço: faça 50 menos 20."
     }
   ]
 }

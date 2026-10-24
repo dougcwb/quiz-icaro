@@ -115,6 +115,11 @@
                 errorsInCurrent++; errosTotal++; combo = 0; document.getElementById('combo').innerText = combo;
                 if(errorsInCurrent >= 2) { document.getElementById('feedback').innerText = "Errou 2 vezes! Pulando para a próxima..."; waitingNext = true; currentQuestion++; } 
                 else { document.getElementById('feedback').innerText = perguntasSorteadas[currentQuestion].dica_erro || "Tente outra!"; }
+                if(errorsInCurrent >= 2) {
+                    const question = perguntasSorteadas[currentQuestion];
+                    const correctAnswer = question.alternativas.find(alternative => alternative.isCorrect).texto;
+                    document.getElementById('feedback').innerText = `A resposta correta era: ${correctAnswer}. ${question.dica_erro || ''} Pressione qualquer botão para continuar.`;
+                }
             }
         }
 

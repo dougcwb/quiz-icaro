@@ -4,7 +4,7 @@
   "materia": "Ciências",
   "perguntas": [
     {
-      "texto": "No café da manhã, uma barrinha de cereal (com nozes, passas e aveia) e um café coado representam, respectivamente, quais tipos de misturas?",
+      "texto": "Uma barrinha de cereal tem pedaços visíveis de ingredientes, mas o café coado parece uniforme. Como classificamos essas misturas, nessa ordem?",
       "alternativas": [
         "Heterogênea e Homogênea.",
         "Homogênea e Heterogênea.",
@@ -12,18 +12,18 @@
         "Ambas são heterogêneas."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na barrinha você vê os pedaços separados (heterogênea). No café coado, não conseguimos diferenciar as partes a olho nu (homogênea)[cite: 7]."
+      "dica_erro": "Na barrinha, dá para ver os ingredientes separados. No café coado, o pó foi retido pelo filtro e o líquido parece uniforme."
     },
     {
-      "texto": "O leite parece ser uma mistura igual em todas as partes a olho nu. No entanto, se o observarmos com um microscópio, veremos pequenas gotinhas de gordura. Portanto, o leite é:",
+      "texto": "Ao misturar água e óleo em um copo, conseguimos ver as duas partes separadas. Essa mistura é:",
       "alternativas": [
-        "Uma mistura homogênea, pois é líquido.",
+        "Uma mistura homogênea, pois parece igual em todo o copo.",
         "Uma mistura heterogênea.",
-        "Um solvente puro.",
-        "Uma mistura gasosa."
+        "Uma substância pura.",
+        "Uma mistura que não pode ser separada."
       ],
       "resposta_correta": 1,
-      "dica_erro": "O leite é uma mistura heterogênea composta por gotículas de gordura misturadas com água[cite: 7]."
+      "dica_erro": "A água e o óleo não se misturam por completo. Como vemos partes diferentes, a mistura é heterogênea."
     },
     {
       "texto": "Em uma mistura homogênea de água com sal, como chamamos cada parte?",
@@ -34,10 +34,10 @@
         "Ambos são solutos."
       ],
       "resposta_correta": 1,
-      "dica_erro": "O solvente é a parte que dissolve (em maior quantidade, a água), e o soluto é a parte que se dissolve (o sal)[cite: 5, 8]."
+      "dica_erro": "O solvente dissolve outra substância. Nesta mistura, a água dissolve o sal."
     },
     {
-      "texto": "A água é chamada de solvente universal. Mas o que acontece se colocarmos muitas colheres de açúcar em um copo de água, ultrapassando a quantidade limite?",
+      "texto": "A água consegue dissolver muitas substâncias, como o açúcar. O que pode acontecer se colocarmos açúcar demais em um copo?",
       "alternativas": [
         "A água muda de cor e vira um gás.",
         "Todo o açúcar se dissolve da mesma forma.",
@@ -45,7 +45,7 @@
         "A água não dissolve todo o açúcar, e o resto fica parado no fundo do recipiente."
       ],
       "resposta_correta": 3,
-      "dica_erro": "A água só pode dissolver certa quantidade de soluto. O que passa do limite não se dissolve e fica no fundo[cite: 10]."
+      "dica_erro": "A água dissolve o açúcar até certo limite. Se sobrar açúcar sem dissolver, ele pode ficar no fundo."
     },
     {
       "texto": "Quando misturamos óleo e vinagre, eles formam uma mistura heterogênea. Como são chamadas as partes visíveis dessa mistura?",
@@ -56,18 +56,18 @@
         "Filtros."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Uma mistura heterogênea não é uniforme. Cada uma das partes visíveis (como o óleo em cima e o vinagre embaixo) é chamada de fase[cite: 9]."
+      "dica_erro": "Em uma mistura heterogênea, as partes que conseguimos distinguir são chamadas de fases."
     },
     {
       "texto": "Por que algumas embalagens de suco natural trazem a frase 'Agite antes de beber' ou 'Agite antes de usar'?",
       "alternativas": [
         "Para o suco esfriar mais rápido.",
-        "Porque os ingredientes se separam e se acumulam no fundo quando ficam parados (decantação).",
+        "Porque parte da polpa pode se depositar no fundo quando o suco fica parado.",
         "Porque o suco precisa criar gás antes de ser bebido.",
         "Para mudar a cor da mistura."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Isso acontece pela decantação. Deixar a mistura parada faz uma das partes se depositar no fundo do recipiente[cite: 1]."
+      "dica_erro": "Quando deixamos uma mistura descansar, algumas partes podem se depositar no fundo. Depois, podemos separar o líquido com cuidado."
     },
     {
       "texto": "Como é feito o processo para produzir o sal de cozinha a partir da água do mar nas salinas?",
@@ -78,7 +78,7 @@
         "A água é levada para tanques rasos, o calor do Sol a faz evaporar e os sais se acumulam no fundo."
       ],
       "resposta_correta": 3,
-      "dica_erro": "A produção usa a evaporação. O líquido vira vapor e o sólido (sal) fica no recipiente[cite: 2]."
+      "dica_erro": "Com o calor do Sol, a água evapora e o sal permanece nos tanques."
     },
     {
       "texto": "Escolher os grãos bons de feijão antes de cozinhar ou separar plástico, vidro e metal na reciclagem são exemplos de qual técnica?",
@@ -89,7 +89,7 @@
         "Decantação."
       ],
       "resposta_correta": 1,
-      "dica_erro": "A catação é a separação em que usamos as mãos para escolher os materiais com base no tamanho, forma ou cor[cite: 3, 6]."
+      "dica_erro": "Na catação, separamos os componentes escolhendo-os um a um, como fazemos ao retirar pedrinhas do feijão."
     },
     {
       "texto": "Nas nossas casas, muitas vezes usamos o filtro de barro para ter água limpa (filtração). O que existe no interior dele que ajuda a segurar as partículas e limpar a água?",
@@ -100,29 +100,29 @@
         "Um aquecedor para evaporar a água."
       ],
       "resposta_correta": 0,
-      "dica_erro": "No interior do filtro de barro há uma peça chamada vela, que age como filtro segurando os resíduos[cite: 6]."
+      "dica_erro": "O filtro tem uma vela porosa que segura parte das partículas sólidas e deixa a água passar."
     },
     {
-      "texto": "O que pode ser feito para facilitar a dissolução de um soluto, como ao preparar gelatina em pó ou café solúvel desidratado?",
+      "texto": "O que significa dizer que a água é um solvente?",
       "alternativas": [
-        "Colocar gelo na mistura.",
-        "Aquecer a mistura (usar água quente).",
-        "Guardar no escuro.",
-        "Adicionar azeite."
+        "A água transforma qualquer material em água.",
+        "A água pode dissolver algumas substâncias, como sal, mas outras, como óleo, não se dissolvem nela.",
+        "A água dissolve apenas outras substâncias líquidas.",
+        "A água dissolve todos os materiais se mexermos bastante."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Quando o soluto não se dissolve totalmente, é possível aquecer a mistura (água quente) para facilitar e acelerar a dissolução[cite: 4, 10]."
+      "dica_erro": "Pense no sal, que se mistura com a água, e no óleo, que continua separado."
     },
     {
-      "texto": "O ar que respiramos, o vinagre e a manteiga são exemplos de qual tipo de mistura?",
+      "texto": "O que há em comum entre água com sal bem dissolvido, vinagre e ar?",
       "alternativas": [
         "Misturas heterogêneas sólidas.",
-        "Misturas homogêneas, que podem ser gasosas, líquidas ou sólidas.",
+        "São misturas homogêneas, com componentes distribuídos de maneira uniforme.",
         "Misturas que não possuem solvente.",
         "Solutos puros sem mistura."
       ],
       "resposta_correta": 1,
-      "dica_erro": "As misturas homogêneas podem estar em qualquer estado físico. O ar é gás, o vinagre é líquido e a manteiga é sólida[cite: 8]."
+      "dica_erro": "Nessas misturas, os componentes ficam distribuídos de maneira uniforme."
     },
     {
       "texto": "Um iogurte natural é uma mistura homogênea. O que acontece se adicionarmos pedaços de frutas a ele?",
@@ -133,29 +133,29 @@
         "Transforma-se em um solvente universal."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Se você consegue visualizar os diferentes componentes (o iogurte e os pedaços de fruta), a mistura se torna heterogênea[cite: 7]."
+      "dica_erro": "Quando conseguimos ver partes diferentes, como o iogurte e os pedaços de fruta, a mistura é heterogênea."
     },
     {
-      "texto": "Se você colocar água e cubos de gelo em um copo, essa mistura é classificada como homogênea ou heterogênea?",
+      "texto": "Ao misturar água e areia em um copo, que tipo de mistura se forma?",
       "alternativas": [
-        "Homogênea, porque é tudo feito de água.",
-        "Heterogênea, porque podemos ver duas fases diferentes (o gelo sólido e a água líquida).",
-        "É um soluto puro, não é mistura.",
-        "Homogênea, porque o gelo vai evaporar."
+        "Homogênea, porque a areia desaparece na água.",
+        "Heterogênea, porque conseguimos ver a areia separada da água.",
+        "Uma substância pura, pois só há um componente.",
+        "Homogênea, porque a areia se transforma em água."
       ],
       "resposta_correta": 1,
-      "dica_erro": "A mistura não é uniforme. Você consegue ver as partes visíveis, caracterizando duas fases diferentes[cite: 9]."
+      "dica_erro": "A areia não se dissolve na água e podemos ver os dois componentes."
     },
     {
-      "texto": "O que é o Mar Morto e por que ele forma faixas brancas de sal na beirada?",
+      "texto": "Quando a água salgada de uma poça evapora ao Sol, o que acontece com o sal que estava dissolvido nela?",
       "alternativas": [
         "É um mar feito apenas de sal, sem água.",
         "É um lago onde o calor dissolveu todo o sal invisivelmente.",
-        "É um lago no Oriente Médio com quantidade de sais acima do que a água é capaz de dissolver.",
+        "A água evapora e parte do sal pode ficar como cristais no chão.",
         "É um mar que passou por filtração."
       ],
       "resposta_correta": 2,
-      "dica_erro": "A água tem um limite para dissolver solutos. O Mar Morto tem tanto sal que ultrapassa a capacidade de dissolução da água, acumulando sal[cite: 10]."
+      "dica_erro": "Na evaporação, a água líquida passa para o ar. O sal não evapora junto com a água."
     },
     {
       "texto": "O que acontece se derrubarmos refrigerante ou suco açucarado no chão e deixarmos lá por muito tempo?",
@@ -166,7 +166,7 @@
         "Ocorre a catação: os insetos separam o açúcar."
       ],
       "resposta_correta": 2,
-      "dica_erro": "O líquido se transforma em vapor (evaporação) e deixa o componente sólido (açúcar) para trás[cite: 2]."
+      "dica_erro": "Na evaporação, o líquido passa para o ar e o açúcar dissolvido pode ficar no local."
     },
     {
       "texto": "Nas estações de tratamento de água, que processo ajuda a remover partículas pesadas de sujeira, como areia e lodo, deixando-as ir para o fundo?",
@@ -177,10 +177,10 @@
         "Dissolução."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Deixar a mistura parada para as partes pesadas irem para o fundo é o princípio da decantação[cite: 1]."
+      "dica_erro": "Na decantação, deixamos a mistura em repouso para a parte mais pesada se depositar no fundo."
     },
     {
-      "texto": "Ao preparar um achocolatado em pó e deixá-lo em repouso por um tempo, o pó se concentra no fundo do copo. Qual é o nome desse processo?",
+      "texto": "Depois de deixar uma mistura de água e areia em repouso, a areia se deposita no fundo. Que método pode ajudar a separar a água da areia?",
       "alternativas": [
         "Evaporação.",
         "Decantação.",
@@ -188,7 +188,7 @@
         "Solubilidade."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Assim como o suco natural, quando uma mistura fica parada e a parte sólida se deposita no fundo, ocorre a decantação[cite: 1]."
+      "dica_erro": "Deixe a areia se depositar no fundo e despeje a água com cuidado para outro recipiente."
     },
     {
       "texto": "Para separar a borra (pó) do café líquido, usamos um papel específico. Qual método de separação é esse?",
@@ -199,29 +199,29 @@
         "Decantação."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Passar a mistura por um meio que segura as partes sólidas (o pó) e deixa passar o líquido é o método de filtração[cite: 6]."
+      "dica_erro": "Na filtração, o filtro segura o sólido e deixa o líquido passar."
     },
     {
-      "texto": "Raciocínio Lógico sobre Bacias: Se uma substância tóxica for derramada na nascente de um rio afluente, ela pode contaminar toda uma bacia hidrográfica até o oceano. Qual é o motivo geográfico para que isso ocorra?",
+      "texto": "Uma pessoa quer separar pedacinhos de casca que ficaram misturados a grãos de feijão. Qual método é mais adequado?",
       "alternativas": [
-        "O relevo funciona como uma rampa ou funil natural, onde a gravidade faz as águas dos afluentes descerem e se juntarem ao rio principal.",
-        "A água dos rios no Brasil corre sempre em sentido contrário, subindo da foz em direção à nascente.",
-        "A substância tóxica evapora instantaneamente formando nuvens que chovem poluindo todo o continente ao mesmo tempo.",
-        "Os agentes internos do relevo empurram rapidamente a contaminação pelos lençóis freáticos contra a correnteza."
+        "Catação, retirando os pedaços com as mãos.",
+        "Filtração, usando um filtro para segurar os grãos.",
+        "Evaporação, aquecendo os grãos até virarem vapor.",
+        "Decantação, deixando os grãos dissolverem na água."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Lembre-se de como funciona uma bacia: a água obedece à gravidade e desce do ponto mais alto (nascentes) para o mais baixo (rio principal e foz)."
+      "dica_erro": "Na catação, escolhemos e retiramos manualmente os componentes que queremos separar."
     },
     {
-      "texto": "Análise de Agentes Modeladores: Ao observar um vale muito profundo em forma de 'V' escavado ao longo de milhares de anos e uma cratera de vulcão, que tipos de agentes da natureza atuaram ali, respectivamente?",
+      "texto": "Uma mistura de água e areia precisa ser passada por um material que deixe a água passar, mas retenha a areia. Qual método deve ser usado?",
       "alternativas": [
-        "Agente externo (erosão causada pela água do rio) e agente interno (erupção vulcânica).",
-        "Agente interno (terremotos contínuos) e agente externo (erosão causada pelos ventos).",
-        "Ambos são considerados agentes externos, pois modificaram a superfície visível da Terra.",
-        "Ambos são considerados agentes internos, pois o vale foi aberto pelo núcleo da Terra e o vulcão também."
+        "Filtração.",
+        "Catação.",
+        "Evaporação.",
+        "Decantação."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A água que escava o solo vem de fora (agente externo). O magma que forma a cratera vem de dentro da Terra (agente interno)."
+      "dica_erro": "Na filtração, o material poroso segura as partículas sólidas e deixa o líquido passar."
     }
   ]
 }

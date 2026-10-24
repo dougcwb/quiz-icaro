@@ -26,15 +26,15 @@
       "dica_erro": "Primeiro vem a ação (verbo com J), depois vem o nome do passeio (substantivo com G)."
     },
     {
-      "texto": "Na língua portuguesa, ao escrevermos palavras que rimam com 'dança', qual é a terminação mais comum?",
+      "texto": "Qual opção completa corretamente a frase: 'A ______ brinca no jardim; a menina é ______.'?",
       "alternativas": [
-        "A maioria termina em '-ança', como 'criança', 'lembrança' e 'trança'.",
-        "A maioria termina em '-ansa', como 'descanso' e 'mansa'.",
-        "Metade termina com '-ança' e a outra metade com '-ansa'.",
-        "Nenhuma das opções, pois todas se escrevem com '-amça'."
+        "criança / mansa",
+        "criansa / mança",
+        "criança / mança",
+        "criansa / mansa"
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na dúvida, é muito mais provável que a palavra seja escrita com Ç (como criança)."
+      "dica_erro": "'Criança' termina em -ança; 'mansa' termina em -ansa. As duas palavras existem, mas são escritas de formas diferentes."
     },
     {
       "texto": "O que as palavras 'chuveiro', 'torneira' e 'cadeira' têm em comum na sua escrita?",
@@ -48,15 +48,15 @@
       "dica_erro": "Observe bem as vogais que ficam de mãos dadas no meio destas palavras: chuvEIro."
     },
     {
-      "texto": "Muitas vezes, ao falarmos rápido, dizemos 'caxa' em vez de 'caixa' ou 'besouro' sem o U. Como se chama esse fenómeno?",
+      "texto": "Na fala de algumas pessoas, 'caixa' pode soar como 'caxa'. O que acontece com o ditongo 'ei' nessa pronúncia?",
       "alternativas": [
-        "Redução de ditongo, onde omitimos o som de uma vogal na fala do dia a dia.",
-        "Aumento de sílaba tônica, onde falamos uma letra mais alto que as outras.",
-        "Oxítona disfarçada, onde a última sílaba perde totalmente o seu som.",
-        "Erro de caligrafia, onde esquecemos de escrever a letra no caderno."
+        "O som do ditongo fica reduzido na fala, mas a palavra continua escrita 'caixa'.",
+        "A palavra ganha uma sílaba nova quando é falada.",
+        "O ditongo muda a palavra escrita para 'caxa'.",
+        "A sílaba tônica passa para o começo da palavra."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Oditongo (duas vogais juntas) sofre uma 'redução' porque nós engolimos uma das letras ao falar."
+      "dica_erro": "Na fala, alguns sons podem ser reduzidos. Na escrita, mantemos a forma correta: 'caixa'."
     },
     {
       "texto": "Observe as palavras 'descobriram' e 'descobrirão'. O que podemos afirmar sobre o tempo em que as ações acontecem?",
@@ -81,15 +81,15 @@
       "dica_erro": "Fale em voz alta: descoBRIram (penúltima forte) e descobriRÃO (última forte)."
     },
     {
-      "texto": "Para que servem os pronomes pessoais oblíquos (como 'ele', 'ela', 'o', 'a', 'lo', 'la') num texto?",
+      "texto": "Na frase 'A menina pegou o livro e guardou-o na mochila', a quem se refere o pronome oblíquo 'o'?",
       "alternativas": [
-        "Para retomar palavras já ditas e evitar repetições desnecessárias que deixam o texto feio.",
-        "Apenas para deixar o texto mais longo e difícil de ser compreendido pelos leitores.",
-        "Para substituir todos os verbos e adjetivos de uma frase.",
-        "Para indicar apenas o tempo verbal (passado, presente ou futuro)."
+        "Ao livro.",
+        "À menina.",
+        "À mochila.",
+        "Ao verbo 'guardou'."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Em vez de dizer 'A língua empurra o alimento. A língua faz isso...', dizemos 'Ela faz isso...'"
+      "dica_erro": "O pronome 'o' substitui um nome masculino singular mencionado antes. Pergunte: o que foi guardado?"
     },
     {
       "texto": "Na frase: 'Se a tinta sair nas suas mãos, você pode lavá-las'. A palavra '-las' substitui o quê?",
@@ -136,15 +136,15 @@
       "dica_erro": "Bagagem não é só mala física. Pode ser toda a sabedoria e as coisas que você já aprendeu na vida."
     },
     {
-      "texto": "Muitas pessoas confundem o 'li' com o 'lh' em nomes de pessoas. Qual destas listas usa apenas o 'li' de forma correta?",
+      "texto": "Qual lista apresenta todas as palavras escritas corretamente com 'li' ou 'lh'?",
       "alternativas": [
-        "Cecília, Júlio, Amélia.",
-        "Cecílha, Júlho, Amélha.",
-        "Cecília, Júlho, Amélia.",
-        "Cecílha, Júlio, Amélha."
+        "milho, família, filho.",
+        "milio, familha, filho.",
+        "milho, familha, filio.",
+        "milio, família, filia."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A grande maioria dos nomes próprios desse tipo é escrita com 'li', e não com 'lh'."
+      "dica_erro": "Leia cada palavra com atenção: 'lh' aparece em 'milho' e 'filho'; 'li' aparece em 'família'."
     },
     {
       "texto": "Se a palavra 'mala' no diminutivo fica 'malinha', como deve ficar a palavra 'malha'?",
@@ -188,7 +188,7 @@
         "Porque começam com um prefixo de negação (im/in)."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A regra diz que acentuamos as paroxítonas que terminam em l, is, n, us, ps, r, x."
+      "dica_erro": "Essas palavras têm a sílaba mais forte na penúltima posição e terminam em L, por isso recebem acento."
     },
     {
       "texto": "A língua empurra 'o alimento' (empurrá-lo). Como ficaria a frase no plural, se ela empurrasse 'os alimentos'?",
@@ -202,15 +202,15 @@
       "dica_erro": "O pronome 'o' (singular) transforma-se em 'os' (plural), logo a junção vira '-los'."
     },
     {
-      "texto": "No poema visual 'Sorria', há o verso: 'Se não há um largo sorriso...'. Como classificamos a palavra 'sorria' quanto à posição da sílaba tônica?",
+      "texto": "Leia: 'No sábado, Ana visitou a avó. Ela levou um bolo e ouviu histórias da família.' Por que Ana foi visitar a avó?",
       "alternativas": [
-        "Paroxítona, pois a sílaba mais forte é a penúltima (ri).",
-        "Oxítona, pois a sílaba mais forte é a última (a).",
-        "Proparoxítona, pois todas as vogais são pronunciadas com força.",
-        "Oxítona, pois o R duplo empurra a força para o final da palavra."
+        "Para passar um tempo com ela e ouvir suas histórias.",
+        "Para levar a avó para a escola.",
+        "Para comprar um bolo no sábado.",
+        "Para pedir que a avó visitasse outra pessoa."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Separando a palavra: sor-RI-a. A sílaba 'RI' (penúltima) é a que demora mais a ser dita."
+      "dica_erro": "A frase informa que Ana levou um bolo e ouviu histórias da família; procure essa informação no texto."
     },
     {
       "texto": "O que as palavras 'tórax', 'tênis', 'útil' e 'caráter' têm em comum?",

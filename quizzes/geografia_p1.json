@@ -48,12 +48,12 @@
       "dica_erro": "Para retirar riquezas debaixo da terra, a mineração escava enormes buracos e destrói partes inteiras de morros e montanhas."
     },
     {
-      "texto": "Plantar em morros (terrenos íngremes) é um desafio para os agricultores. Qual é o maior perigo ou problema que eles tentam evitar ao cultivar nessas encostas?",
+      "texto": "Em terrenos inclinados, o que a cobertura de plantas ajuda a evitar quando chove?",
       "alternativas": [
-        "A erosão, causada pela água da chuva que desce morro abaixo com muita força e velocidade.",
-        "O congelamento das sementes, pois todo morro no Brasil possui neve no topo.",
-        "O ataque de monstros marinhos que saem dos rios para devorar a plantação.",
-        "O excesso de calor no topo do morro, que queima e incendeia as raízes das plantas."
+        "A erosão, pois as raízes ajudam a segurar o solo.",
+        "A formação de nuvens sobre a encosta.",
+        "A mudança da direção dos rios próximos.",
+        "A redução da quantidade de luz do Sol."
       ],
       "resposta_correta": 0,
       "dica_erro": "Se a água da chuva descer direto pela encosta sem barreiras, ela arrasta a terra e destrói a plantação. Isso é a erosão acelerada."
@@ -81,15 +81,15 @@
       "dica_erro": "A palavra curtinha 'foz' indica a 'boca' do rio, por onde a água sai e se mistura no mar ou noutro local."
     },
     {
-      "texto": "Muitos rios brasileiros acabam sendo poluídos pelo próprio ser humano. Qual foi a causa das duas grandes tragédias nos rios de Mariana (2015) e Brumadinho (2019)?",
+      "texto": "O que aconteceu nos desastres de Mariana (2015) e Brumadinho (2019), que afetaram rios brasileiros?",
       "alternativas": [
-        "O rompimento de barragens de mineração que liberaram toneladas de lama tóxica nos rios Doce e Paraopeba.",
+        "O rompimento de barragens de rejeitos de mineração, que espalhou lama e causou danos aos rios Doce e Paraopeba.",
         "A explosão de uma fábrica de plástico que lançou milhões de garrafas dentro da água.",
-        "Um terremoto natural que abriu o fundo do rio e sugou toda a água para o centro da Terra.",
-        "A queda de um grande avião de carga que transportava muito óleo cru, sujando as margens."
+        "O despejo de esgoto sem tratamento nos rios.",
+        "A retirada de areia do leito dos rios para a construção."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A mineração usa barragens para guardar rejeitos (resto de terra e produtos tóxicos). Quando elas se quebram, uma avalanche de lama destrói o rio."
+      "dica_erro": "As barragens guardavam rejeitos da mineração. Quando se romperam, a lama atingiu os rios e comunidades."
     },
     {
       "texto": "Uma 'Bacia Hidrográfica' não é uma bacia de plástico! O que é uma bacia hidrográfica na geografia?",
@@ -125,15 +125,15 @@
       "dica_erro": "O rio que 'ajuda' e alimenta o rio principal é chamado de afluente."
     },
     {
-      "texto": "Por que é que faz muito mais calor nos países que ficam pertinho da Linha do Equador do que nos países que ficam perto dos polos da Terra?",
+      "texto": "Por que as regiões próximas à Linha do Equador costumam receber mais calor do Sol do que as regiões próximas aos polos?",
       "alternativas": [
-        "Porque perto do Equador os raios de sol batem de forma direta (perpendicular), recebendo muito mais energia e calor.",
-        "Porque o Equador fica mais perto do centro da Terra, que é cheio de vulcões que aquecem a superfície.",
-        "Porque as nuvens nunca chegam na Linha do Equador para fazer sombra.",
-        "Porque nos polos o sol está sempre escondido atrás da Lua, não deixando a luz passar."
+        "Porque os raios solares chegam mais diretamente a essas regiões.",
+        "Porque essas regiões ficam mais perto do Sol.",
+        "Porque a Terra gira mais devagar perto da Linha do Equador.",
+        "Porque os polos recebem luz solar mais direta durante todo o ano."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Devido ao formato redondo da Terra, o meio (o Equador) recebe a luz solar 'de frente' e muito mais concentrada."
+      "dica_erro": "Por causa do formato da Terra, a luz solar se espalha por uma área maior perto dos polos."
     },
     {
       "texto": "O Brasil é um país imenso. A maior parte do território brasileiro (e portanto as temperaturas mais quentes) fica em qual Zona Climática da Terra?",
@@ -158,15 +158,15 @@
       "dica_erro": "Ao subir uma montanha, a temperatura vai sempre baixando, mesmo que ela esteja na linha do Equador!"
     },
     {
-      "texto": "Se quisermos ver as maiores geleiras, ursos-polares e pinguins em seu habitat natural, para que zonas climáticas do planeta devemos viajar?",
+      "texto": "O Ártico, onde vivem os ursos-polares, fica em qual zona climática?",
       "alternativas": [
-        "Para as Zonas Polares (Norte e Sul), onde os raios solares chegam muito inclinados e o frio é extremo o ano todo.",
-        "Para a Zona Tropical, bem no meio do planeta, onde a neve é formada pelos vulcões.",
-        "Para as Zonas Temperadas (Norte e Sul), que possuem estações muito equilibradas o ano inteiro.",
-        "Para a Zona Equatorial Subterrânea, que fica embaixo dos rios e praias brasileiras."
+        "Na Zona Polar Norte.",
+        "Na Zona Tropical, próxima à Linha do Equador.",
+        "Nas Zonas Temperadas, entre os trópicos e os polos.",
+        "Na Zona Polar Sul, perto da Antártida."
       ],
       "resposta_correta": 0,
-      "dica_erro": "As áreas mais frias, que ficam no topo e na base do 'globo terrestre', chamam-se Zonas Polares."
+      "dica_erro": "O Ártico fica ao redor do Polo Norte; a Antártida fica ao redor do Polo Sul."
     },
     {
       "texto": "Como se chama a 'camada de gases' que envolve o nosso planeta Terra e onde acontecem coisas como chuvas, ventos e furacões?",

@@ -14,15 +14,15 @@
       "dica_erro": "Lembre-se: Tupi não é uma única língua, é um tronco que reúne dezenas de línguas diferentes, e os costumes variavam muito!"
     },
     {
-      "texto": "Nas aldeias, homens e mulheres dividiam as tarefas e cuidavam da natureza. Qual atitude abaixo mostra esse respeito ao ambiente?",
+      "texto": "Os povos indígenas tinham diferentes modos de viver. Qual prática mostra uma forma de usar os recursos da natureza com cuidado?",
       "alternativas": [
-        "Homens caçavam e mulheres plantavam, sempre tirando da floresta apenas o necessário e deixando a terra descansar.",
-        "Todos caçavam juntos até acabar com os animais de uma região, para depois se mudarem para outra floresta.",
-        "As mulheres usavam armas de fogo para caçar enquanto os homens vendiam madeira para os europeus.",
-        "Eles derrubavam grandes áreas de mata apenas por diversão, mas depois replantavam tudo em um dia."
+        "Usar recursos da natureza de acordo com as necessidades da comunidade.",
+        "Retirar todos os recursos de uma região de uma só vez.",
+        "Deixar de plantar e caçar para depender somente de produtos europeus.",
+        "Desmatar grandes áreas sem considerar os animais e as plantas."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Eles não destruíam a floresta. Só cortavam árvores ou caçavam quando havia real necessidade de construir ou comer."
+      "dica_erro": "Os povos indígenas são diversos, mas muitos conhecimentos e práticas tradicionais valorizam o cuidado com a natureza."
     },
     {
       "texto": "Quando os portugueses chegaram, o primeiro contato foi de troca, conhecido como 'escambo'. Como funcionava essa troca?",
@@ -36,7 +36,7 @@
       "dica_erro": "O escambo é uma troca sem usar dinheiro. Eles trocavam o trabalho na madeira por ferramentas úteis do dia a dia."
     },
     {
-      "texto": "Com o tempo, o contato amigável virou um grande conflito. Qual mudança fez os portugueses começarem a escravizar os indígenas?",
+      "texto": "Durante a colonização portuguesa, qual atividade levou muitos colonizadores a forçar indígenas a trabalhar?",
       "alternativas": [
         "A decisão de produzir açúcar no Brasil, o que exigia muita mão de obra para trabalhar nos engenhos.",
         "A descoberta de que os indígenas não queriam aprender a falar português ou espanhol.",
@@ -44,51 +44,51 @@
         "A necessidade de formar um grande exército para lutar contra os monstros marítimos."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O comércio de pau-brasil diminuiu e plantar cana-de-açúcar dava mais lucro, mas exigia trabalho pesado e constante."
+      "dica_erro": "A produção de açúcar nos engenhos exigia muito trabalho. Os colonizadores tentaram obrigar indígenas a realizá-lo."
     },
     {
-      "texto": "Além das guerras e das armas de fogo, um 'inimigo invisível' trazido pelos europeus causou uma enorme perda de vidas indígenas. O que era?",
+      "texto": "Depois da chegada dos europeus, doenças como gripe, sarampo e varíola causaram muitas mortes entre os povos indígenas. Por que essas doenças se espalharam com tanta força?",
       "alternativas": [
-        "Doenças desconhecidas aqui, como gripe, sarampo e varíola, para as quais eles não tinham defesa no corpo.",
+        "Muitas comunidades tinham tido pouco contato com esses agentes infecciosos e não possuíam imunidade a algumas dessas doenças.",
         "Animais ferozes europeus, como leões e lobos, que foram soltos nas matas brasileiras.",
         "Comidas estragadas que vinham apodrecidas nos navios e eram entregues aos chefes das tribos.",
         "Plantas venenosas cultivadas nos engenhos que acabavam contaminando os rios."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Como os indígenas viviam isolados, o corpo deles não sabia se defender de vírus comuns na Europa, como a gripe."
+      "dica_erro": "As populações indígenas eram diversas e muitas tiveram pouco contato anterior com doenças que circulavam na Europa."
     },
     {
-      "texto": "No tempo das Grandes Navegações, atravessar o oceano dava muito medo aos europeus. O que eles imaginavam que existia no mar?",
+      "texto": "Durante as Grandes Navegações, que instrumentos ajudavam os navegadores portugueses a se orientar no mar?",
       "alternativas": [
-        "Achavam que a Terra era plana como uma pizza, com abismos nas bordas e cheia de monstros marinhos.",
-        "Sabiam que a Terra era redonda, mas tinham medo de ser atacados por piratas do espaço.",
-        "Acreditavam que o mar era feito de água fervente e derreteria o casco das caravelas.",
-        "Pensavam que no meio do oceano não existia vento nenhum e ficariam parados para sempre."
+        "Bússola, mapas e instrumentos de observação dos astros.",
+        "Rádio, GPS e mapas digitais.",
+        "Termômetro, telefone e relógio digital.",
+        "Binóculo, motor a vapor e radar."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Naquela época, a cartografia (mapas) era cheia de erros e o mar era um grande mistério cheio de lendas assustadoras."
+      "dica_erro": "A bússola indicava direções; mapas e observações do céu também ajudavam nas viagens."
     },
     {
-      "texto": "Os navegadores arriscavam suas vidas buscando 'especiarias' nas Índias (Ásia). Por que coisas como cravo, canela e pimenta eram tão valiosas?",
+      "texto": "Os navegadores buscavam especiarias, como cravo, canela e pimenta, nas rotas comerciais da Ásia. Por que esses produtos eram tão procurados?",
       "alternativas": [
-        "Ajudavam a conservar os alimentos por mais tempo e melhoravam o sabor, pois não existia geladeira.",
-        "Eram usadas como combustível mágico para fazer as caravelas navegarem mais rápido contra o vento.",
-        "Serviam para fabricar cimento e construir moradias e muralhas mais fortes na Europa.",
-        "Eram moedas de troca usadas para comprar terras dos povos indígenas na América."
+        "Eram produtos valiosos, usados para temperar alimentos e muito procurados no comércio.",
+        "Eram usadas como combustível para fazer as caravelas navegarem sem vento.",
+        "Serviam principalmente para construir casas e muralhas na Europa.",
+        "Eram moedas usadas pelos povos indígenas para comprar terras na Europa."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Sem geladeira, a carne estragava rápido. As especiarias disfarçavam o gosto ruim e ajudavam na preservação."
+      "dica_erro": "As especiarias eram produtos valorizados e muito procurados no comércio entre Europa e Ásia."
     },
     {
-      "texto": "Portugal foi o primeiro país europeu a se aventurar em longas viagens marítimas. Quais invenções e habilidades ajudaram os portugueses?",
+      "texto": "Qual embarcação foi aperfeiçoada e usada pelos portugueses em viagens de exploração pelo oceano?",
       "alternativas": [
-        "O uso aperfeiçoado da bússola, a invenção da caravela e a longa experiência deles com a pesca em alto-mar.",
-        "A ajuda de povos indígenas que desenharam mapas perfeitos de todo o Oceano Atlântico.",
-        "O tamanho gigante de seus navios de guerra que já eram movidos a motores a vapor.",
-        "O fato de não terem medo do mar, pois seus reis já haviam comprovado que não existiam monstros."
+        "A caravela, que era ágil e adequada para viagens marítimas.",
+        "O barco a vapor, que atravessava o oceano sem vento.",
+        "O navio movido a motor a diesel, criado para aquelas viagens.",
+        "A jangada, construída para cruzar o oceano carregada de mercadorias."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A bússola (para achar a direção) e as caravelas (mais rápidas e ágeis) foram tecnologias cruciais para Portugal liderar."
+      "dica_erro": "As caravelas eram embarcações à vela. Elas foram desenvolvidas e aperfeiçoadas para navegar e explorar novas rotas."
     },
     {
       "texto": "Muitas vezes ouvimos falar da África como se fosse um único lugar ou país. Para a História e Geografia, por que essa ideia está errada?",
@@ -102,26 +102,26 @@
       "dica_erro": "A África é um continente inteiro! Tem desertos, florestas, cidades modernas, milhares de idiomas e 54 países diferentes."
     },
     {
-      "texto": "Ao serem forçados a embarcar nos navios negreiros para o Brasil, os africanos eram 'batizados' com nomes portugueses. Qual era a verdadeira intenção disso?",
+      "texto": "Durante a escravidão no Brasil, por que a imposição de nomes e costumes dos colonizadores era uma forma de violência?",
       "alternativas": [
-        "Tentar apagar as lembranças do seu passado, esquecendo sua família, língua e identidade africana.",
-        "Ensinar rapidamente o português para que eles pudessem trabalhar como professores na colônia.",
-        "Fazer uma homenagem aos reis de Portugal e mostrar que queriam ser amigos dos africanos.",
-        "Facilitar a organização dos passaportes e documentos de viagem nos portos do Rio de Janeiro."
+        "Porque desrespeitava a identidade, a história e os costumes das pessoas escravizadas.",
+        "Porque permitia que as pessoas escolhessem livremente sua religião e seu nome.",
+        "Porque garantia que todas as famílias pudessem voltar para seus lugares de origem.",
+        "Porque era uma forma de pagamento pelo trabalho feito nas fazendas."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Ao tirar o nome original de alguém, tira-se também um pedaço da sua história e da sua ligação com o lugar de onde veio."
+      "dica_erro": "A escravização também tentou controlar a cultura e a vida das pessoas, mas elas mantiveram e recriaram suas tradições."
     },
     {
-      "texto": "Antes de serem trazidos ao Brasil, os povos Bantos já possuíam conhecimentos muito avançados. O que eles já dominavam em suas terras?",
+      "texto": "Antes do tráfico forçado para o Brasil, muitos povos de línguas bantas já praticavam a agricultura e dominavam qual técnica?",
       "alternativas": [
-        "A agricultura, a pecuária e a metalurgia, conseguindo fabricar armas e ferramentas de ferro.",
+        "A metalurgia do ferro, usada para fabricar ferramentas e outros objetos.",
         "A construção de caravelas e o uso de instrumentos magnéticos para navegação oceânica.",
         "A criação de moedas de papel e o uso de armas de fogo movidas a pólvora.",
         "A arte de escrever livros impressos e fabricar painéis de vidro colorido."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Eles não eram atrasados. Eles já sabiam derreter ferro para fazer pás, enxadas e espadas há muito tempo!"
+      "dica_erro": "Muitos povos africanos conheciam técnicas de trabalhar o ferro e produziam ferramentas."
     },
     {
       "texto": "O Reino do Congo era rico e tinha um comércio forte. Qual era a curiosa 'moeda' usada por eles para pagar os impostos ao rei?",
@@ -157,15 +157,15 @@
       "dica_erro": "Eles construíram o Brasil em quase todas as funções: ferreiros, calceteiros, quituteiras, agricultores, parteiras, etc."
     },
     {
-      "texto": "Os africanos e seus descendentes resistiram muito à escravidão. Quais foram algumas das formas mais comuns de resistir aos maus-tratos?",
+      "texto": "Qual alternativa apresenta formas de resistência de pessoas africanas escravizadas e de seus descendentes?",
       "alternativas": [
-        "Quebrar ferramentas, fugir para formar quilombos e treinar capoeira como forma de diversão e defesa.",
-        "Enviar cartas escritas aos reis europeus pedindo proteção militar e passagens para voltar para casa.",
-        "Comprar navios e caravelas para fugirem navegando escondidos de volta para a África.",
-        "Construir grandes muros de pedra ao redor das fazendas para não deixar os portugueses entrarem."
+        "Fugir e formar quilombos, preservar tradições e lutar por liberdade de diferentes maneiras.",
+        "Aceitar a escravidão sem tentar proteger suas famílias e seus costumes.",
+        "Criar leis que davam aos escravizados o direito de escolher seus trabalhos.",
+        "Viajar livremente entre o Brasil e a África para visitar parentes."
       ],
       "resposta_correta": 0,
-      "dica_erro": "A resistência ia desde trabalhar devagar de propósito e quebrar ferramentas, até grandes fugas para as vilas secretas (quilombos)."
+      "dica_erro": "A resistência aconteceu de muitas formas, incluindo fugas, formação de quilombos e preservação de conhecimentos e tradições."
     },
     {
       "texto": "A viagem dos africanos pelos oceanos durou vários séculos. Como eram as condições dessas viagens a bordo dos navios negreiros?",
