@@ -56,4 +56,172 @@
         "Erro de caligrafia, onde esquecemos de escrever a letra no caderno."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Oditongo (duas vogais juntas) sofre uma '
+      "dica_erro": "Oditongo (duas vogais juntas) sofre uma 'redução' porque nós engolimos uma das letras ao falar."
+    },
+    {
+      "texto": "Observe as palavras 'descobriram' e 'descobrirão'. O que podemos afirmar sobre o tempo em que as ações acontecem?",
+      "alternativas": [
+        "A terminada em '-ram' indica o passado, e a terminada em '-rão' indica o futuro.",
+        "A terminada em '-ram' indica o futuro, e a terminada em '-rão' indica o passado.",
+        "Ambas indicam ações que estão a acontecer agora, no tempo presente.",
+        "A primeira é um substantivo e a segunda é uma ordem (imperativo)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Eles pesquisaram (ontem = RAM) e eles pesquisarão (amanhã = RÃO)."
+    },
+    {
+      "texto": "As palavras 'descobriram' e 'descobrirão' têm a sílaba tônica (mais forte) na mesma posição?",
+      "alternativas": [
+        "Não. 'Descobriram' é paroxítona (sílaba forte no 'bri'), e 'descobrirão' é oxítona (sílaba forte no 'rão').",
+        "Sim. Ambas são palavras oxítonas porque terminam com a letra M ou com o til (~).",
+        "Não. A primeira é proparoxítona e a segunda é oxítona.",
+        "Sim. A sílaba tônica das duas palavras fica no começo (des)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Fale em voz alta: descoBRIram (penúltima forte) e descobriRÃO (última forte)."
+    },
+    {
+      "texto": "Para que servem os pronomes pessoais oblíquos (como 'ele', 'ela', 'o', 'a', 'lo', 'la') num texto?",
+      "alternativas": [
+        "Para retomar palavras já ditas e evitar repetições desnecessárias que deixam o texto feio.",
+        "Apenas para deixar o texto mais longo e difícil de ser compreendido pelos leitores.",
+        "Para substituir todos os verbos e adjetivos de uma frase.",
+        "Para indicar apenas o tempo verbal (passado, presente ou futuro)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Em vez de dizer 'A língua empurra o alimento. A língua faz isso...', dizemos 'Ela faz isso...'"
+    },
+    {
+      "texto": "Na frase: 'Se a tinta sair nas suas mãos, você pode lavá-las'. A palavra '-las' substitui o quê?",
+      "alternativas": [
+        "As mãos.",
+        "A tinta.",
+        "As manchas.",
+        "As roupas."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Você vai lavar quem? O pronome '-las' (plural feminino) está no lugar dessa palavra."
+    },
+    {
+      "texto": "Quando um verbo termina em 'R' e queremos juntá-lo aos pronomes 'o' ou 'a' (ex: empurrar + o), qual é a regra?",
+      "alternativas": [
+        "O verbo perde a letra final (R) e o pronome ganha um L, ficando 'empurrá-lo'.",
+        "O pronome é simplesmente colado ao verbo sem hífen, ficando 'empurraro'.",
+        "O verbo ganha uma letra N, transformando-se em 'empurrar-no'.",
+        "Nada acontece com o verbo, apenas colocamos o pronome no plural."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Corta-se o R, S ou Z do fim do verbo e acrescenta-se o L no pronome (-lo, -la, -los, -las)."
+    },
+    {
+      "texto": "As palavras terminadas em sons com G têm uma regra. Qual destes grupos está escrito corretamente?",
+      "alternativas": [
+        "Garagem, ferrugem, origem.",
+        "Garajem, ferrujem, orijem.",
+        "Garágem, ferrugém, origém.",
+        "Gara-gem, ferru-jem, ori-jem."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Geralmente, usa-se a letra G nas palavras terminadas em -agem, -igem e -ugem."
+    },
+    {
+      "texto": "A palavra 'bagagem' pode ter vários significados. Se alguém disser 'Ele tem uma grande bagagem cultural', o que isso significa?",
+      "alternativas": [
+        "Significa que a pessoa possui um grande conjunto de conhecimentos sobre a cultura.",
+        "Significa que a pessoa está a carregar malas muito pesadas e cheias de livros.",
+        "Significa que ele comprou muitas passagens aéreas para viajar pelo mundo.",
+        "Significa que ele construiu uma grande garagem cultural na sua casa."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Bagagem não é só mala física. Pode ser toda a sabedoria e as coisas que você já aprendeu na vida."
+    },
+    {
+      "texto": "Muitas pessoas confundem o 'li' com o 'lh' em nomes de pessoas. Qual destas listas usa apenas o 'li' de forma correta?",
+      "alternativas": [
+        "Cecília, Júlio, Amélia.",
+        "Cecílha, Júlho, Amélha.",
+        "Cecília, Júlho, Amélia.",
+        "Cecílha, Júlio, Amélha."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A grande maioria dos nomes próprios desse tipo é escrita com 'li', e não com 'lh'."
+    },
+    {
+      "texto": "Se a palavra 'mala' no diminutivo fica 'malinha', como deve ficar a palavra 'malha'?",
+      "alternativas": [
+        "Malhinha.",
+        "Malinha.",
+        "Malhezinha.",
+        "Malianha."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Se a palavra original já tem 'lh', o diminutivo também terá 'lh'!"
+    },
+    {
+      "texto": "O que caracteriza uma palavra paroxítona?",
+      "alternativas": [
+        "É a palavra cuja sílaba tônica (mais forte) é a penúltima.",
+        "É a palavra cuja sílaba tônica (mais forte) é a última.",
+        "É a palavra cuja sílaba tônica (mais forte) é a antepenúltima.",
+        "É toda palavra que tem obrigatoriamente um acento gráfico."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Conte de trás para a frente: última (oxítona), penúltima (paroxítona)."
+    },
+    {
+      "texto": "Todas as palavras paroxítonas recebem acento gráfico (agudo ou circunflexo)?",
+      "alternativas": [
+        "Não, existem paroxítonas sem acento gráfico, como as palavras 'casa' e 'livro'.",
+        "Sim, a regra exige que todas as paroxítonas sejam acentuadas.",
+        "Não, apenas as paroxítonas que indicam nomes de animais têm acento.",
+        "Sim, mas apenas quando estão no meio de uma frase."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A maioria das paroxítonas termina em A, E e O (como mochila, caderno) e elas não levam acento."
+    },
+    {
+      "texto": "Por que palavras como 'impossível', 'improvável' e 'confortável' têm acento agudo?",
+      "alternativas": [
+        "Porque são palavras paroxítonas terminadas com a letra L.",
+        "Porque são palavras oxítonas que terminam com a letra E.",
+        "Porque todos os adjetivos em português têm de ser acentuados.",
+        "Porque começam com um prefixo de negação (im/in)."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A regra diz que acentuamos as paroxítonas que terminam em l, is, n, us, ps, r, x."
+    },
+    {
+      "texto": "A língua empurra 'o alimento' (empurrá-lo). Como ficaria a frase no plural, se ela empurrasse 'os alimentos'?",
+      "alternativas": [
+        "Empurrá-los.",
+        "Empurrar-lhes.",
+        "Empurrar eles.",
+        "Empurráis."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O pronome 'o' (singular) transforma-se em 'os' (plural), logo a junção vira '-los'."
+    },
+    {
+      "texto": "No poema visual 'Sorria', há o verso: 'Se não há um largo sorriso...'. Como classificamos a palavra 'sorria' quanto à posição da sílaba tônica?",
+      "alternativas": [
+        "Paroxítona, pois a sílaba mais forte é a penúltima (ri).",
+        "Oxítona, pois a sílaba mais forte é a última (a).",
+        "Proparoxítona, pois todas as vogais são pronunciadas com força.",
+        "Oxítona, pois o R duplo empurra a força para o final da palavra."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Separando a palavra: sor-RI-a. A sílaba 'RI' (penúltima) é a que demora mais a ser dita."
+    },
+    {
+      "texto": "O que as palavras 'tórax', 'tênis', 'útil' e 'caráter' têm em comum?",
+      "alternativas": [
+        "São todas palavras paroxítonas acentuadas pelas regras ortográficas.",
+        "São todas proparoxítonas, pois o acento está no início da palavra.",
+        "Nenhuma delas deveria ter acento, foi um erro de impressão.",
+        "Todas possuem o encontro vocálico de duas consoantes juntas."
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "A sílaba mais forte delas recai sempre na penúltima, e todas terminam em letras que exigem acento."
+    }
+  ]
+}

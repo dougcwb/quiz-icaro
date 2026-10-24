@@ -167,6 +167,61 @@
       ],
       "resposta_correta": 2,
       "dica_erro": "4 moedas de 25 centavos formam R$ 1,00. Depois, você precisa de mais 2 moedas de 25 centavos para formar os R$ 0,50 restantes."
+    },
+    {
+      "texto": "Desafio de Troco: O Ícaro foi à loja com uma nota de R$ 100,00. Ele comprou um jogo por R$ 45,50 e dois pacotes de cartas por R$ 12,00 cada pacote. Quanto ele recebeu de troco?",
+      "alternativas": [
+        "R$ 30,50",
+        "R$ 42,50",
+        "R$ 54,50",
+        "R$ 19,50"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Some os gastos: R$ 45,50 + 12,00 + 12,00. Depois diminua de 100."
+    },
+    {
+      "texto": "Fração da Pizza: A pizzaria cortou a pizza em 8 fatias iguais. O Douglas comeu 3/8 da pizza, a Juliana comeu 2/8 e o Ícaro comeu o resto. Que fração da pizza o Ícaro comeu?",
+      "alternativas": [
+        "3/8",
+        "2/8",
+        "5/8",
+        "8/8"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "O Douglas e a Juliana juntos comeram 5/8 (3+2). Para completar a pizza inteira (8/8), sobram 3."
+    },
+    {
+      "texto": "Lógica e Tempo: Um trem sai da estação de Curitiba às 08h45. A viagem até o litoral dura exatas 2 horas e 30 minutos. A que horas o trem chegará ao seu destino?",
+      "alternativas": [
+        "11h15",
+        "10h45",
+        "11h45",
+        "10h15"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Some 2 horas a 08h45 (dá 10h45). Agora some mais 30 minutos na cabeça. O relógio vira para as 11h..."
+    },
+    {
+      "texto": "Geometria: Um campo de futebol retangular tem 40 metros de comprimento e 20 metros de largura. Se você der duas voltas completas ao redor da linha do campo, quantos metros vai correr?",
+      "alternativas": [
+        "240 metros",
+        "120 metros",
+        "60 metros",
+        "800 metros"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Calcule uma volta (Perímetro = 40+40+20+20 = 120m). Depois multiplique por 2 voltas."
+    },
+    {
+      "texto": "Divisão Avançada: A escola recebeu 4 caixas de livros novos. Cada caixa tem 35 livros. A professora quer guardar todos esses livros distribuídos igualmente em 5 prateleiras. Quantos livros ficarão em cada prateleira?",
+      "alternativas": [
+        "28 livros",
+        "35 livros",
+        "40 livros",
+        "20 livros"
+      ],
+      "resposta_correta": 0,
+      "dica_erro": "Primeiro descubra o total de livros (4 x 35). Depois divida esse resultado por 5."
     }
   ]
 }
