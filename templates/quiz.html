@@ -120,7 +120,19 @@
         function endGame() {
             isGameOver = true; document.getElementById('q-counter').innerText = "FIM"; document.getElementById('question-box').innerHTML = "STATUS DA MISSÃO";
             let msg = ""; 
-            if(stars > highScore) { highScore = stars; msg = "<span class='highlight'>NOVO RECORDE GLOBAL!</span><br>"; } else { msg = "Tente bater seu recorde!<br>"; }
+            
+            // Verifica se gabaritou (errosTotal === 0)
+            let victoryHtml = "";
+            if (errosTotal === 0) {
+                victoryHtml = `<img src="/static/vitoria.png" class="victory-img" alt="Vitória Royale!" onerror="this.style.display='none'">`;
+            }
+
+            if(stars > highScore) { 
+                highScore = stars; 
+                msg = "<span class='highlight'>NOVO RECORDE GLOBAL!</span><br>"; 
+            } else { 
+                msg = "Fim de jogo. Tente bater seu recorde!<br>"; 
+            }
 
             fetch('/api/score/' + quizId, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ score: stars, correct_ids: masteredQuestions }) });
 
@@ -128,7 +140,7 @@
             if(ctrl === 'switch') { btnA = currentIcons[1]; btnB = currentIcons[0]; } 
 
             document.getElementById('options-box').innerHTML = `
-                <img src="/static/vitoria.png" class="victory-img" alt="Vitória Royale!" onerror="this.style.display='none'">
+                ${victoryHtml}
                 ${msg}
                 <div class="score-line">✔️ Acertos: ${acertos} &nbsp;|&nbsp; ❌ Erros: ${errosTotal} &nbsp;|&nbsp; ⭐ Pontos: ${stars}</div>
                 <div class="btn-end" onclick="location.reload()"><span class="btn-icon c-0">${btnA}</span> REFAZER</div>
