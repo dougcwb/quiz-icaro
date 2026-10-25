@@ -13,7 +13,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A ação de sair da cama logo pela manhã é 'get up'.",
-      "explicacao": "A resposta correta ?: I get up.. A ação de sair da cama logo pela manhã é 'get up'."
+      "explicacao": "A resposta correta é: I get up.. A ação de sair da cama logo pela manhã é 'get up'."
     },
     {
       "texto": "Como se diz 'tomar o pequeno-almoço' (café da manhã) em inglês?",
@@ -25,7 +25,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A primeira refeição do dia é o 'breakfast'.",
-      "explicacao": "A resposta correta ?: Have breakfast.. A primeira refeição do dia é o 'breakfast'."
+      "explicacao": "A resposta correta é: Have breakfast.. A primeira refeição do dia é o 'breakfast'."
     },
     {
       "texto": "Se você estuda de manhã e volta para casa ao meio-dia, qual é a próxima refeição?",
@@ -37,7 +37,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O almoço, que comemos no meio do dia, chama-se 'lunch' em inglês.",
-      "explicacao": "A resposta correta ?: Have lunch.. O almoço, que comemos no meio do dia, chama-se 'lunch' em inglês."
+      "explicacao": "A resposta correta é: Have lunch.. O almoço, que comemos no meio do dia, chama-se 'lunch' em inglês."
     },
     {
       "texto": "No final do dia, as famílias costumam reunir-se para comer. Como se diz 'jantar' em inglês?",
@@ -49,7 +49,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A última grande refeição do dia é o 'dinner'.",
-      "explicacao": "A resposta correta ?: Have dinner.. A última grande refeição do dia é o 'dinner'."
+      "explicacao": "A resposta correta é: Have dinner.. A última grande refeição do dia é o 'dinner'."
     },
     {
       "texto": "Quando você volta da escola, o que o professor geralmente pede para fazer em casa?",
@@ -61,7 +61,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O trabalho de casa chama-se 'homework' e a ação é 'do homework'.",
-      "explicacao": "A resposta correta ?: Do homework.. O trabalho de casa chama-se 'homework' e a ação é 'do homework'."
+      "explicacao": "A resposta correta é: Do homework.. O trabalho de casa chama-se 'homework' e a ação é 'do homework'."
     },
     {
       "texto": "Como você escreve o mês de 'Fevereiro' em inglês?",
@@ -73,7 +73,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Lembre-se das letras completas: F-e-b-r-u-a-r-y.",
-      "explicacao": "A resposta correta ?: February.. Lembre-se das letras completas: F-e-b-r-u-a-r-y."
+      "explicacao": "A resposta correta é: February.. Lembre-se das letras completas: F-e-b-r-u-a-r-y."
     },
     {
       "texto": "Qual mês vem logo depois de June?",
@@ -85,7 +85,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "June é o sexto mês do ano. Pense no nome do sétimo mês.",
-      "explicacao": "A resposta correta ?: July.. June é o sexto mês do ano. Pense no nome do sétimo mês."
+      "explicacao": "A resposta correta é: July.. June é o sexto mês do ano. Pense no nome do sétimo mês."
     },
     {
       "texto": "Para dizer as horas em inglês, usamos qual preposição? Ex: 'I go to school ____ 7:30 a.m.'",
@@ -97,7 +97,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Para horas exatas no relógio, usamos sempre 'at' (ex: at 9:55 p.m.).",
-      "explicacao": "A resposta correta ?: At.. Para horas exatas no relógio, usamos sempre 'at' (ex: at 9:55 p.m.)."
+      "explicacao": "A resposta correta é: At.. Para horas exatas no relógio, usamos sempre 'at' (ex: at 9:55 p.m.)."
     },
     {
       "texto": "Quando falamos apenas o mês (sem o dia), qual preposição devemos usar? Ex: 'My birthday is ____ August.'",
@@ -109,7 +109,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Para meses sozinhos ou anos, usamos 'in' (ex: in August, in 2024).",
-      "explicacao": "A resposta correta ?: In.. Para meses sozinhos ou anos, usamos 'in' (ex: in August, in 2024)."
+      "explicacao": "A resposta correta é: In.. Para meses sozinhos ou anos, usamos 'in' (ex: in August, in 2024)."
     },
     {
       "texto": "Se a data for completa, com o mês e o dia, qual preposição devemos usar? Ex: 'I arrive in São Paulo ____ August 5th.'",
@@ -121,7 +121,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Quando temos um dia específico (mesmo com o mês junto), usamos 'on'.",
-      "explicacao": "A resposta correta ?: On.. Quando temos um dia específico (mesmo com o mês junto), usamos 'on'."
+      "explicacao": "A resposta correta é: On.. Quando temos um dia específico (mesmo com o mês junto), usamos 'on'."
     },
     {
       "texto": "Em inglês, os dias do mês são falados usando números ordinais (primeiro, segundo, etc.). Como se escreve '1st' e '2nd' por extenso?",
@@ -133,7 +133,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "1º é 'first' e 2º é 'second'.",
-      "explicacao": "A resposta correta ?: First e Second.. 1º é 'first' e 2º é 'second'."
+      "explicacao": "A resposta correta é: First e Second.. 1º é 'first' e 2º é 'second'."
     },
     {
       "texto": "Como se escreve o número ordinal '3rd' em inglês?",
@@ -145,7 +145,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O número três é 'three', mas o terceiro é 'third'.",
-      "explicacao": "A resposta correta ?: Third.. O número três é 'three', mas o terceiro é 'third'."
+      "explicacao": "A resposta correta é: Third.. O número três é 'three', mas o terceiro é 'third'."
     },
     {
       "texto": "Qual número ordinal está escrito corretamente e termina com 'st'?",
@@ -157,7 +157,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Os números ordinais terminados em 1 geralmente usam 'st', como first; 11 é uma exceção.",
-      "explicacao": "A resposta correta ?: 21st (twenty-first).. Os números ordinais terminados em 1 geralmente usam 'st', como first; 11 é uma exceção."
+      "explicacao": "A resposta correta é: 21st (twenty-first).. Os números ordinais terminados em 1 geralmente usam 'st', como first; 11 é uma exceção."
     },
     {
       "texto": "Como ficaria escrita por extenso a data 10/31 (31 de Outubro, o Halloween)?",
@@ -169,7 +169,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Em inglês (americano), escrevemos primeiro o mês e depois o dia em ordinal: October thirty-first.",
-      "explicacao": "A resposta correta ?: October thirty-first.. Em inglês (americano), escrevemos primeiro o mês e depois o dia em ordinal: October thirty-first."
+      "explicacao": "A resposta correta é: October thirty-first.. Em inglês (americano), escrevemos primeiro o mês e depois o dia em ordinal: October thirty-first."
     },
     {
       "texto": "Qual das frases a seguir está com a preposição correta para os dias da semana?",
@@ -181,7 +181,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Para os dias da semana (Monday, Tuesday...), usamos sempre a preposição 'on'.",
-      "explicacao": "A resposta correta ?: I have English classes on Tuesdays and Wednesdays.. Para os dias da semana (Monday, Tuesday...), usamos sempre a preposição 'on'."
+      "explicacao": "A resposta correta é: I have English classes on Tuesdays and Wednesdays.. Para os dias da semana (Monday, Tuesday...), usamos sempre a preposição 'on'."
     },
     {
       "texto": "Qual palavra em inglês significa 'teclado' de computador?",
@@ -193,7 +193,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "É o dispositivo com teclas usado para digitar no computador.",
-      "explicacao": "A resposta correta ?: Keyboard.. É o dispositivo com teclas usado para digitar no computador."
+      "explicacao": "A resposta correta é: Keyboard.. É o dispositivo com teclas usado para digitar no computador."
     },
     {
       "texto": "Como escrevemos o número 15 em inglês?",
@@ -205,7 +205,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O número 15 vem depois de fourteen e antes de sixteen.",
-      "explicacao": "A resposta correta ?: Fifteen.. O número 15 vem depois de fourteen e antes de sixteen."
+      "explicacao": "A resposta correta é: Fifteen.. O número 15 vem depois de fourteen e antes de sixteen."
     },
     {
       "texto": "Como se diz o número ordinal décimo segundo (12th) em inglês?",
@@ -217,7 +217,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O ordinal de twelve tem uma forma especial: twelfth.",
-      "explicacao": "A resposta correta ?: Twelfth.. O ordinal de twelve tem uma forma especial: twelfth."
+      "explicacao": "A resposta correta é: Twelfth.. O ordinal de twelve tem uma forma especial: twelfth."
     },
     {
       "texto": "Complete a frase para dizer que há um computador na sala: '_____ a computer in the classroom.'",
@@ -229,7 +229,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Para dizer que existe uma coisa no singular, usamos 'there is'.",
-      "explicacao": "A resposta correta ?: There is. Para dizer que existe uma coisa no singular, usamos 'there is'."
+      "explicacao": "A resposta correta é: There is. Para dizer que existe uma coisa no singular, usamos 'there is'."
     },
     {
       "texto": "Complete a frase: 'There _____ three tablets in the classroom.'",
@@ -241,7 +241,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Tablets está no plural. Para dizer que existem várias coisas, usamos 'there are'.",
-      "explicacao": "A resposta correta ?: are. Tablets está no plural. Para dizer que existem várias coisas, usamos 'there are'."
+      "explicacao": "A resposta correta é: are. Tablets está no plural. Para dizer que existem várias coisas, usamos 'there are'."
     }
   ]
 }

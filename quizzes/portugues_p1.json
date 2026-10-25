@@ -13,7 +13,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Lembre-se: 'A viagem (G) foi longa' e 'Espero que vocês viajem (J) bem'.",
-      "explicacao": "A resposta correta ?: 'Viagem' com G é um substantivo (o nome do passeio), e 'viajem' com J é o verbo (a ação de viajar).. Lembre-se: 'A viagem (G) foi longa' e 'Espero que vocês viajem (J) bem'."
+      "explicacao": "A resposta correta é: 'Viagem' com G é um substantivo (o nome do passeio), e 'viajem' com J é o verbo (a ação de viajar).. Lembre-se: 'A viagem (G) foi longa' e 'Espero que vocês viajem (J) bem'."
     },
     {
       "texto": "Complete a frase corretamente: 'Espero que vocês ________ em segurança na próxima ________.'",
@@ -25,7 +25,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Primeiro vem a ação (verbo com J), depois vem o nome do passeio (substantivo com G).",
-      "explicacao": "A resposta correta ?: viajem / viagem. Primeiro vem a ação (verbo com J), depois vem o nome do passeio (substantivo com G)."
+      "explicacao": "A resposta correta é: viajem / viagem. Primeiro vem a ação (verbo com J), depois vem o nome do passeio (substantivo com G)."
     },
     {
       "texto": "Qual opção completa corretamente a frase: 'A ______ brinca no jardim; a menina é ______.'?",
@@ -37,7 +37,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "'Criança' termina em -ança; 'mansa' termina em -ansa. As duas palavras existem, mas são escritas de formas diferentes.",
-      "explicacao": "A resposta correta ?: criança / mansa. 'Criança' termina em -ança; 'mansa' termina em -ansa. As duas palavras existem, mas são escritas de formas diferentes."
+      "explicacao": "A resposta correta é: criança / mansa. 'Criança' termina em -ança; 'mansa' termina em -ansa. As duas palavras existem, mas são escritas de formas diferentes."
     },
     {
       "texto": "O que as palavras 'chuveiro', 'torneira' e 'cadeira' têm em comum na sua escrita?",
@@ -49,7 +49,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Observe bem as vogais que ficam de mãos dadas no meio destas palavras: chuvEIro.",
-      "explicacao": "A resposta correta ?: Todas possuem o encontro vocálico 'ei' na sílaba do meio.. Observe bem as vogais que ficam de mãos dadas no meio destas palavras: chuvEIro."
+      "explicacao": "A resposta correta é: Todas possuem o encontro vocálico 'ei' na sílaba do meio.. Observe bem as vogais que ficam de mãos dadas no meio destas palavras: chuvEIro."
     },
     {
       "texto": "Na fala de algumas pessoas, 'caixa' pode soar como 'caxa'. O que acontece com o ditongo 'ei' nessa pronúncia?",
@@ -61,7 +61,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Na fala, alguns sons podem ser reduzidos. Na escrita, mantemos a forma correta: 'caixa'.",
-      "explicacao": "A resposta correta ?: O som do ditongo fica reduzido na fala, mas a palavra continua escrita 'caixa'.. Na fala, alguns sons podem ser reduzidos. Na escrita, mantemos a forma correta: 'caixa'."
+      "explicacao": "A resposta correta é: O som do ditongo fica reduzido na fala, mas a palavra continua escrita 'caixa'.. Na fala, alguns sons podem ser reduzidos. Na escrita, mantemos a forma correta: 'caixa'."
     },
     {
       "texto": "Observe as palavras 'descobriram' e 'descobrirão'. O que podemos afirmar sobre o tempo em que as ações acontecem?",
@@ -73,7 +73,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Eles pesquisaram (ontem = RAM) e eles pesquisarão (amanhã = RÃO).",
-      "explicacao": "A resposta correta ?: A terminada em '-ram' indica o passado, e a terminada em '-rão' indica o futuro.. Eles pesquisaram (ontem = RAM) e eles pesquisarão (amanhã = RÃO)."
+      "explicacao": "A resposta correta é: A terminada em '-ram' indica o passado, e a terminada em '-rão' indica o futuro.. Eles pesquisaram (ontem = RAM) e eles pesquisarão (amanhã = RÃO)."
     },
     {
       "texto": "As palavras 'descobriram' e 'descobrirão' têm a sílaba tônica (mais forte) na mesma posição?",
@@ -85,7 +85,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Fale em voz alta: descoBRIram (penúltima forte) e descobriRÃO (última forte).",
-      "explicacao": "A resposta correta ?: Não. 'Descobriram' é paroxítona (sílaba forte no 'bri'), e 'descobrirão' é oxítona (sílaba forte no 'rão').. Fale em voz alta: descoBRIram (penúltima forte) e descobriRÃO (última forte)."
+      "explicacao": "A resposta correta é: Não. 'Descobriram' é paroxítona (sílaba forte no 'bri'), e 'descobrirão' é oxítona (sílaba forte no 'rão').. Fale em voz alta: descoBRIram (penúltima forte) e descobriRÃO (última forte)."
     },
     {
       "texto": "Na frase 'A menina pegou o livro e guardou-o na mochila', a quem se refere o pronome oblíquo 'o'?",
@@ -97,7 +97,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O pronome 'o' substitui um nome masculino singular mencionado antes. Pergunte: o que foi guardado?",
-      "explicacao": "A resposta correta ?: Ao livro.. O pronome 'o' substitui um nome masculino singular mencionado antes. Pergunte: o que foi guardado?"
+      "explicacao": "A resposta correta é: Ao livro.. O pronome 'o' substitui um nome masculino singular mencionado antes. Pergunte: o que foi guardado?"
     },
     {
       "texto": "Na frase: 'Se a tinta sair nas suas mãos, você pode lavá-las'. A palavra '-las' substitui o quê?",
@@ -109,7 +109,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Você vai lavar quem? O pronome '-las' (plural feminino) está no lugar dessa palavra.",
-      "explicacao": "A resposta correta ?: As mãos.. Você vai lavar quem? O pronome '-las' (plural feminino) está no lugar dessa palavra."
+      "explicacao": "A resposta correta é: As mãos.. Você vai lavar quem? O pronome '-las' (plural feminino) está no lugar dessa palavra."
     },
     {
       "texto": "Quando um verbo termina em 'R' e queremos juntá-lo aos pronomes 'o' ou 'a' (ex: empurrar + o), qual é a regra?",
@@ -121,7 +121,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Corta-se o R, S ou Z do fim do verbo e acrescenta-se o L no pronome (-lo, -la, -los, -las).",
-      "explicacao": "A resposta correta ?: O verbo perde a letra final (R) e o pronome ganha um L, ficando 'empurrá-lo'.. Corta-se o R, S ou Z do fim do verbo e acrescenta-se o L no pronome (-lo, -la, -los, -las)."
+      "explicacao": "A resposta correta é: O verbo perde a letra final (R) e o pronome ganha um L, ficando 'empurrá-lo'.. Corta-se o R, S ou Z do fim do verbo e acrescenta-se o L no pronome (-lo, -la, -los, -las)."
     },
     {
       "texto": "As palavras terminadas em sons com G têm uma regra. Qual destes grupos está escrito corretamente?",
@@ -133,7 +133,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Geralmente, usa-se a letra G nas palavras terminadas em -agem, -igem e -ugem.",
-      "explicacao": "A resposta correta ?: Garagem, ferrugem, origem.. Geralmente, usa-se a letra G nas palavras terminadas em -agem, -igem e -ugem."
+      "explicacao": "A resposta correta é: Garagem, ferrugem, origem.. Geralmente, usa-se a letra G nas palavras terminadas em -agem, -igem e -ugem."
     },
     {
       "texto": "A palavra 'bagagem' pode ter vários significados. Se alguém disser 'Ele tem uma grande bagagem cultural', o que isso significa?",
@@ -145,7 +145,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Bagagem não é só mala física. Pode ser toda a sabedoria e as coisas que você já aprendeu na vida.",
-      "explicacao": "A resposta correta ?: Significa que a pessoa possui um grande conjunto de conhecimentos sobre a cultura.. Bagagem não é só mala física. Pode ser toda a sabedoria e as coisas que você já aprendeu na vida."
+      "explicacao": "A resposta correta é: Significa que a pessoa possui um grande conjunto de conhecimentos sobre a cultura.. Bagagem não é só mala física. Pode ser toda a sabedoria e as coisas que você já aprendeu na vida."
     },
     {
       "texto": "Qual lista apresenta todas as palavras escritas corretamente com 'li' ou 'lh'?",
@@ -157,7 +157,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Leia cada palavra com atenção: 'lh' aparece em 'milho' e 'filho'; 'li' aparece em 'família'.",
-      "explicacao": "A resposta correta ?: milho, família, filho.. Leia cada palavra com atenção: 'lh' aparece em 'milho' e 'filho'; 'li' aparece em 'família'."
+      "explicacao": "A resposta correta é: milho, família, filho.. Leia cada palavra com atenção: 'lh' aparece em 'milho' e 'filho'; 'li' aparece em 'família'."
     },
     {
       "texto": "Se a palavra 'mala' no diminutivo fica 'malinha', como deve ficar a palavra 'malha'?",
@@ -169,7 +169,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Se a palavra original já tem 'lh', o diminutivo também terá 'lh'!",
-      "explicacao": "A resposta correta ?: Malhinha.. Se a palavra original já tem 'lh', o diminutivo também terá 'lh'!"
+      "explicacao": "A resposta correta é: Malhinha.. Se a palavra original já tem 'lh', o diminutivo também terá 'lh'!"
     },
     {
       "texto": "O que caracteriza uma palavra paroxítona?",
@@ -181,7 +181,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Conte de trás para a frente: última (oxítona), penúltima (paroxítona).",
-      "explicacao": "A resposta correta ?: É a palavra cuja sílaba tônica (mais forte) é a penúltima.. Conte de trás para a frente: última (oxítona), penúltima (paroxítona)."
+      "explicacao": "A resposta correta é: É a palavra cuja sílaba tônica (mais forte) é a penúltima.. Conte de trás para a frente: última (oxítona), penúltima (paroxítona)."
     },
     {
       "texto": "Todas as palavras paroxítonas recebem acento gráfico (agudo ou circunflexo)?",
@@ -193,7 +193,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A maioria das paroxítonas termina em A, E e O (como mochila, caderno) e elas não levam acento.",
-      "explicacao": "A resposta correta ?: Não, existem paroxítonas sem acento gráfico, como as palavras 'casa' e 'livro'.. A maioria das paroxítonas termina em A, E e O (como mochila, caderno) e elas não levam acento."
+      "explicacao": "A resposta correta é: Não, existem paroxítonas sem acento gráfico, como as palavras 'casa' e 'livro'.. A maioria das paroxítonas termina em A, E e O (como mochila, caderno) e elas não levam acento."
     },
     {
       "texto": "Por que palavras como 'impossível', 'improvável' e 'confortável' têm acento agudo?",
@@ -205,7 +205,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "Essas palavras têm a sílaba mais forte na penúltima posição e terminam em L, por isso recebem acento.",
-      "explicacao": "A resposta correta ?: Porque são palavras paroxítonas terminadas com a letra L.. Essas palavras têm a sílaba mais forte na penúltima posição e terminam em L, por isso recebem acento."
+      "explicacao": "A resposta correta é: Porque são palavras paroxítonas terminadas com a letra L.. Essas palavras têm a sílaba mais forte na penúltima posição e terminam em L, por isso recebem acento."
     },
     {
       "texto": "A língua empurra 'o alimento' (empurrá-lo). Como ficaria a frase no plural, se ela empurrasse 'os alimentos'?",
@@ -217,7 +217,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "O pronome 'o' (singular) transforma-se em 'os' (plural), logo a junção vira '-los'.",
-      "explicacao": "A resposta correta ?: Empurrá-los.. O pronome 'o' (singular) transforma-se em 'os' (plural), logo a junção vira '-los'."
+      "explicacao": "A resposta correta é: Empurrá-los.. O pronome 'o' (singular) transforma-se em 'os' (plural), logo a junção vira '-los'."
     },
     {
       "texto": "Leia: 'No sábado, Ana visitou a avó. Ela levou um bolo e ouviu histórias da família.' Por que Ana foi visitar a avó?",
@@ -229,7 +229,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A frase informa que Ana levou um bolo e ouviu histórias da família; procure essa informação no texto.",
-      "explicacao": "A resposta correta ?: Para passar um tempo com ela e ouvir suas histórias.. A frase informa que Ana levou um bolo e ouviu histórias da família; procure essa informação no texto."
+      "explicacao": "A resposta correta é: Para passar um tempo com ela e ouvir suas histórias.. A frase informa que Ana levou um bolo e ouviu histórias da família; procure essa informação no texto."
     },
     {
       "texto": "O que as palavras 'tórax', 'tênis', 'útil' e 'caráter' têm em comum?",
@@ -241,7 +241,7 @@
       ],
       "resposta_correta": 0,
       "dica_erro": "A sílaba mais forte delas recai sempre na penúltima, e todas terminam em letras que exigem acento.",
-      "explicacao": "A resposta correta ?: São todas palavras paroxítonas acentuadas pelas regras ortográficas.. A sílaba mais forte delas recai sempre na penúltima, e todas terminam em letras que exigem acento."
+      "explicacao": "A resposta correta é: São todas palavras paroxítonas acentuadas pelas regras ortográficas.. A sílaba mais forte delas recai sempre na penúltima, e todas terminam em letras que exigem acento."
     }
   ]
 }
