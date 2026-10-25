@@ -48,4 +48,8 @@ Configure `DATABASE_URL` e `SECRET_KEY` no arquivo `.env`. Gere uma chave aleato
 
 Em producao, use HTTPS e mantenha `SESSION_COOKIE_SECURE=true`. Para desenvolvimento local em HTTP, defina `SESSION_COOKIE_SECURE=false` somente no `.env` local. O Docker Compose carrega as variaveis desse arquivo, e `.dockerignore` impede que ele seja copiado para a imagem.
 
-No Render, configure `DATABASE_URL` e `SECRET_KEY` como variaveis de ambiente do servico. Como o deploy usa Docker, a versao do Python e definida pela imagem no `Dockerfile`; `PYTHON_VERSION` nao altera a versao do container.
+No Render, configure `DATABASE_URL` e `SECRET_KEY` como variaveis de ambiente do servico. Configure tambem `RESET_PASSWORD=2814` para definir a senha que protege a exclusao dos dados. Como o deploy usa Docker, a versao do Python e definida pela imagem no `Dockerfile`; `PYTHON_VERSION` nao altera a versao do container.
+
+O jogador pode escolher `Celular (toque)` na tela inicial. As paginas do menu, quiz e ranking se ajustam a telas pequenas. Cada partida embaralha as 10 perguntas e as alternativas; ao repetir o mesmo teste na mesma aba, a ordem nao se repete em relacao à partida anterior.
+
+No quiz, a primeira resposta errada mostra uma dica para uma nova tentativa. Se a segunda tentativa tambem estiver errada, o jogo avanca sem revelar o gabarito. Ao acertar, a criança recebe a explicacao associada à pergunta.

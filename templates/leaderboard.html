@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hall da Fama</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
@@ -23,6 +24,17 @@
         .c-ps-o { background-color: #dc3545; color: #fff; border-color: #fff;}
         .c-sw-b { background-color: #ffc107; color: #111; }
         .c-key-enter { background-color: #fff; color: #111; font-size: 14px;}
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            h1 { font-size: clamp(32px, 9vw, 48px); letter-spacing: 1px; }
+            .leaderboard-container { width: 100%; box-sizing: border-box; padding: 10px 6px; }
+            .row { gap: 6px; padding: 8px 4px; font-size: 18px; }
+            .row.header { font-size: 19px; }
+            .row:nth-child(2) { font-size: 22px; }
+            .name { flex: 2; overflow-wrap: anywhere; }
+            .score, .mastered { flex: 1; }
+            .btn-end { min-height: 48px; padding: 12px 18px; }
+        }
     </style>
 </head>
 <body>

@@ -1,3 +1,4 @@
+import hmac
 import json
 import logging
 import os
@@ -6,7 +7,7 @@ from contextlib import contextmanager
 
 import psycopg2
 from dotenv import load_dotenv
-from flask import Flask, abort, jsonify, redirect, render_template, request, session, url_for
+from flask import Flask, abort, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_wtf.csrf import CSRFProtect
 
 load_dotenv()
@@ -28,8 +29,9 @@ CSRFProtect(app)
 
 QUIZ_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'quizzes')
 DB_URL = os.environ.get('DATABASE_URL')
+RESET_PASSWORD = os.environ.get('RESET_PASSWORD', '2814')
 QUIZ_ID_PATTERN = re.compile(r'^[a-zA-Z0-9_-]+$')
-ALLOWED_CONTROLLERS = {'teclado', 'xbox', 'ps', 'switch'}
+ALLOWED_CONTROLLERS = {'teclado', 'xbox', 'ps', 'switch', 'celular'}
 
 
 def get_db_connection():
@@ -231,6 +233,10 @@ def reset_scores(quiz_id):
     get_quiz_path(quiz_id)
     player_name = session.get('player_name')
     if not player_name:
+        return redirect(url_for('index'))
+    password = request.form.get('reset_password', '')
+    if not hmac.compare_digest(password, RESET_PASSWORD):
+        flash('Senha incorreta. Os dados nao foram apagados.', 'error')
         return redirect(url_for('index'))
     with db_transaction() as conn:
         with conn.cursor() as cursor:

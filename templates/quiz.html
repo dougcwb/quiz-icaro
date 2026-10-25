@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Quiz Retrô</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -25,10 +26,24 @@
         
         .score-line { font-size: 28px; margin: 15px 0; background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444; }
         .victory-img { max-width: 100%; height: 180px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px; }
+        .control-help { color: #00e5ff; margin: 0 0 16px; }
+        @media (max-width: 600px) {
+            body { padding: 10px; font-size: 20px; }
+            #game-container { width: 100%; padding: 14px 10px; box-sizing: border-box; }
+            #score-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-size: 19px; }
+            #question-box { font-size: clamp(24px, 7vw, 32px); min-height: auto; margin: 18px 0; }
+            .option { min-height: 54px; margin: 10px auto; padding: 12px; gap: 8px; font-size: 21px; touch-action: manipulation; }
+            .opt-text { overflow-wrap: anywhere; padding-right: 4px; }
+            #feedback { font-size: 20px; }
+            .score-line { font-size: 22px; }
+            .btn-end { min-height: 48px; padding: 12px 16px; }
+            .touch-control .option .btn-icon { display: none; }
+        }
     </style>
 </head>
-<body>
+<body class="{{ 'touch-control' if controller == 'celular' else '' }}">
     <div id="game-container">
+        {% if controller == 'celular' %}<div class="control-help">Toque em uma resposta para jogar.</div>{% endif %}
         <div id="score-board">
             <span>⭐ Recorde: <span id="highscore">0</span></span>
             <span>🔥 Combo: <span id="combo">0</span>x</span>
@@ -42,7 +57,7 @@
 
     <script>
         const quizId = "{{ quiz_id }}";
-        const ctrl = "{{ controller|default('xbox') }}";
+        const ctrl = "{{ controller|default('teclado') }}";
         let perguntasSorteadas = [], currentQuestion = 0, stars = 0, combo = 0, acertos = 0, errosTotal = 0, errorsInCurrent = 0;
         let waitingNext = false, isGameOver = false, highScore = 0, masteredQuestions = [];
 
@@ -50,13 +65,19 @@
             'xbox': ['A', 'B', 'X', 'Y'],
             'ps': ['✖', '⭕', '🟦', '🔺'],
             'switch': ['B', 'A', 'Y', 'X'],
-            'teclado': ['1', '2', '3', '4']
+            'teclado': ['1', '2', '3', '4'],
+            'celular': ['1', '2', '3', '4']
         };
         const currentIcons = icons[ctrl];
 
-        fetch('/api/score/' + quizId).then(r => r.json()).then(data => { 
+        fetch('/api/score/' + quizId, { cache: 'no-store' }).then(r => {
+            if(!r.ok) throw new Error(`Score request failed: ${r.status}`);
+            return r.json();
+        }).then(data => {
             highScore = data.highscore || 0; 
             document.getElementById('highscore').innerText = highScore; 
+        }).catch(error => {
+            console.error(error);
         });
 
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -67,16 +88,56 @@
             else if (type === 'wrong') { osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.2); gain.gain.setValueAtTime(0.2, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3); osc.start(); osc.stop(audioCtx.currentTime + 0.3); }
         }
 
-        function shuffle(array) { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; }
+        function randomIndex(max) {
+            if(window.crypto && window.crypto.getRandomValues) {
+                const value = new Uint32Array(1);
+                window.crypto.getRandomValues(value);
+                return value[0] % max;
+            }
+            return Math.floor(Math.random() * max);
+        }
 
-        fetch('/api/quiz/' + quizId).then(r => r.json()).then(data => { 
-            let p = data.perguntas.map((q, idx) => ({ ...q, original_idx: idx }));
+        function shuffle(array) {
+            for(let i = array.length - 1; i > 0; i--) {
+                const j = randomIndex(i + 1);
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function avoidRepeatedOrder(key, items) {
+            const matchesSourceOrder = () => items.every((item, index) => item.original_idx === index);
+            const rotateOrder = () => items.push(items.shift());
+            if(matchesSourceOrder()) rotateOrder();
+
+            try {
+                const order = JSON.stringify(items.map(item => item.original_idx));
+                if(sessionStorage.getItem(key) === order) rotateOrder();
+                if(matchesSourceOrder()) rotateOrder();
+                sessionStorage.setItem(key, JSON.stringify(items.map(item => item.original_idx)));
+            } catch(error) {
+                console.warn('Could not store the previous quiz order.', error);
+            }
+            return items;
+        }
+
+        fetch('/api/quiz/' + quizId, { cache: 'no-store' }).then(r => {
+            if(!r.ok) throw new Error(`Quiz request failed: ${r.status}`);
+            return r.json();
+        }).then(data => {
+            const p = data.perguntas.map((q, idx) => ({ ...q, original_idx: idx }));
             perguntasSorteadas = shuffle(p).slice(0, 10);
+            perguntasSorteadas = avoidRepeatedOrder(`${quizId}:questions`, perguntasSorteadas);
             perguntasSorteadas = perguntasSorteadas.map(q => {
-                let alt = q.alternativas.map((texto, i) => ({ texto, isCorrect: i === q.resposta_correta }));
-                return { ...q, alternativas: shuffle(alt) };
+                const alt = q.alternativas.map((texto, i) => ({ texto, isCorrect: i === q.resposta_correta, original_idx: i }));
+                const randomizedAnswers = avoidRepeatedOrder(`${quizId}:answers:${q.original_idx}`, shuffle(alt));
+                return { ...q, alternativas: randomizedAnswers };
             });
             loadQuestion(); 
+        }).catch(error => {
+            console.error(error);
+            document.getElementById('question-box').innerText = 'Não foi possível carregar este quiz.';
+            document.getElementById('feedback').innerText = 'Verifique sua conexão e tente novamente.';
         });
 
         function loadQuestion() {
@@ -90,7 +151,7 @@
             
             let html = '';
             q.alternativas.forEach((alt, index) => {
-                html += `<div class="option" id="opt-${index}" onclick="checkAnswer(${index}, ${alt.isCorrect})">
+                html += `<div class="option" id="opt-${index}" onclick="checkAnswer(${index})">
                             <span class="opt-text">${alt.texto}</span>
                             <span class="btn-icon c-${index}">${currentIcons[index]}</span>
                          </div>`;
@@ -98,27 +159,30 @@
             document.getElementById('options-box').innerHTML = html;
         }
 
-        function checkAnswer(index, isCorrect) {
+        function checkAnswer(index) {
             if(waitingNext || isGameOver) { if(waitingNext) loadQuestion(); return; }
+            const question = perguntasSorteadas[currentQuestion];
             const optEl = document.getElementById(`opt-${index}`);
-            if(optEl.classList.contains('wrong')) return;
+            if(!optEl || optEl.classList.contains('wrong')) return;
 
-            if(isCorrect) {
+            if(question.alternativas[index].isCorrect) {
                 playSound('correct'); optEl.classList.add('correct');
-                if(errorsInCurrent === 0) { stars += 3; acertos++; combo++; masteredQuestions.push(perguntasSorteadas[currentQuestion].original_idx); } 
+                if(errorsInCurrent === 0) { stars += 3; acertos++; combo++; masteredQuestions.push(question.original_idx); }
                 else if(errorsInCurrent === 1) { stars += 1; acertos++; combo = 0; }
                 document.getElementById('stars').innerText = stars; document.getElementById('combo').innerText = combo;
-                document.getElementById('feedback').innerText = "Certo! Pressione qualquer botão p/ avançar.";
+                const explanation = question.explicacao || question.dica_erro || '';
+                const continueInstruction = ctrl === 'celular' ? 'Toque em uma alternativa para continuar.' : 'Pressione qualquer botão para continuar.';
+                document.getElementById('feedback').innerText = `Muito bem! ${explanation} ${continueInstruction}`;
                 waitingNext = true; currentQuestion++;
             } else {
                 playSound('wrong'); optEl.classList.add('wrong');
                 errorsInCurrent++; errosTotal++; combo = 0; document.getElementById('combo').innerText = combo;
-                if(errorsInCurrent >= 2) { document.getElementById('feedback').innerText = "Errou 2 vezes! Pulando para a próxima..."; waitingNext = true; currentQuestion++; } 
-                else { document.getElementById('feedback').innerText = perguntasSorteadas[currentQuestion].dica_erro || "Tente outra!"; }
                 if(errorsInCurrent >= 2) {
-                    const question = perguntasSorteadas[currentQuestion];
-                    const correctAnswer = question.alternativas.find(alternative => alternative.isCorrect).texto;
-                    document.getElementById('feedback').innerText = `A resposta correta era: ${correctAnswer}. ${question.dica_erro || ''} Pressione qualquer botão para continuar.`;
+                    document.getElementById('feedback').innerText = 'Não foi desta vez. Vamos para a próxima pergunta.';
+                    waitingNext = true;
+                    currentQuestion++;
+                } else {
+                    document.getElementById('feedback').innerText = question.dica_erro || 'Tente outra vez!';
                 }
             }
         }
