@@ -12,7 +12,8 @@
         "Ambas são heterogêneas."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na barrinha, dá para ver os ingredientes separados. No café coado, o pó foi retido pelo filtro e o líquido parece uniforme."
+      "dica_erro": "Na barrinha, dá para ver os ingredientes separados. No café coado, o pó foi retido pelo filtro e o líquido parece uniforme.",
+      "explicacao": "A resposta correta ?: Heterogênea e Homogênea.. Na barrinha, dá para ver os ingredientes separados. No café coado, o pó foi retido pelo filtro e o líquido parece uniforme."
     },
     {
       "texto": "Ao misturar água e óleo em um copo, conseguimos ver as duas partes separadas. Essa mistura é:",
@@ -23,7 +24,8 @@
         "Uma mistura que não pode ser separada."
       ],
       "resposta_correta": 1,
-      "dica_erro": "A água e o óleo não se misturam por completo. Como vemos partes diferentes, a mistura é heterogênea."
+      "dica_erro": "A água e o óleo não se misturam por completo. Como vemos partes diferentes, a mistura é heterogênea.",
+      "explicacao": "A resposta correta ?: Uma mistura heterogênea.. A água e o óleo não se misturam por completo. Como vemos partes diferentes, a mistura é heterogênea."
     },
     {
       "texto": "Em uma mistura homogênea de água com sal, como chamamos cada parte?",
@@ -34,7 +36,8 @@
         "Ambos são solutos."
       ],
       "resposta_correta": 1,
-      "dica_erro": "O solvente dissolve outra substância. Nesta mistura, a água dissolve o sal."
+      "dica_erro": "O solvente dissolve outra substância. Nesta mistura, a água dissolve o sal.",
+      "explicacao": "A resposta correta ?: A água é o solvente e o sal é o soluto.. O solvente dissolve outra substância. Nesta mistura, a água dissolve o sal."
     },
     {
       "texto": "A água consegue dissolver muitas substâncias, como o açúcar. O que pode acontecer se colocarmos açúcar demais em um copo?",
@@ -45,7 +48,8 @@
         "A água não dissolve todo o açúcar, e o resto fica parado no fundo do recipiente."
       ],
       "resposta_correta": 3,
-      "dica_erro": "A água dissolve o açúcar até certo limite. Se sobrar açúcar sem dissolver, ele pode ficar no fundo."
+      "dica_erro": "A água dissolve o açúcar até certo limite. Se sobrar açúcar sem dissolver, ele pode ficar no fundo.",
+      "explicacao": "A resposta correta ?: A água não dissolve todo o açúcar, e o resto fica parado no fundo do recipiente.. A água dissolve o açúcar até certo limite. Se sobrar açúcar sem dissolver, ele pode ficar no fundo."
     },
     {
       "texto": "Quando misturamos óleo e vinagre, eles formam uma mistura heterogênea. Como são chamadas as partes visíveis dessa mistura?",
@@ -56,7 +60,8 @@
         "Filtros."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Em uma mistura heterogênea, as partes que conseguimos distinguir são chamadas de fases."
+      "dica_erro": "Em uma mistura heterogênea, as partes que conseguimos distinguir são chamadas de fases.",
+      "explicacao": "A resposta correta ?: Fases.. Em uma mistura heterogênea, as partes que conseguimos distinguir são chamadas de fases."
     },
     {
       "texto": "Por que algumas embalagens de suco natural trazem a frase 'Agite antes de beber' ou 'Agite antes de usar'?",
@@ -67,7 +72,8 @@
         "Para mudar a cor da mistura."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Quando deixamos uma mistura descansar, algumas partes podem se depositar no fundo. Depois, podemos separar o líquido com cuidado."
+      "dica_erro": "Quando deixamos uma mistura descansar, algumas partes podem se depositar no fundo. Depois, podemos separar o líquido com cuidado.",
+      "explicacao": "A resposta correta ?: Porque parte da polpa pode se depositar no fundo quando o suco fica parado.. Quando deixamos uma mistura descansar, algumas partes podem se depositar no fundo. Depois, podemos separar o líquido com cuidado."
     },
     {
       "texto": "Como é feito o processo para produzir o sal de cozinha a partir da água do mar nas salinas?",
@@ -78,7 +84,8 @@
         "A água é levada para tanques rasos, o calor do Sol a faz evaporar e os sais se acumulam no fundo."
       ],
       "resposta_correta": 3,
-      "dica_erro": "Com o calor do Sol, a água evapora e o sal permanece nos tanques."
+      "dica_erro": "Com o calor do Sol, a água evapora e o sal permanece nos tanques.",
+      "explicacao": "A resposta correta ?: A água é levada para tanques rasos, o calor do Sol a faz evaporar e os sais se acumulam no fundo.. Com o calor do Sol, a água evapora e o sal permanece nos tanques."
     },
     {
       "texto": "Escolher os grãos bons de feijão antes de cozinhar ou separar plástico, vidro e metal na reciclagem são exemplos de qual técnica?",
@@ -89,7 +96,8 @@
         "Decantação."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Na catação, separamos os componentes escolhendo-os um a um, como fazemos ao retirar pedrinhas do feijão."
+      "dica_erro": "Na catação, separamos os componentes escolhendo-os um a um, como fazemos ao retirar pedrinhas do feijão.",
+      "explicacao": "A resposta correta ?: Catação.. Na catação, separamos os componentes escolhendo-os um a um, como fazemos ao retirar pedrinhas do feijão."
     },
     {
       "texto": "Nas nossas casas, muitas vezes usamos o filtro de barro para ter água limpa (filtração). O que existe no interior dele que ajuda a segurar as partículas e limpar a água?",
@@ -100,7 +108,8 @@
         "Um aquecedor para evaporar a água."
       ],
       "resposta_correta": 0,
-      "dica_erro": "O filtro tem uma vela porosa que segura parte das partículas sólidas e deixa a água passar."
+      "dica_erro": "O filtro tem uma vela porosa que segura parte das partículas sólidas e deixa a água passar.",
+      "explicacao": "A resposta correta ?: Uma vela que retém as partículas sólidas.. O filtro tem uma vela porosa que segura parte das partículas sólidas e deixa a água passar."
     },
     {
       "texto": "O que significa dizer que a água é um solvente?",
@@ -111,7 +120,8 @@
         "A água dissolve todos os materiais se mexermos bastante."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Pense no sal, que se mistura com a água, e no óleo, que continua separado."
+      "dica_erro": "Pense no sal, que se mistura com a água, e no óleo, que continua separado.",
+      "explicacao": "A resposta correta ?: A água pode dissolver algumas substâncias, como sal, mas outras, como óleo, não se dissolvem nela.. Pense no sal, que se mistura com a água, e no óleo, que continua separado."
     },
     {
       "texto": "O que há em comum entre água com sal bem dissolvido, vinagre e ar?",
@@ -122,7 +132,8 @@
         "Solutos puros sem mistura."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Nessas misturas, os componentes ficam distribuídos de maneira uniforme."
+      "dica_erro": "Nessas misturas, os componentes ficam distribuídos de maneira uniforme.",
+      "explicacao": "A resposta correta ?: São misturas homogêneas, com componentes distribuídos de maneira uniforme.. Nessas misturas, os componentes ficam distribuídos de maneira uniforme."
     },
     {
       "texto": "Um iogurte natural é uma mistura homogênea. O que acontece se adicionarmos pedaços de frutas a ele?",
@@ -133,7 +144,8 @@
         "Transforma-se em um solvente universal."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Quando conseguimos ver partes diferentes, como o iogurte e os pedaços de fruta, a mistura é heterogênea."
+      "dica_erro": "Quando conseguimos ver partes diferentes, como o iogurte e os pedaços de fruta, a mistura é heterogênea.",
+      "explicacao": "A resposta correta ?: Torna-se uma mistura heterogênea, pois conseguimos ver os componentes diferentes.. Quando conseguimos ver partes diferentes, como o iogurte e os pedaços de fruta, a mistura é heterogênea."
     },
     {
       "texto": "Ao misturar água e areia em um copo, que tipo de mistura se forma?",
@@ -144,7 +156,8 @@
         "Homogênea, porque a areia se transforma em água."
       ],
       "resposta_correta": 1,
-      "dica_erro": "A areia não se dissolve na água e podemos ver os dois componentes."
+      "dica_erro": "A areia não se dissolve na água e podemos ver os dois componentes.",
+      "explicacao": "A resposta correta ?: Heterogênea, porque conseguimos ver a areia separada da água.. A areia não se dissolve na água e podemos ver os dois componentes."
     },
     {
       "texto": "Quando a água salgada de uma poça evapora ao Sol, o que acontece com o sal que estava dissolvido nela?",
@@ -155,7 +168,8 @@
         "É um mar que passou por filtração."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Na evaporação, a água líquida passa para o ar. O sal não evapora junto com a água."
+      "dica_erro": "Na evaporação, a água líquida passa para o ar. O sal não evapora junto com a água.",
+      "explicacao": "A resposta correta ?: A água evapora e parte do sal pode ficar como cristais no chão.. Na evaporação, a água líquida passa para o ar. O sal não evapora junto com a água."
     },
     {
       "texto": "O que acontece se derrubarmos refrigerante ou suco açucarado no chão e deixarmos lá por muito tempo?",
@@ -166,7 +180,8 @@
         "Ocorre a catação: os insetos separam o açúcar."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Na evaporação, o líquido passa para o ar e o açúcar dissolvido pode ficar no local."
+      "dica_erro": "Na evaporação, o líquido passa para o ar e o açúcar dissolvido pode ficar no local.",
+      "explicacao": "A resposta correta ?: Ocorre a evaporação: o líquido seca e o açúcar permanece, deixando tudo pegajoso.. Na evaporação, o líquido passa para o ar e o açúcar dissolvido pode ficar no local."
     },
     {
       "texto": "Nas estações de tratamento de água, que processo ajuda a remover partículas pesadas de sujeira, como areia e lodo, deixando-as ir para o fundo?",
@@ -177,7 +192,8 @@
         "Dissolução."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na decantação, deixamos a mistura em repouso para a parte mais pesada se depositar no fundo."
+      "dica_erro": "Na decantação, deixamos a mistura em repouso para a parte mais pesada se depositar no fundo.",
+      "explicacao": "A resposta correta ?: Decantação.. Na decantação, deixamos a mistura em repouso para a parte mais pesada se depositar no fundo."
     },
     {
       "texto": "Depois de deixar uma mistura de água e areia em repouso, a areia se deposita no fundo. Que método pode ajudar a separar a água da areia?",
@@ -188,7 +204,8 @@
         "Solubilidade."
       ],
       "resposta_correta": 1,
-      "dica_erro": "Deixe a areia se depositar no fundo e despeje a água com cuidado para outro recipiente."
+      "dica_erro": "Deixe a areia se depositar no fundo e despeje a água com cuidado para outro recipiente.",
+      "explicacao": "A resposta correta ?: Decantação.. Deixe a areia se depositar no fundo e despeje a água com cuidado para outro recipiente."
     },
     {
       "texto": "Para separar a borra (pó) do café líquido, usamos um papel específico. Qual método de separação é esse?",
@@ -199,7 +216,8 @@
         "Decantação."
       ],
       "resposta_correta": 2,
-      "dica_erro": "Na filtração, o filtro segura o sólido e deixa o líquido passar."
+      "dica_erro": "Na filtração, o filtro segura o sólido e deixa o líquido passar.",
+      "explicacao": "A resposta correta ?: Filtração.. Na filtração, o filtro segura o sólido e deixa o líquido passar."
     },
     {
       "texto": "Uma pessoa quer separar pedacinhos de casca que ficaram misturados a grãos de feijão. Qual método é mais adequado?",
@@ -210,7 +228,8 @@
         "Decantação, deixando os grãos dissolverem na água."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na catação, escolhemos e retiramos manualmente os componentes que queremos separar."
+      "dica_erro": "Na catação, escolhemos e retiramos manualmente os componentes que queremos separar.",
+      "explicacao": "A resposta correta ?: Catação, retirando os pedaços com as mãos.. Na catação, escolhemos e retiramos manualmente os componentes que queremos separar."
     },
     {
       "texto": "Uma mistura de água e areia precisa ser passada por um material que deixe a água passar, mas retenha a areia. Qual método deve ser usado?",
@@ -221,7 +240,8 @@
         "Decantação."
       ],
       "resposta_correta": 0,
-      "dica_erro": "Na filtração, o material poroso segura as partículas sólidas e deixa o líquido passar."
+      "dica_erro": "Na filtração, o material poroso segura as partículas sólidas e deixa o líquido passar.",
+      "explicacao": "A resposta correta ?: Filtração.. Na filtração, o material poroso segura as partículas sólidas e deixa o líquido passar."
     }
   ]
 }

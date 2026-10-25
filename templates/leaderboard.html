@@ -1,43 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hall da Fama</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'VT323', monospace; background: #000; color: white; text-align: center; margin: 0; padding: 20px; }
-        h1 { font-size: 56px; color: #f8db00; text-shadow: 3px 3px 0 #ff5722; margin-bottom: 30px; letter-spacing: 4px; }
-        .leaderboard-container { background: #111; padding: 20px; border: 4px solid #00e5ff; border-radius: 12px; max-width: 700px; margin: 0 auto; box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); }
-        .row { display: flex; justify-content: space-between; padding: 10px 15px; border-bottom: 2px dashed #333; font-size: 28px; }
-        .row.header { color: #00e5ff; font-weight: bold; border-bottom: 4px solid #555; font-size: 32px; }
-        .row:nth-child(2) { color: #f8db00; font-size: 34px; text-shadow: 1px 1px 0 #000; } 
-        .row:nth-child(3) { color: #c0c0c0; } 
-        .row:nth-child(4) { color: #cd7f32; } 
-        .name { flex: 2; text-align: left; }
-        .score, .mastered { flex: 1; text-align: right; }
-        
-        .btn-end { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px; margin-top: 30px; }
-        
-        .btn-icon { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; font-size: 18px; box-shadow: 2px 2px 0 #000; background-color: #ddd; }
-        .c-xbox-b { background-color: #dc3545; color: #fff; border-color: #fff; }
-        .c-ps-o { background-color: #dc3545; color: #fff; border-color: #fff;}
-        .c-sw-b { background-color: #ffc107; color: #111; }
-        .c-key-enter { background-color: #fff; color: #111; font-size: 14px;}
-        @media (max-width: 600px) {
-            body { padding: 12px; }
-            h1 { font-size: clamp(32px, 9vw, 48px); letter-spacing: 1px; }
-            .leaderboard-container { width: 100%; box-sizing: border-box; padding: 10px 6px; }
-            .row { gap: 6px; padding: 8px 4px; font-size: 18px; }
-            .row.header { font-size: 19px; }
-            .row:nth-child(2) { font-size: 22px; }
-            .name { flex: 2; overflow-wrap: anywhere; }
-            .score, .mastered { flex: 1; }
-            .btn-end { min-height: 48px; padding: 12px 18px; }
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Hall da Fama{% endblock %}
+{% block body_class %}page-leaderboard{% endblock %}
+{% block content %}
     <h1>🏆 HALL DA FAMA 🏆</h1>
     
     <div class="leaderboard-container">
@@ -89,5 +53,5 @@
         }
         updateGamepad();
     </script>
-</body>
-</html>
+
+{% endblock %}

@@ -1,68 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Mundo de Estudos</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'VT323', monospace; background: #000 url('/static/fundo_menu.png') no-repeat center center fixed; background-size: cover; color: white; text-align: center; margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .container { background: rgba(0, 0, 0, 0.85); padding: 30px; border: 4px solid #fff; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.8); max-width: 700px; width: 90%; transition: opacity 1.5s ease-in-out; opacity: 1; position: relative; z-index: 10;}
-        h1 { font-size: 52px; color: #00e5ff; text-shadow: 3px 3px 0 #000; margin-top: 0; margin-bottom: 15px; letter-spacing: 2px; display: flex; justify-content: center; align-items: center; }
-        .menu-list { display: flex; flex-direction: column; gap: 15px; align-items: stretch; }
-        .btn { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 650px; padding: 12px 20px; background: #222; color: white; text-decoration: none; border: 3px solid #555; border-radius: 8px; font-size: 28px; transition: 0.2s; box-sizing: border-box; outline: none; cursor:pointer;}
-        .btn.active-item, .btn:hover { background: #444; border-color: #00e5ff; transform: scale(1.02); box-shadow: 0 0 15px #00e5ff; }
-        .btn .hint-a { opacity: 0; transition: opacity 0.2s; }
-        .btn.active-item .hint-a, .btn:hover .hint-a { opacity: 1; }
-        .btn-content { display: flex; flex-direction: column; text-align: left; }
-        .score-badge { font-size: 20px; color: #f8db00; }
-        .player-info { font-size: 28px; color: #f8db00; margin-bottom: 20px; text-shadow: 2px 2px 0 #000; }
-        .player-info a { color: #dc3545; text-decoration: none; margin-left: 10px; border: 1px solid #dc3545; padding: 2px 8px; border-radius: 4px; }
-        
-        .visits-counter { position: fixed; top: 15px; right: 20px; font-size: 24px; color: #00e5ff; text-shadow: 2px 2px 0 #000; z-index: 5; background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 6px; border: 2px solid #555; opacity: 0; transition: opacity 0.3s; cursor: default; text-align: right; }
-        .visits-counter:hover { opacity: 1; }
-        .copyright { position: fixed; bottom: 10px; right: 15px; font-size: 16px; color: rgba(255,255,255,0.6); text-shadow: 1px 1px 0 #000; z-index: 5; pointer-events: none;}
-        
-        #reset-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; justify-content: center; align-items: center; flex-direction: column; }
-        .modal-box { background: #111; padding: 40px; border: 4px solid red; border-radius: 12px; text-align: center; }
-        .modal-title { color: red; font-size: 40px; margin-bottom: 30px; text-shadow: 2px 2px 0px #000; max-width: 800px;}
-        .modal-buttons { display: flex; gap: 30px; justify-content: center; }
-        .btn-end { display: inline-block; padding: 15px 30px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 28px; border-radius: 8px;}
-        .btn-icon { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; font-size: 18px; box-shadow: 2px 2px 0 #000; background-color: #ddd; }
-        .error-message { color: #ff8a80; background: #3b1111; border: 2px solid #ff5722; padding: 10px 14px; margin: 10px; font-size: 22px; }
-        #reset-password { display: block; width: 100%; max-width: 240px; margin: 14px auto; padding: 10px; box-sizing: border-box; background: #222; color: #fff; border: 2px solid #fff; border-radius: 6px; font: inherit; font-size: 24px; text-align: center; }
-        #reset-password-error { color: #ff8a80; min-height: 1.2em; }
-        @media (max-width: 600px) {
-            body { min-height: 100vh; height: auto; padding: 16px 10px; box-sizing: border-box; }
-            .container { width: 100%; max-width: 100%; padding: 18px 14px; box-sizing: border-box; }
-            h1 { font-size: clamp(28px, 8vw, 40px); }
-            .ctrl-options { flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .menu-list { width: 100%; }
-            .menu-list .btn { width: 100%; box-sizing: border-box; gap: 8px; }
-            .btn-content { min-width: 0; overflow-wrap: anywhere; }
-            .score-badge { display: block; margin-top: 5px; }
-            #reset-modal { padding: 12px; box-sizing: border-box; }
-            .modal-box { width: 100%; max-width: 420px; box-sizing: border-box; padding: 18px; }
-            .modal-buttons { flex-wrap: wrap; }
-            .btn-end { min-height: 48px; }
-        }
-        
-        .c-xbox-a { background-color: #28a745; color: #111; } .c-xbox-b { background-color: #dc3545; color: #fff; border-color: #fff; }
-        .c-ps-x { background-color: #007bff; color: #fff; border-color: #fff; } .c-ps-o { background-color: #dc3545; color: #fff; border-color: #fff;}
-        .c-sw-a { background-color: #dc3545; color: #fff; border-color: #fff; } .c-sw-b { background-color: #ffc107; color: #111; }
-        .c-key-enter { background-color: #fff; color: #111; font-size: 14px;}
-        .btn-shoulder { background-color: #555; color: #fff; border-color: #fff; margin: 0 15px; }
-        
-        .name-input { font-family: 'VT323'; font-size: 40px; padding: 10px; text-align: center; border: 3px solid #fff; border-radius: 8px; background: #222; color: #00e5ff; width: 100%; max-width: 400px; text-transform: uppercase; margin-bottom: 25px; outline:none; }
-        .ctrl-title { font-size: 28px; color: #f8db00; margin-bottom: 10px; text-shadow: 2px 2px 0 #000; }
-        .ctrl-options { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center;}
-        .ctrl-label { background: #333; padding: 10px 20px; border: 2px solid #555; border-radius: 6px; cursor: pointer; font-size: 24px;}
-        .ctrl-options input:checked + .ctrl-label { border-color: #00e5ff; background: #444; color: #00e5ff; }
-        .ctrl-options input { display: none; }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Mundo de Estudos{% endblock %}
+{% block body_class %}page-home{% endblock %}
+{% block content %}
     <div class="visits-counter">
         Total: {{ visits }}<br>
         Hoje: {{ visits_today }}
@@ -277,5 +216,5 @@
         }
         updateGamepad();
     </script>
-</body>
-</html>
+
+{% endblock %}

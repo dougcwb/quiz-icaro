@@ -53,3 +53,9 @@ No Render, configure `DATABASE_URL` e `SECRET_KEY` como variaveis de ambiente do
 O jogador pode escolher `Celular (toque)` na tela inicial. As paginas do menu, quiz e ranking se ajustam a telas pequenas. Cada partida embaralha as 10 perguntas e as alternativas; ao repetir o mesmo teste na mesma aba, a ordem nao se repete em relacao à partida anterior.
 
 No quiz, a primeira resposta errada mostra uma dica para uma nova tentativa. Se a segunda tentativa tambem estiver errada, o jogo avanca sem revelar o gabarito. Ao acertar, a criança recebe a explicacao associada à pergunta.
+
+## Atualização do banco e testes
+
+Antes de publicar esta versão, execute o conteúdo de `migrations/001_quiz_attempts.sql` no SQL Editor do Supabase. A aplicação grava cada tentativa nessa tabela para validar as respostas e calcular os pontos no servidor; o deploy não cria a tabela automaticamente.
+
+Para rodar os testes automatizados localmente, use `py -m unittest discover -s tests`. Os testes de regras e conteúdo não precisam de conexão com o banco de dados.

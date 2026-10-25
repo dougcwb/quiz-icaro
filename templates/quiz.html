@@ -1,260 +1,283 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Quiz Retrô</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+{% block title %}Quiz Retrô{% endblock %}
+{% block body_class %}page-quiz {{ 'touch-control' if controller == 'celular' else '' }}{% endblock %}
+{% block head_extra %}
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <style>
-        body { font-family: 'VT323', monospace; background: #000; color: #fff; text-align: center; padding: 20px; font-size: 24px; line-height: 1.2; }
-        #game-container { max-width: 800px; margin: 0 auto; background: #111; padding: 20px; border: 4px solid #fff; border-radius: 8px; box-shadow: inset 0 0 10px #555; }
-        #question-box { margin-bottom: 30px; font-size: 32px; color: #f8db00; min-height: 80px; }
-        .option { display: flex; align-items: center; justify-content: space-between; margin: 15px auto; padding: 15px 25px; background: #222; border: 2px solid #555; cursor: pointer; text-align: left; transition: 0.2s; font-size: 26px; }
-        .option.correct { background: #1a4d2e; border-color: #28a745; color: #fff; }
-        .option.wrong { background: #4a151b; border-color: #dc3545; opacity: 0.5; pointer-events: none; }
-        .opt-text { flex: 1; padding-right: 15px; }
-        #feedback { font-size: 24px; color: #ff5722; margin-top: 20px; min-height: 30px; }
-        #score-board { margin-bottom: 20px; font-size: 24px; color: #00e5ff; display: flex; justify-content: space-between; border-bottom: 2px dashed #555; padding-bottom: 10px; }
-        
-        .btn-end { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; margin: 20px 10px; background: #333; color: #fff; text-decoration: none; border: 2px solid #fff; cursor: pointer; font-size: 24px; border-radius: 8px;}
-        .highlight { color: #f8db00; font-size: 36px; }
-        
-        .btn-icon { display: inline-block; width: auto; min-width: 32px; padding: 0 8px; height: 32px; line-height: 34px; text-align: center; border-radius: 16px; font-family: sans-serif; font-weight: bold; color: #111; border: 2px solid #111; font-size: 18px; box-shadow: 2px 2px 0 #000; background-color: #ddd; flex-shrink: 0;}
-        .c-0 { background-color: #28a745; color: #111; } .c-1 { background-color: #dc3545; color: #fff; border-color: #fff; } .c-2 { background-color: #007bff; color: #fff; border-color: #fff; } .c-3 { background-color: #ffc107; color: #111; }
-        
-        .score-line { font-size: 28px; margin: 15px 0; background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444; }
-        .victory-img { max-width: 100%; height: 180px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px; }
-        .control-help { color: #00e5ff; margin: 0 0 16px; }
-        @media (max-width: 600px) {
-            body { padding: 10px; font-size: 20px; }
-            #game-container { width: 100%; padding: 14px 10px; box-sizing: border-box; }
-            #score-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-size: 19px; }
-            #question-box { font-size: clamp(24px, 7vw, 32px); min-height: auto; margin: 18px 0; }
-            .option { min-height: 54px; margin: 10px auto; padding: 12px; gap: 8px; font-size: 21px; touch-action: manipulation; }
-            .opt-text { overflow-wrap: anywhere; padding-right: 4px; }
-            #feedback { font-size: 20px; }
-            .score-line { font-size: 22px; }
-            .btn-end { min-height: 48px; padding: 12px 16px; }
-            .touch-control .option .btn-icon { display: none; }
-        }
-    </style>
-</head>
-<body class="{{ 'touch-control' if controller == 'celular' else '' }}">
-    <div id="game-container">
-        {% if controller == 'celular' %}<div class="control-help">Toque em uma resposta para jogar.</div>{% endif %}
-        <div id="score-board">
-            <span>⭐ Recorde: <span id="highscore">0</span></span>
-            <span>🔥 Combo: <span id="combo">0</span>x</span>
-            <span>⭐ Pontos: <span id="stars">0</span></span>
-            <span>Q: <span id="q-counter">1/10</span></span>
-        </div>
-        <div id="question-box">Iniciando...</div>
-        <div id="options-box"></div>
-        <div id="feedback"></div>
-    </div>
+{% endblock %}
+{% block content %}
+<main id="game-container">
+    {% if controller == 'celular' %}<div class="control-help">Toque em uma resposta para jogar.</div>{% endif %}
+    <section id="score-board" aria-label="Placar">
+        <span>⭐ Recorde: <span id="highscore">0</span></span>
+        <span>🔥 Combo: <span id="combo">0</span>x</span>
+        <span>⭐ Pontos: <span id="stars">0</span></span>
+        <span>Q: <span id="q-counter">1/10</span></span>
+    </section>
+    <section id="question-box" aria-live="polite">Iniciando...</section>
+    <section id="options-box" aria-label="Alternativas"></section>
+    <button type="button" class="btn-end" id="continue-button" hidden>CONTINUAR</button>
+    <div id="feedback" role="status" aria-live="polite"></div>
+</main>
+<script>
+    const quizId = {{ quiz_id|tojson }};
+    const ctrl = {{ controller|default('teclado')|tojson }};
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    const icons = {
+        xbox: ['A', 'B', 'X', 'Y'],
+        ps: ['✕', '○', '□', '△'],
+        switch: ['B', 'A', 'Y', 'X'],
+        teclado: ['1', '2', '3', '4'],
+        celular: ['1', '2', '3', '4']
+    };
+    const currentIcons = icons[ctrl] || icons.teclado;
+    let attemptId = null;
+    let questions = [];
+    let currentQuestion = 0;
+    let errorsInCurrent = 0;
+    let score = 0;
+    let combo = 0;
+    let totalErrors = 0;
+    let correctCount = 0;
+    let highScore = 0;
+    let waitingNext = false;
+    let isGameOver = false;
+    let submitting = false;
+    let attemptComplete = false;
 
-    <script>
-        const quizId = "{{ quiz_id }}";
-        const ctrl = "{{ controller|default('teclado') }}";
-        let perguntasSorteadas = [], currentQuestion = 0, stars = 0, combo = 0, acertos = 0, errosTotal = 0, errorsInCurrent = 0;
-        let waitingNext = false, isGameOver = false, highScore = 0, masteredQuestions = [];
-
-        const icons = {
-            'xbox': ['A', 'B', 'X', 'Y'],
-            'ps': ['✖', '⭕', '🟦', '🔺'],
-            'switch': ['B', 'A', 'Y', 'X'],
-            'teclado': ['1', '2', '3', '4'],
-            'celular': ['1', '2', '3', '4']
-        };
-        const currentIcons = icons[ctrl];
-
-        fetch('/api/score/' + quizId, { cache: 'no-store' }).then(r => {
-            if(!r.ok) throw new Error(`Score request failed: ${r.status}`);
-            return r.json();
-        }).then(data => {
-            highScore = data.highscore || 0; 
-            document.getElementById('highscore').innerText = highScore; 
-        }).catch(error => {
-            console.error(error);
+    async function requestJson(url, options = {}) {
+        const response = await fetch(url, {
+            ...options,
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+                ...options.headers
+            },
+            cache: 'no-store'
         });
-
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSound(type) {
-            const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
-            osc.connect(gain); gain.connect(audioCtx.destination);
-            if(type === 'correct') { osc.type = 'square'; osc.frequency.setValueAtTime(440, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1); gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2); osc.start(); osc.stop(audioCtx.currentTime + 0.2); }
-            else if (type === 'wrong') { osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.2); gain.gain.setValueAtTime(0.2, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3); osc.start(); osc.stop(audioCtx.currentTime + 0.3); }
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(payload.error || `A solicitação falhou (${response.status}).`);
         }
+        return payload;
+    }
 
-        function randomIndex(max) {
-            if(window.crypto && window.crypto.getRandomValues) {
-                const value = new Uint32Array(1);
-                window.crypto.getRandomValues(value);
-                return value[0] % max;
-            }
-            return Math.floor(Math.random() * max);
+    async function startGame() {
+        try {
+            const [scoreData, attempt] = await Promise.all([
+                requestJson(`/api/score/${encodeURIComponent(quizId)}`),
+                requestJson(`/api/quiz/${encodeURIComponent(quizId)}/attempt`, { method: 'POST', body: '{}' })
+            ]);
+            highScore = scoreData.highscore || 0;
+            document.getElementById('highscore').textContent = highScore;
+            attemptId = attempt.attempt_id;
+            questions = attempt.perguntas;
+            loadQuestion();
+        } catch (error) {
+            showFatalError(error);
         }
+    }
 
-        function shuffle(array) {
-            for(let i = array.length - 1; i > 0; i--) {
-                const j = randomIndex(i + 1);
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
+    function showFatalError(error) {
+        console.error(error);
+        document.getElementById('question-box').textContent = 'Não foi possível iniciar este quiz.';
+        document.getElementById('options-box').replaceChildren();
+        document.getElementById('feedback').textContent = 'Verifique sua conexão e tente novamente.';
+    }
+
+    function loadQuestion() {
+        if (currentQuestion >= questions.length) {
+            endGame();
+            return;
         }
+        errorsInCurrent = 0;
+        waitingNext = false;
+        document.getElementById('continue-button').hidden = true;
+        document.getElementById('feedback').textContent = '';
+        document.getElementById('q-counter').textContent = `${currentQuestion + 1}/${questions.length}`;
+        const question = questions[currentQuestion];
+        document.getElementById('question-box').textContent = question.texto;
+        const optionsBox = document.getElementById('options-box');
+        optionsBox.replaceChildren();
 
-        function avoidRepeatedOrder(key, items) {
-            const matchesSourceOrder = () => items.every((item, index) => item.original_idx === index);
-            const rotateOrder = () => items.push(items.shift());
-            if(matchesSourceOrder()) rotateOrder();
-
-            try {
-                const order = JSON.stringify(items.map(item => item.original_idx));
-                if(sessionStorage.getItem(key) === order) rotateOrder();
-                if(matchesSourceOrder()) rotateOrder();
-                sessionStorage.setItem(key, JSON.stringify(items.map(item => item.original_idx)));
-            } catch(error) {
-                console.warn('Could not store the previous quiz order.', error);
-            }
-            return items;
-        }
-
-        fetch('/api/quiz/' + quizId, { cache: 'no-store' }).then(r => {
-            if(!r.ok) throw new Error(`Quiz request failed: ${r.status}`);
-            return r.json();
-        }).then(data => {
-            const p = data.perguntas.map((q, idx) => ({ ...q, original_idx: idx }));
-            perguntasSorteadas = shuffle(p).slice(0, 10);
-            perguntasSorteadas = avoidRepeatedOrder(`${quizId}:questions`, perguntasSorteadas);
-            perguntasSorteadas = perguntasSorteadas.map(q => {
-                const alt = q.alternativas.map((texto, i) => ({ texto, isCorrect: i === q.resposta_correta, original_idx: i }));
-                const randomizedAnswers = avoidRepeatedOrder(`${quizId}:answers:${q.original_idx}`, shuffle(alt));
-                return { ...q, alternativas: randomizedAnswers };
-            });
-            loadQuestion(); 
-        }).catch(error => {
-            console.error(error);
-            document.getElementById('question-box').innerText = 'Não foi possível carregar este quiz.';
-            document.getElementById('feedback').innerText = 'Verifique sua conexão e tente novamente.';
+        question.alternativas.forEach((answer, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'option';
+            button.id = `opt-${index}`;
+            button.addEventListener('click', () => submitAnswer(index));
+            const text = document.createElement('span');
+            text.className = 'opt-text';
+            text.textContent = answer;
+            const icon = document.createElement('span');
+            icon.className = `btn-icon c-${index}`;
+            icon.textContent = currentIcons[index];
+            button.append(text, icon);
+            optionsBox.append(button);
         });
+    }
 
-        function loadQuestion() {
-            if(currentQuestion >= perguntasSorteadas.length) { endGame(); return; }
-            errorsInCurrent = 0; waitingNext = false;
-            document.getElementById('feedback').innerText = '';
-            document.getElementById('q-counter').innerText = `${currentQuestion + 1}/${perguntasSorteadas.length}`;
-            
-            const q = perguntasSorteadas[currentQuestion];
-            document.getElementById('question-box').innerText = q.texto;
-            
-            let html = '';
-            q.alternativas.forEach((alt, index) => {
-                html += `<div class="option" id="opt-${index}" onclick="checkAnswer(${index})">
-                            <span class="opt-text">${alt.texto}</span>
-                            <span class="btn-icon c-${index}">${currentIcons[index]}</span>
-                         </div>`;
-            });
-            document.getElementById('options-box').innerHTML = html;
-        }
+    async function submitAnswer(index) {
+        if (waitingNext || isGameOver || submitting) return;
+        const option = document.getElementById(`opt-${index}`);
+        if (!option || option.classList.contains('wrong')) return;
+        submitting = true;
+        document.querySelectorAll('.option').forEach(button => { button.disabled = true; });
+        try {
+            const result = await requestJson(
+                `/api/quiz/${encodeURIComponent(quizId)}/attempt/${encodeURIComponent(attemptId)}/answer`,
+                {
+                    method: 'POST',
+                    body: JSON.stringify({ question_number: currentQuestion, choice_index: index })
+                }
+            );
+            score = result.score;
+            combo = result.combo;
+            totalErrors = result.errors;
+            correctCount = result.correct_count;
+            document.getElementById('stars').textContent = score;
+            document.getElementById('combo').textContent = combo;
 
-        function checkAnswer(index) {
-            if(waitingNext || isGameOver) { if(waitingNext) loadQuestion(); return; }
-            const question = perguntasSorteadas[currentQuestion];
-            const optEl = document.getElementById(`opt-${index}`);
-            if(!optEl || optEl.classList.contains('wrong')) return;
-
-            if(question.alternativas[index].isCorrect) {
-                playSound('correct'); optEl.classList.add('correct');
-                if(errorsInCurrent === 0) { stars += 3; acertos++; combo++; masteredQuestions.push(question.original_idx); }
-                else if(errorsInCurrent === 1) { stars += 1; acertos++; combo = 0; }
-                document.getElementById('stars').innerText = stars; document.getElementById('combo').innerText = combo;
-                const explanation = question.explicacao || question.dica_erro || '';
-                const continueInstruction = ctrl === 'celular' ? 'Toque em uma alternativa para continuar.' : 'Pressione qualquer botão para continuar.';
-                document.getElementById('feedback').innerText = `Muito bem! ${explanation} ${continueInstruction}`;
-                waitingNext = true; currentQuestion++;
+            if (result.correct) {
+                option.classList.add('correct');
+                playSound('correct');
+                document.getElementById('feedback').textContent =
+                    `Muito bem! ${result.explanation} ${continueInstruction()}`;
             } else {
-                playSound('wrong'); optEl.classList.add('wrong');
-                errorsInCurrent++; errosTotal++; combo = 0; document.getElementById('combo').innerText = combo;
-                if(errorsInCurrent >= 2) {
-                    document.getElementById('feedback').innerText = 'Não foi desta vez. Vamos para a próxima pergunta.';
-                    waitingNext = true;
-                    currentQuestion++;
+                errorsInCurrent += 1;
+                option.classList.add('wrong');
+                playSound('wrong');
+                if (result.question_done) {
+                    document.getElementById('feedback').textContent =
+                        `Não foi desta vez. Vamos para a próxima pergunta. ${continueInstruction()}`;
                 } else {
-                    document.getElementById('feedback').innerText = question.dica_erro || 'Tente outra vez!';
+                    document.getElementById('feedback').textContent = result.hint || 'Tente outra vez!';
                 }
             }
-        }
 
-        function endGame() {
-            isGameOver = true; document.getElementById('q-counter').innerText = "FIM"; document.getElementById('question-box').innerHTML = "STATUS DA MISSÃO";
-            let msg = ""; 
-            
-            // Verifica se gabaritou (errosTotal === 0)
-            let victoryHtml = "";
-            if (errosTotal === 0) {
-                victoryHtml = `<img src="/static/vitoria.png" class="victory-img" alt="Vitória Royale!" onerror="this.style.display='none'">`;
+            if (result.question_done) {
+                waitingNext = true;
+                attemptComplete = result.complete;
+                const continueButton = document.getElementById('continue-button');
+                continueButton.hidden = false;
+                continueButton.textContent = ctrl === 'celular' ? 'TOQUE PARA CONTINUAR' : 'CONTINUAR';
             }
-
-            if(stars > highScore) { 
-                highScore = stars; 
-                msg = "<span class='highlight'>NOVO RECORDE GLOBAL!</span><br>"; 
-            } else { 
-                msg = "Fim de jogo. Tente bater seu recorde!<br>"; 
-            }
-
-            fetch('/api/score/' + quizId, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').content
-                },
-                body: JSON.stringify({ score: stars, correct_ids: masteredQuestions })
+            document.querySelectorAll('.option').forEach(button => {
+                button.disabled = button.classList.contains('wrong') || waitingNext;
             });
-
-            let btnA = currentIcons[0]; let btnB = currentIcons[1];
-            if(ctrl === 'switch') { btnA = currentIcons[1]; btnB = currentIcons[0]; } 
-
-            document.getElementById('options-box').innerHTML = `
-                ${victoryHtml}
-                ${msg}
-                <div class="score-line">✔️ Acertos: ${acertos} &nbsp;|&nbsp; ❌ Erros: ${errosTotal} &nbsp;|&nbsp; ⭐ Pontos: ${stars}</div>
-                <div class="btn-end" onclick="location.reload()"><span class="btn-icon c-0">${btnA}</span> REFAZER</div>
-                <div class="btn-end" onclick="window.location.href='/'"><span class="btn-icon c-1">${btnB}</span> VOLTAR</div>
-            `;
-            document.getElementById('feedback').innerText = "";
+        } catch (error) {
+            console.error(error);
+            document.getElementById('feedback').textContent = 'Não foi possível registrar sua resposta. Tente novamente.';
+            document.querySelectorAll('.option').forEach(button => { button.disabled = false; });
+        } finally {
+            submitting = false;
         }
+    }
 
-        window.addEventListener('keydown', (e) => {
-            if(isGameOver) { if(e.key === '1' || e.key.toLowerCase() === 'a') location.reload(); if(e.key === '2' || e.key.toLowerCase() === 'b') window.location.href = '/'; return; }
-            if(waitingNext) { loadQuestion(); return; }
-            if(e.key === '1') document.getElementById('opt-0').click(); if(e.key === '2') document.getElementById('opt-1').click();
-            if(e.key === '3') document.getElementById('opt-2').click(); if(e.key === '4') document.getElementById('opt-3').click();
-        });
+    function continueInstruction() {
+        return ctrl === 'celular'
+            ? 'Toque em CONTINUAR para seguir.'
+            : 'Pressione qualquer botão para continuar.';
+    }
 
-        let lastButtonState = [];
-        function updateGamepad() {
-            const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-            if(gamepads[0]) {
-                const gp = gamepads[0];
-                if(isGameOver) {
-                    let idxConfirm = ctrl === 'switch' ? 1 : 0;
-                    let idxCancel = ctrl === 'switch' ? 0 : 1;
-                    if(gp.buttons[idxConfirm].pressed && !lastButtonState[idxConfirm]) location.reload();
-                    if(gp.buttons[idxCancel].pressed && !lastButtonState[idxCancel]) window.location.href = '/';
-                } else {
-                    for(let i=0; i<4; i++) {
-                        if(gp.buttons[i].pressed && !lastButtonState[i]) {
-                            if(waitingNext) loadQuestion(); else { const el = document.getElementById(`opt-${i}`); if(el) el.click(); }
-                        }
-                        lastButtonState[i] = gp.buttons[i].pressed;
+    function advance() {
+        if (!waitingNext) return;
+        document.getElementById('continue-button').hidden = true;
+        if (attemptComplete) {
+            endGame();
+            return;
+        }
+        currentQuestion += 1;
+        loadQuestion();
+    }
+
+    function endGame() {
+        isGameOver = true;
+        document.getElementById('continue-button').hidden = true;
+        document.getElementById('q-counter').textContent = 'FIM';
+        document.getElementById('question-box').textContent = 'STATUS DA MISSÃO';
+        const victory = totalErrors === 0
+            ? '<img src="/static/vitoria.png" class="victory-img" alt="Vitória Royale!" onerror="this.style.display=\'none\'">'
+            : '';
+        const recordMessage = score > highScore
+            ? "<span class='highlight'>NOVO RECORDE GLOBAL!</span><br>"
+            : 'Fim de jogo. Tente bater seu recorde!<br>';
+        const box = document.getElementById('options-box');
+        box.innerHTML = `${victory}${recordMessage}
+            <div class="score-line">✔️ Acertos: ${correctCount} &nbsp;|&nbsp; ❌ Erros: ${totalErrors} &nbsp;|&nbsp; ⭐ Pontos: ${score}</div>
+            <button type="button" class="btn-end" id="replay-button">REFAZER</button>
+            <a class="btn-end" href="/">VOLTAR</a>`;
+        document.getElementById('feedback').textContent = '';
+        document.getElementById('replay-button').addEventListener('click', () => location.reload());
+        if (totalErrors === 0 && window.confetti) window.confetti({ particleCount: 120, spread: 70 });
+    }
+
+    document.getElementById('continue-button').addEventListener('click', advance);
+
+    let soundContext = null;
+    function playSound(type) {
+        const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextConstructor) return;
+        soundContext = soundContext || new AudioContextConstructor();
+        const context = soundContext;
+        if (context.state === 'suspended') context.resume();
+        const oscillator = context.createOscillator();
+        const gain = context.createGain();
+        oscillator.connect(gain);
+        gain.connect(context.destination);
+        if (type === 'correct') {
+            oscillator.type = 'square';
+            oscillator.frequency.setValueAtTime(440, context.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(880, context.currentTime + 0.1);
+        } else {
+            oscillator.type = 'sawtooth';
+            oscillator.frequency.setValueAtTime(150, context.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(100, context.currentTime + 0.2);
+        }
+        gain.gain.setValueAtTime(0.12, context.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.25);
+        oscillator.start();
+        oscillator.stop(context.currentTime + 0.25);
+    }
+
+    window.addEventListener('keydown', event => {
+        if (isGameOver) {
+            if (event.key === '1' || event.key.toLowerCase() === 'a') location.reload();
+            if (event.key === '2' || event.key.toLowerCase() === 'b' || event.key === 'Escape') location.href = '/';
+            return;
+        }
+        if (waitingNext) {
+            advance();
+            return;
+        }
+        if (['1', '2', '3', '4'].includes(event.key)) {
+            document.getElementById(`opt-${Number(event.key) - 1}`)?.click();
+        }
+    });
+
+    let lastButtonState = [];
+    function updateGamepad() {
+        const gamepad = navigator.getGamepads?.()[0];
+        if (gamepad) {
+            if (isGameOver) {
+                const confirmIndex = ctrl === 'switch' ? 1 : 0;
+                const cancelIndex = ctrl === 'switch' ? 0 : 1;
+                if (gamepad.buttons[confirmIndex]?.pressed && !lastButtonState[confirmIndex]) location.reload();
+                if (gamepad.buttons[cancelIndex]?.pressed && !lastButtonState[cancelIndex]) location.href = '/';
+            } else {
+                for (let index = 0; index < 4; index += 1) {
+                    const pressed = gamepad.buttons[index]?.pressed || false;
+                    if (pressed && !lastButtonState[index]) {
+                        if (waitingNext) advance();
+                        else document.getElementById(`opt-${index}`)?.click();
                     }
+                    lastButtonState[index] = pressed;
                 }
             }
-            requestAnimationFrame(updateGamepad);
         }
-        updateGamepad();
-    </script>
-</body>
-</html>
+        requestAnimationFrame(updateGamepad);
+    }
+
+    startGame();
+    updateGamepad();
+</script>
+{% endblock %}

@@ -9,6 +9,8 @@ import psycopg2
 from dotenv import load_dotenv
 from flask import Flask, abort, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_wtf.csrf import CSRFProtect
+from werkzeug.exceptions import HTTPException
+from quiz_logic import evaluate_answer, prepare_attempt, validate_quiz
 
 load_dotenv()
 
@@ -31,6 +33,10 @@ QUIZ_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'quizzes')
 DB_URL = os.environ.get('DATABASE_URL')
 RESET_PASSWORD = os.environ.get('RESET_PASSWORD', '2814')
 QUIZ_ID_PATTERN = re.compile(r'^[a-zA-Z0-9_-]+$')
+ATTEMPT_ID_PATTERN = re.compile(
+    r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$',
+    re.IGNORECASE,
+)
 ALLOWED_CONTROLLERS = {'teclado', 'xbox', 'ps', 'switch', 'celular'}
 
 
@@ -60,11 +66,14 @@ def load_quiz(quiz_id):
     filepath = get_quiz_path(quiz_id)
     try:
         with open(filepath, 'r', encoding='utf-8') as quiz_file:
-            return json.load(quiz_file)
+            return validate_quiz(json.load(quiz_file))
     except FileNotFoundError:
         abort(404)
     except json.JSONDecodeError:
         logger.exception('Arquivo JSON invalido para o quiz %s', quiz_id)
+        abort(500)
+    except ValueError:
+        logger.exception('Conteudo invalido para o quiz %s', quiz_id)
         abort(500)
 
 
@@ -121,8 +130,7 @@ def index():
             if not QUIZ_ID_PATTERN.fullmatch(quiz_id):
                 continue
             try:
-                with open(os.path.join(QUIZ_DIR, filename), 'r', encoding='utf-8') as quiz_file:
-                    data = json.load(quiz_file)
+                data = load_quiz(quiz_id)
                 quizzes.append({
                     'id': quiz_id,
                     'titulo': data.get('titulo', 'Sem Titulo'),
@@ -131,7 +139,7 @@ def index():
                     'progress': progress_dict.get(quiz_id, 0),
                     'total': len(data.get('perguntas', []))
                 })
-            except (OSError, json.JSONDecodeError):
+            except (OSError, ValueError, HTTPException):
                 logger.exception('Nao foi possivel carregar o arquivo de quiz %s', filename)
     return render_template('index.html', player_name=player_name, quizzes=quizzes, visits=visits, visits_today=visits_today, controller=controller)
 
@@ -140,6 +148,7 @@ def index():
 def leaderboard():
     with db_transaction() as conn:
         with conn.cursor() as cursor:
+            cursor.execute("DELETE FROM quiz_attempts WHERE created_at < NOW() - INTERVAL '1 day'")
             cursor.execute('''
                 SELECT p.player_name, COALESCE(SUM(s.highscore), 0) as total_score,
                 (SELECT COUNT(DISTINCT quiz_id || question_idx) FROM answered_questions aq WHERE aq.player_name = p.player_name) as total_mastered
@@ -165,67 +174,193 @@ def quiz_page(quiz_id):
     return render_template('quiz.html', quiz_id=quiz_id, controller=session.get('controller', 'teclado'))
 
 
-@app.route('/api/quiz/<quiz_id>')
-def get_quiz(quiz_id):
-    return jsonify(load_quiz(quiz_id))
-
-
-@app.route('/api/score/<quiz_id>', methods=['GET', 'POST'])
-def handle_score(quiz_id):
+@app.route('/api/quiz/<quiz_id>/attempt', methods=['POST'])
+def start_quiz_attempt(quiz_id):
     player_name = session.get('player_name')
     if not player_name:
         return jsonify({"error": "Nao autenticado"}), 401
     quiz = load_quiz(quiz_id)
+    attempt_id, question_data, public_questions, question_order, option_orders = prepare_attempt(
+        quiz,
+        session.get(f'previous_questions:{quiz_id}'),
+        session.get(f'previous_answers:{quiz_id}'),
+    )
+    session[f'previous_questions:{quiz_id}'] = question_order
+    session[f'previous_answers:{quiz_id}'] = option_orders
+    try:
+        with db_transaction() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute('''
+                    INSERT INTO quiz_attempts (attempt_id, player_name, quiz_id, question_data)
+                    VALUES (%s::uuid, %s, %s, %s)
+                ''', (attempt_id, player_name, quiz_id, json.dumps(question_data, ensure_ascii=False)))
+        return jsonify({"attempt_id": attempt_id, "perguntas": public_questions}), 201
+    except psycopg2.Error:
+        logger.exception('Erro no banco ao iniciar tentativa do quiz %s', quiz_id)
+        return jsonify({"error": "Nao foi possivel iniciar o quiz."}), 500
+
+
+@app.route('/api/quiz/<quiz_id>/attempt/<attempt_id>/answer', methods=['POST'])
+def answer_quiz_question(quiz_id, attempt_id):
+    player_name = session.get('player_name')
+    if not player_name:
+        return jsonify({"error": "Nao autenticado"}), 401
+    if not ATTEMPT_ID_PATTERN.fullmatch(attempt_id):
+        return jsonify({"error": "Tentativa inexistente ou expirada."}), 404
+
+    data = request.get_json()
+    if not isinstance(data, dict):
+        abort(400)
+    question_number = data.get('question_number')
+    choice_index = data.get('choice_index')
+    if (
+        type(question_number) is not int
+        or question_number < 0
+        or type(choice_index) is not int
+        or not 0 <= choice_index < 4
+    ):
+        abort(400)
 
     try:
         with db_transaction() as conn:
             with conn.cursor() as cursor:
-                if request.method == 'GET':
-                    cursor.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
-                    row = cursor.fetchone()
-                    return jsonify({"highscore": row[0] if row else 0})
+                cursor.execute('''
+                    SELECT question_data, answer_log, pending_choices, score, combo, errors, correct_count,
+                           first_try_correct, last_response, completed_at
+                    FROM quiz_attempts
+                    WHERE attempt_id = %s::uuid AND player_name = %s AND quiz_id = %s
+                      AND created_at > NOW() - INTERVAL '2 hours'
+                    FOR UPDATE
+                ''', (attempt_id, player_name, quiz_id))
+                attempt = cursor.fetchone()
+                if attempt is None:
+                    return jsonify({"error": "Tentativa inexistente ou expirada."}), 404
 
-                data = request.get_json()
-                if not isinstance(data, dict):
-                    abort(400)
-
-                new_score = data.get('score')
-                correct_ids = data.get('correct_ids')
-                question_count = len(quiz.get('perguntas', []))
-                max_questions = min(10, question_count)
+                question_data = attempt[0]
+                answer_log = attempt[1]
+                pending_choices = attempt[2]
+                score = attempt[3]
+                combo = attempt[4]
+                errors = attempt[5]
+                correct_count = attempt[6]
+                first_try_correct = attempt[7]
+                last_response = attempt[8]
                 if (
-                    isinstance(new_score, bool)
-                    or not isinstance(new_score, int)
-                    or not 0 <= new_score <= 3 * max_questions
-                    or not isinstance(correct_ids, list)
-                    or len(correct_ids) > max_questions
-                    or any(
-                        isinstance(q_idx, bool)
-                        or not isinstance(q_idx, int)
-                        or not 0 <= q_idx < question_count
-                        for q_idx in correct_ids
-                    )
-                    or len(set(correct_ids)) != len(correct_ids)
+                    last_response
+                    and question_number == last_response['question_number']
+                    and choice_index == last_response['choice_index']
                 ):
+                    return jsonify(last_response['response'])
+                if attempt[9] is not None:
+                    return jsonify({"error": "Tentativa inexistente ou expirada."}), 404
+                if question_number != len(answer_log) or question_number >= len(question_data):
                     abort(400)
 
+                question_record = question_data[question_number]
+                try:
+                    result = evaluate_answer(
+                        question_record['correct_option_idx'],
+                        pending_choices,
+                        choice_index,
+                    )
+                except ValueError:
+                    abort(400)
+                errors += int(not result['correct'])
+                explanation = None
+                hint = None
+                if result['correct']:
+                    score += result['points']
+                    correct_count += 1
+                    combo = combo + 1 if result['mastered'] else 0
+                    explanation = question_record['question']['explicacao']
+                    if result['mastered']:
+                        first_try_correct.append(question_record['question_idx'])
+                    answer_log.append({
+                        'question_idx': question_record['question_idx'],
+                        'choices': result['choices'],
+                        'correct': True,
+                    })
+                elif result['question_done']:
+                    combo = 0
+                    answer_log.append({
+                        'question_idx': question_record['question_idx'],
+                        'choices': result['choices'],
+                        'correct': False,
+                    })
+                else:
+                    combo = 0
+                    hint = question_record['question']['dica_erro']
+
+                complete = len(answer_log) == len(question_data)
+                response_data = {
+                    'correct': result['correct'],
+                    'question_done': result['question_done'],
+                    'hint': hint,
+                    'explanation': explanation,
+                    'complete': complete,
+                    'score': score,
+                    'combo': combo,
+                    'errors': errors,
+                    'correct_count': correct_count,
+                }
+                cursor.execute('''
+                    UPDATE quiz_attempts
+                    SET answer_log = %s, pending_choices = %s, score = %s, combo = %s,
+                        errors = %s, correct_count = %s, first_try_correct = %s,
+                        completed_at = CASE WHEN %s THEN NOW() ELSE completed_at END,
+                        last_response = %s
+                    WHERE attempt_id = %s::uuid
+                ''', (
+                    json.dumps(answer_log, ensure_ascii=False),
+                    json.dumps(result['pending_choices'], ensure_ascii=False),
+                    score,
+                    combo,
+                    errors,
+                    correct_count,
+                    json.dumps(first_try_correct, ensure_ascii=False),
+                    complete,
+                    json.dumps({
+                        'question_number': question_number,
+                        'choice_index': choice_index,
+                        'response': response_data,
+                    }, ensure_ascii=False),
+                    attempt_id,
+                ))
+
+                if complete:
+                    cursor.execute('''
+                        INSERT INTO scores (player_name, quiz_id, highscore)
+                        VALUES (%s, %s, %s)
+                        ON CONFLICT (player_name, quiz_id)
+                        DO UPDATE SET highscore = GREATEST(scores.highscore, EXCLUDED.highscore)
+                    ''', (player_name, quiz_id, score))
+                    for mastered_question in first_try_correct:
+                        cursor.execute('''
+                            INSERT INTO answered_questions (player_name, quiz_id, question_idx)
+                            VALUES (%s, %s, %s)
+                            ON CONFLICT (player_name, quiz_id, question_idx) DO NOTHING
+                        ''', (player_name, quiz_id, mastered_question))
+
+                return jsonify(response_data)
+    except psycopg2.Error:
+        logger.exception('Erro no banco ao registrar resposta do quiz %s', quiz_id)
+        return jsonify({"error": "Nao foi possivel registrar a resposta."}), 500
+
+
+@app.route('/api/score/<quiz_id>', methods=['GET'])
+def handle_score(quiz_id):
+    player_name = session.get('player_name')
+    if not player_name:
+        return jsonify({"error": "Nao autenticado"}), 401
+    try:
+        with db_transaction() as conn:
+            with conn.cursor() as cursor:
                 cursor.execute('SELECT highscore FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
                 row = cursor.fetchone()
-                if row is None or new_score > row[0]:
-                    cursor.execute('''
-                        INSERT INTO scores (player_name, quiz_id, highscore) VALUES (%s, %s, %s)
-                        ON CONFLICT (player_name, quiz_id) DO UPDATE SET highscore = EXCLUDED.highscore
-                    ''', (player_name, quiz_id, new_score))
-
-                for q_idx in correct_ids:
-                    cursor.execute('''
-                        INSERT INTO answered_questions (player_name, quiz_id, question_idx) VALUES (%s, %s, %s)
-                        ON CONFLICT (player_name, quiz_id, question_idx) DO NOTHING
-                    ''', (player_name, quiz_id, q_idx))
-        return jsonify({"status": "ok"})
+                return jsonify({"highscore": row[0] if row else 0})
     except psycopg2.Error:
-        logger.exception('Erro no banco ao salvar/consultar pontuacao do quiz %s', quiz_id)
-        return jsonify({"error": "Erro interno ao processar a pontuacao."}), 500
+        logger.exception('Erro no banco ao consultar pontuacao do quiz %s', quiz_id)
+        return jsonify({"error": "Erro interno ao consultar a pontuacao."}), 500
 
 
 @app.route('/reset/<quiz_id>', methods=['POST'])
@@ -240,6 +375,7 @@ def reset_scores(quiz_id):
         return redirect(url_for('index'))
     with db_transaction() as conn:
         with conn.cursor() as cursor:
+            cursor.execute('DELETE FROM quiz_attempts WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
             cursor.execute('DELETE FROM scores WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
             cursor.execute('DELETE FROM answered_questions WHERE player_name = %s AND quiz_id = %s', (player_name, quiz_id))
     return redirect(url_for('index'))
