@@ -90,3 +90,10 @@ def evaluate_answer(correct_option_idx, previous_choices, choice_index):
         'points': 0,
         'mastered': False,
     }
+
+
+def build_answer_feedback(question, result):
+    return {
+        'hint': question['dica_erro'] if not result['correct'] and not result['question_done'] else None,
+        'explanation': question['explicacao'] if result['correct'] else None,
+    }

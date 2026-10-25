@@ -44,11 +44,40 @@ O repositório está configurado para ocultar credenciais. Para rodar o projeto 
 
 ## Configuracao segura do ambiente
 
-Configure `DATABASE_URL` e `SECRET_KEY` no arquivo `.env`. Gere uma chave aleatoria com `openssl rand -hex 32`; o aplicativo nao inicia sem `SECRET_KEY`. Nunca compartilhe essa chave.
+Copie `.env.example` para `.env` e configure `DATABASE_URL` e `SECRET_KEY`. Gere uma chave aleatoria com `openssl rand -hex 32`; o aplicativo nao inicia sem `SECRET_KEY`. Nunca compartilhe essa chave.
 
 Em producao, use HTTPS e mantenha `SESSION_COOKIE_SECURE=true`. Para desenvolvimento local em HTTP, defina `SESSION_COOKIE_SECURE=false` somente no `.env` local. O Docker Compose carrega as variaveis desse arquivo, e `.dockerignore` impede que ele seja copiado para a imagem.
 
 No Render, configure `DATABASE_URL` e `SECRET_KEY` como variaveis de ambiente do servico. Configure tambem `RESET_PASSWORD=2814` para definir a senha que protege a exclusao dos dados. Como o deploy usa Docker, a versao do Python e definida pela imagem no `Dockerfile`; `PYTHON_VERSION` nao altera a versao do container.
+
+## Desenvolvimento local com Supabase
+
+O aplicativo usa PostgreSQL em todos os ambientes; nao cria nem usa `scores.db`. Para desenvolver no computador, configure no `.env` local o `DATABASE_URL` do Supabase e uma `SECRET_KEY` propria. Use `SESSION_COOKIE_SECURE=false` apenas para acesso local por HTTP. O Render recebe os mesmos tipos de variaveis pela configuracao do servico; os segredos nao devem ser copiados para o repositorio. Para nao misturar visitas, pontuacoes e progresso de teste com dados reais, prefira um projeto Supabase separado para desenvolvimento; o banco local usa o `DATABASE_URL` do `.env` e o Render usa o valor configurado no servico.
+
+Instale as dependencias e rode o servidor local:
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python app.py
+```
+
+O servidor fica disponivel em `http://localhost:5000`. Para continuar usando a porta `8090` com Docker Compose, copie `.env.example` para `.env`, atualize o identificador do commit no PowerShell e inicie o container:
+
+```powershell
+$env:APP_COMMIT = (git rev-parse --short=7 HEAD).Trim()
+if (git status --porcelain) { $env:APP_COMMIT += '*' }
+docker compose up --build
+```
+
+O mapeamento existente publica o app em `http://localhost:8090`. Se iniciar com `py app.py` diretamente, o identificador Git e o estado de alteracoes locais sao detectados automaticamente.
+
+Arquivos SQLite antigos ou criados por outra versao do aplicativo sao ignorados pelo Git e pelo build Docker. Esta versao nao os consulta nem os cria; se `quizzes/scores.db` reaparecer ao executar o app atual, verifique se outro processo ou uma copia antiga do servidor ainda esta rodando.
+
+## Versao exibida no site
+
+A versao aparece no rodape junto ao autor no menu, no quiz e no ranking. `VERSION` guarda a versao semantica; incremente-a em cada release. O identificador curto do commit e obtido do Git no ambiente local e de `RENDER_GIT_COMMIT` no Render. Um `*` ao lado do identificador local indica alteracoes ainda nao commitadas; depois do commit e do deploy, a versao e o identificador devem coincidir.
 
 O jogador pode escolher `Celular (toque)` na tela inicial. As paginas do menu, quiz e ranking se ajustam a telas pequenas. Cada partida embaralha as 10 perguntas e as alternativas; ao repetir o mesmo teste na mesma aba, a ordem nao se repete em relacao à partida anterior.
 

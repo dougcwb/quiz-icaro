@@ -3,14 +3,16 @@ import json
 import logging
 import os
 import re
+import subprocess
 from contextlib import contextmanager
+from pathlib import Path
 
 import psycopg2
 from dotenv import load_dotenv
 from flask import Flask, abort, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_wtf.csrf import CSRFProtect
 from werkzeug.exceptions import HTTPException
-from quiz_logic import evaluate_answer, prepare_attempt, validate_quiz
+from quiz_logic import build_answer_feedback, evaluate_answer, prepare_attempt, validate_quiz
 
 load_dotenv()
 
@@ -38,6 +40,37 @@ ATTEMPT_ID_PATTERN = re.compile(
     re.IGNORECASE,
 )
 ALLOWED_CONTROLLERS = {'teclado', 'xbox', 'ps', 'switch', 'celular'}
+RENDER_GIT_COMMIT = os.environ.get('RENDER_GIT_COMMIT')
+LOCAL_GIT_COMMIT = os.environ.get('APP_COMMIT')
+
+
+def get_app_version():
+    version = Path(__file__).with_name('VERSION').read_text(encoding='utf-8').strip()
+    commit = RENDER_GIT_COMMIT or LOCAL_GIT_COMMIT
+    dirty = bool(LOCAL_GIT_COMMIT and LOCAL_GIT_COMMIT.endswith('*'))
+    if not commit:
+        try:
+            commit = subprocess.run(
+                ['git', 'rev-parse', '--short=7', 'HEAD'],
+                cwd=os.path.dirname(os.path.abspath(__file__)),
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            dirty = bool(subprocess.run(
+                ['git', 'status', '--porcelain'],
+                cwd=os.path.dirname(os.path.abspath(__file__)),
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip())
+        except (OSError, subprocess.CalledProcessError):
+            commit = 'local'
+
+    return f'v{version} · {commit[:7].rstrip("*")}{"*" if dirty else ""}'
+
+
+APP_VERSION = get_app_version()
 
 
 def get_db_connection():
@@ -83,7 +116,13 @@ def add_header(response):
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['X-App-Version'] = APP_VERSION
     return response
+
+
+@app.context_processor
+def inject_app_version():
+    return {'app_version': APP_VERSION}
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -266,13 +305,11 @@ def answer_quiz_question(quiz_id, attempt_id):
                 except ValueError:
                     abort(400)
                 errors += int(not result['correct'])
-                explanation = None
-                hint = None
+                feedback = build_answer_feedback(question_record['question'], result)
                 if result['correct']:
                     score += result['points']
                     correct_count += 1
                     combo = combo + 1 if result['mastered'] else 0
-                    explanation = question_record['question']['explicacao']
                     if result['mastered']:
                         first_try_correct.append(question_record['question_idx'])
                     answer_log.append({
@@ -289,14 +326,12 @@ def answer_quiz_question(quiz_id, attempt_id):
                     })
                 else:
                     combo = 0
-                    hint = question_record['question']['dica_erro']
 
                 complete = len(answer_log) == len(question_data)
                 response_data = {
                     'correct': result['correct'],
                     'question_done': result['question_done'],
-                    'hint': hint,
-                    'explanation': explanation,
+                    **feedback,
                     'complete': complete,
                     'score': score,
                     'combo': combo,

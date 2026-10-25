@@ -636,8 +636,14 @@ h1 {
         font-size: 22px;
     }
 
-    .visits-counter,
-    .copyright {
+    .visits-counter {
         display: none;
+    }
+
+    .copyright {
+        right: 6px;
+        bottom: 4px;
+        max-width: calc(100vw - 12px);
+        font-size: 12px;
     }
 }

@@ -6,6 +6,8 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      APP_COMMIT: ${APP_COMMIT:-}
     ports:
       - "8090:5000"
     volumes:

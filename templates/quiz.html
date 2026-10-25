@@ -22,6 +22,7 @@
     const quizId = {{ quiz_id|tojson }};
     const ctrl = {{ controller|default('teclado')|tojson }};
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    const appVersion = document.querySelector('meta[name="app-version"]').content;
     const icons = {
         xbox: ['A', 'B', 'X', 'Y'],
         ps: ['✕', '○', '□', '△'],
@@ -33,7 +34,6 @@
     let attemptId = null;
     let questions = [];
     let currentQuestion = 0;
-    let errorsInCurrent = 0;
     let score = 0;
     let combo = 0;
     let totalErrors = 0;
@@ -54,6 +54,9 @@
             },
             cache: 'no-store'
         });
+        if (response.headers.get('X-App-Version') !== appVersion) {
+            throw new Error('A versão da página e do servidor não coincide. Atualize a página antes de continuar.');
+        }
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) {
             throw new Error(payload.error || `A solicitação falhou (${response.status}).`);
@@ -81,7 +84,7 @@
         console.error(error);
         document.getElementById('question-box').textContent = 'Não foi possível iniciar este quiz.';
         document.getElementById('options-box').replaceChildren();
-        document.getElementById('feedback').textContent = 'Verifique sua conexão e tente novamente.';
+        document.getElementById('feedback').textContent = error.message;
     }
 
     function loadQuestion() {
@@ -89,7 +92,6 @@
             endGame();
             return;
         }
-        errorsInCurrent = 0;
         waitingNext = false;
         document.getElementById('continue-button').hidden = true;
         document.getElementById('feedback').textContent = '';
@@ -121,6 +123,7 @@
         const option = document.getElementById(`opt-${index}`);
         if (!option || option.classList.contains('wrong')) return;
         submitting = true;
+        document.getElementById('feedback').textContent = '';
         document.querySelectorAll('.option').forEach(button => { button.disabled = true; });
         try {
             const result = await requestJson(
@@ -143,13 +146,9 @@
                 document.getElementById('feedback').textContent =
                     `Muito bem! ${result.explanation} ${continueInstruction()}`;
             } else {
-                errorsInCurrent += 1;
                 option.classList.add('wrong');
                 playSound('wrong');
-                if (result.question_done) {
-                    document.getElementById('feedback').textContent =
-                        `Não foi desta vez. Vamos para a próxima pergunta. ${continueInstruction()}`;
-                } else {
+                if (!result.question_done) {
                     document.getElementById('feedback').textContent = result.hint || 'Tente outra vez!';
                 }
             }
@@ -166,7 +165,7 @@
             });
         } catch (error) {
             console.error(error);
-            document.getElementById('feedback').textContent = 'Não foi possível registrar sua resposta. Tente novamente.';
+            document.getElementById('feedback').textContent = error.message;
             document.querySelectorAll('.option').forEach(button => { button.disabled = false; });
         } finally {
             submitting = false;

@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from quiz_logic import evaluate_answer, prepare_attempt, validate_quiz
+from quiz_logic import build_answer_feedback, evaluate_answer, prepare_attempt, validate_quiz
 
 
 QUIZ_DIR = Path(__file__).resolve().parents[1] / 'quizzes'
@@ -43,10 +43,32 @@ class QuizAttemptTests(unittest.TestCase):
 
     def test_second_incorrect_choice_finishes_without_revealing_answer(self):
         result = evaluate_answer(2, [1], 3)
+        feedback = build_answer_feedback(
+            {'dica_erro': 'Dica', 'explicacao': 'Resposta correta'},
+            result,
+        )
         self.assertFalse(result['correct'])
         self.assertTrue(result['question_done'])
         self.assertNotIn('correct_option_idx', result)
         self.assertNotIn('answer', result)
+        self.assertEqual(feedback, {'hint': None, 'explanation': None})
+
+    def test_feedback_uses_the_answered_question(self):
+        question = {
+            'dica_erro': 'A dica desta pergunta',
+            'explicacao': 'A explicação desta pergunta',
+        }
+        first_wrong = evaluate_answer(2, [], 0)
+        correct_on_retry = evaluate_answer(2, [0], 2)
+
+        self.assertEqual(
+            build_answer_feedback(question, first_wrong),
+            {'hint': 'A dica desta pergunta', 'explanation': None},
+        )
+        self.assertEqual(
+            build_answer_feedback(question, correct_on_retry),
+            {'hint': None, 'explanation': 'A explicação desta pergunta'},
+        )
 
     def test_correct_answer_awards_server_calculated_points(self):
         first_try = evaluate_answer(2, [], 2)
